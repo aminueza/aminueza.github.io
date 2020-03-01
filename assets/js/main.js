@@ -27,7 +27,7 @@ jQuery(document).ready(function ($) {
 
     $("#rss-feeds").rss(
         //Change this to your own rss feeds
-        "https://medium.com/feed/@amandasouza_80894",
+        "https://medium.com/feed/@aminueza",
 
         {
             // how many entries do you want?
@@ -55,5 +55,5 @@ jQuery(document).ready(function ($) {
     );
 
     /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-    GitHubActivity.feed({username: "aminueza", selector: "#ghfeed"});
+    GitHubActivity.feed({ username: "aminueza", selector: "#ghfeed" });
 });
