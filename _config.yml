@@ -23,6 +23,7 @@ author:
 
 # SEO & Social
 logo: /assets/images/profile.png
+image: /assets/images/profile.png
 social:
   name: Amanda Souza
   links:
@@ -75,3 +76,4 @@ defaults:
       path: ""
     values:
       layout: "default"
+      image: /assets/images/profile.png

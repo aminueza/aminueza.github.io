@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Managing Azure DevOps Pipelines at Scale: Lessons from the Field"
-date: 2026-02-24
+date: 2026-02-17
 tags: [Azure, DevOps, CI/CD, Pipelines]
 description: "Practical strategies for managing Azure DevOps pipelines at enterprise scale — from compliance automation to performance monitoring."
 author: Amanda Souza

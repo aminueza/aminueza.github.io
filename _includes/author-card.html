@@ -1,0 +1,12 @@
+<div class="author-card">
+    <img class="author-card-image img-responsive" src="{{ '/assets/images/profile.png' | relative_url }}" alt="{{ site.author.name }}"/>
+    <div class="author-card-content">
+        <h4 class="author-card-name">Written by {{ site.author.name }}</h4>
+        <p class="author-card-bio">{{ site.author.title }} at {{ site.author.company }}. Writing about Azure, DevSecOps, SRE, and AI Reliability Engineering. Creator of <a href="https://registry.terraform.io/providers/aminueza/minio" target="_blank" rel="noopener">Terraform Provider for MinIO</a> (13M+ users).</p>
+        <div class="author-card-links">
+            <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener"><i class="fa fa-github"></i></a>
+            <a href="https://aminueza.substack.com" target="_blank" rel="noopener"><i class="fa fa-envelope"></i> Subscribe</a>
+        </div>
+    </div>
+</div>

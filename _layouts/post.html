@@ -8,9 +8,13 @@ layout: default
             <article class="blog-post section">
                 <div class="section-inner">
                     <h2 class="heading">{{ page.title }}</h2>
+                    {% assign words = content | number_of_words %}
+                    {% assign mins = words | divided_by: 200 %}
+                    {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
                     <div class="post-meta">
                         <span class="date"><i class="fa fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</span>
                         <span class="author"><i class="fa fa-user"></i> {{ page.author | default: site.author.name }}</span>
+                        <span class="reading-time"><i class="fa fa-clock-o"></i> {{ mins }} min read</span>
                     </div>
                     {% if page.tags.size > 0 %}
                     <div class="post-tags" style="margin-bottom: 25px;">
@@ -21,11 +25,19 @@ layout: default
                     {% endif %}
 
                     <div class="content post-content">
+                        {% if page.toc %}
+                        <nav class="post-toc" id="post-toc">
+                            <h4><i class="fa fa-list"></i> Table of Contents</h4>
+                        </nav>
+                        {% endif %}
                         {{ content }}
                     </div>
 
                     <div class="post-footer">
                         <hr>
+                        {% include author-card.html %}
+                        <hr>
+                        {% include related-posts.html %}
                         <p class="post-copyright">
                             <i class="fa fa-lock"></i>
                             &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. All rights reserved.

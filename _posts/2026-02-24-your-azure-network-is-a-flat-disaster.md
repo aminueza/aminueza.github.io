@@ -6,6 +6,7 @@ tags: [Azure, Networking, Security, Cloud Architecture]
 description: "Your one-VNet-to-rule-them-all worked for a startup. It's a liability now. How to re-architect Azure networking for compliance, isolation, and multi-region without six months of downtime."
 author: Amanda Souza
 image: /assets/images/profile.png
+toc: true
 ---
 
 Hey, I know what happened. Your company started with one subscription, one VNet, and a dream. Someone created `vnet-main` with a /16, threw in a few subnets named `default`, `backend`, and `apps`, and called it a day. It worked! Your app talked to your database, your database talked to your cache, everything was on the same network, life was beautiful.

@@ -1,0 +1,14 @@
+{% assign related = site.posts | where_exp: "post", "post.url != page.url" %}
+{% if related.size > 0 %}
+<div class="related-posts">
+    <h3 class="related-posts-heading">Keep Reading</h3>
+    <div class="related-posts-list">
+        {% for post in related limit:2 %}
+        <div class="related-post-item">
+            <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
+            <span class="post-meta">{{ post.date | date: "%B %d, %Y" }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

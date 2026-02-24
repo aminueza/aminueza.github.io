@@ -14,9 +14,13 @@ title: Home
                         {% for post in paginator.posts %}
                         <div class="featured-post">
                             <h3 class="featured-post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                            {% assign words = post.content | number_of_words %}
+                            {% assign mins = words | divided_by: 200 %}
+                            {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
                             <div class="post-meta">
                                 <span class="date"><i class="fa fa-calendar"></i> {{ post.date | date: "%B %d, %Y" }}</span>
                                 <span class="author"><i class="fa fa-user"></i> {{ post.author | default: site.author.name }}</span>
+                                <span class="reading-time"><i class="fa fa-clock-o"></i> {{ mins }} min read</span>
                             </div>
                             {% if post.tags.size > 0 %}
                             <div class="post-tags">

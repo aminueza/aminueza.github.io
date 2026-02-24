@@ -1,9 +1,26 @@
 <footer class="footer">
-    <div class="container text-center">
-        <small class="copyright copyright-notice">
-            &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. All rights reserved.
-            Content on this site may not be reproduced, distributed, or used for AI/ML training without explicit written permission.
-        </small>
-        <!-- Theme: Developer v1.5 | CC BY 3.0 License | Xiaoying Riley at themes.3rdwavemedia.com -->
-    </div><!--//container-->
-</footer><!--//footer-->
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-bio">
+                <div class="footer-name">{{ site.author.name }}</div>
+                <p>{{ site.author.title }} at {{ site.author.company }}. Writing about Azure, DevSecOps, SRE, and AI Reliability Engineering.</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub"><i class="fa fa-github"></i></a>
+                <a href="https://medium.com/@{{ site.author.medium }}" aria-label="Medium"><i class="fa fa-medium"></i></a>
+                <a href="https://dev.to/{{ site.author.devto }}" aria-label="DEV.to"><i class="fa fa-hashtag"></i></a>
+                <div class="footer-subscribe">
+                    <a class="btn btn-cta-accent" href="https://aminueza.substack.com" target="_blank" rel="noopener"><i class="fa fa-envelope"></i> Subscribe</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small class="copyright copyright-notice">
+                &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. All rights reserved.
+                Content may not be used for AI/ML training without explicit written permission.
+            </small>
+        </div>
+        <!-- Theme: Developer v1.5 | CC BY 3.0 | Xiaoying Riley at themes.3rdwavemedia.com -->
+    </div>
+</footer>

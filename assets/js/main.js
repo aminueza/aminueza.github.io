@@ -63,6 +63,26 @@ jQuery(document).ready(function ($) {
         GitHubActivity.feed({ username: "aminueza", selector: "#ghfeed" });
     }
 
+    /* ======= Auto Table of Contents ======= */
+    var tocContainer = document.getElementById('post-toc');
+    if (tocContainer) {
+        var headings = document.querySelectorAll('.post-content h2, .post-content h3');
+        if (headings.length > 0) {
+            var ul = document.createElement('ul');
+            headings.forEach(function (h) {
+                if (!h.id) return;
+                var li = document.createElement('li');
+                if (h.tagName === 'H3') li.style.paddingLeft = '15px';
+                var a = document.createElement('a');
+                a.href = '#' + h.id;
+                a.textContent = h.textContent;
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+            tocContainer.appendChild(ul);
+        }
+    }
+
     /* ======= Intellectual Property Protection ======= */
 
     // Append copyright notice when content is copied
