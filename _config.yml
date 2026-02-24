@@ -32,6 +32,7 @@ social:
 
 twitter:
   card: summary_large_image
+  username: false
 
 # Build Settings
 markdown: kramdown
@@ -62,6 +63,11 @@ exclude:
   - README.md
   - .claude
   - LICENSE
+  - assets/plugins/jquery-rss/README.md
+  - assets/plugins/jquery-rss/CHANGELOG.md
+  - assets/plugins/github-activity/README.md
+  - assets/plugins/jquery-rss/package.json
+  - assets/plugins/github-activity/package.json
 
 # Default front matter
 defaults:
