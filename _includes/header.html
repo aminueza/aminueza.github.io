@@ -1,0 +1,23 @@
+<header class="header">
+    <div class="container">
+        <a href="{{ '/' | relative_url }}" class="pull-left header-home-link">
+            <img class="profile-image img-responsive" src="{{ '/assets/images/profile.png' | relative_url }}" alt="{{ site.author.name }}"/>
+        </a>
+        <div class="profile-content pull-left">
+            <h1 class="name"><a href="{{ '/' | relative_url }}">{{ site.author.name }}</a></h1>
+            <h2 class="desc">{{ site.author.title }}</h2>
+            <p class="tagline">Writing about Azure, DevSecOps, SRE, and AI Reliability Engineering.<br>Creator of <a href="https://registry.terraform.io/providers/aminueza/minio" target="_blank" rel="noopener">Terraform Provider for MinIO</a> (13M+ users).</p>
+            <ul class="social list-inline">
+                <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" aria-label="LinkedIn profile"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/{{ site.author.github }}" aria-label="GitHub profile"><i class="fa fa-github-alt"></i></a></li>
+                <li><a href="https://medium.com/@{{ site.author.medium }}" aria-label="Medium blog"><i class="fa fa-medium"></i></a></li>
+                <li><a href="https://dev.to/{{ site.author.devto }}" aria-label="DEV.to profile"><i class="fa fa-hashtag"></i></a></li>
+            </ul>
+        </div><!--//profile-->
+        <div class="pull-right header-actions">
+            <a class="btn btn-cta-secondary" href="{{ '/' | relative_url }}"><i class="fa fa-home"></i> Home</a>
+            <a class="btn btn-cta-secondary" href="{{ '/about' | relative_url }}"><i class="fa fa-user"></i> CV</a>
+            <a class="btn btn-cta-primary" href="mailto:{{ site.author.email }}" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>
+        </div>
+    </div><!--//container-->
+</header><!--//header-->

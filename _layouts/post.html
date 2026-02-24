@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<div class="container sections-wrapper">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+            <article class="blog-post section">
+                <div class="section-inner">
+                    <h2 class="heading">{{ page.title }}</h2>
+                    <div class="post-meta">
+                        <span class="date"><i class="fa fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</span>
+                        <span class="author"><i class="fa fa-user"></i> {{ page.author | default: site.author.name }}</span>
+                    </div>
+                    {% if page.tags.size > 0 %}
+                    <div class="post-tags" style="margin-bottom: 25px;">
+                        {% for tag in page.tags %}
+                        <span class="label label-theme">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <div class="content post-content">
+                        {{ content }}
+                    </div>
+
+                    <div class="post-footer">
+                        <hr>
+                        <p class="post-copyright">
+                            <i class="fa fa-lock"></i>
+                            &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. All rights reserved.
+                            This content may not be reproduced or used for AI/ML training without explicit written permission.
+                        </p>
+                        <a href="{{ '/' | relative_url }}" class="btn btn-cta-secondary">
+                            <i class="fa fa-arrow-left"></i> Back to Home
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

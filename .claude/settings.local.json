@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(ruby:*)",
+      "Bash(gem:*)",
+      "Bash(bundler:*)",
+      "Bash(jekyll:*)",
+      "Bash(bundle install:*)",
+      "Bash(bundle exec:*)",
+      "Bash(curl:*)",
+      "Bash(head:*)",
+      "WebFetch(domain:www.linkedin.com)"
+    ]
+  }
+}
