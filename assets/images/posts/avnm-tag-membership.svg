@@ -30,7 +30,7 @@
 
   <!-- Arrow 1 -->
   <line x1="215" y1="140" x2="275" y2="140" stroke="#0078d4" stroke-width="2" marker-end="url(#arrow)"/>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0078d4"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0078d4"/></marker></defs>
   <text x="245" y="132" text-anchor="middle" fill="#0078d4" font-size="9" font-weight="600">deploy</text>
 
   <!-- Step 2: AVNM evaluates -->
@@ -63,7 +63,7 @@
 
   <!-- Arrow 3 -->
   <line x1="695" y1="140" x2="735" y2="140" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowG)"/>
-  <defs><marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2e7d32"/></marker></defs>
+  <defs><marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2e7d32"/></marker></defs>
 
   <!-- Step 4: Result -->
   <g filter="url(#shadow)">
