@@ -43,7 +43,7 @@ Storage accounts can't have hyphens. Azure's naming rules require alphanumeric o
 
 The resource type comes first because that's what you filter on most. Searching for "all VNets" means searching `vnet-*`. Team comes second because "all infra team resources" is `*-infra-*`. Environment and region come last because they're the context you already know when you're working in a specific subscription.
 
-The order is optimized for the questions you ask: "What is this?" (resource), "Who owns this?" (team), "What's it for?" (app), "Is this production?" (env), "Where is it?" (region). Left to right, most important to least important.
+Left to right: "What is this?" -> "Who owns it?" -> "What's it for?" -> "Is this prod?" -> "Where?" Most important to least important.
 
 ## Resource Group Categories
 
@@ -66,27 +66,41 @@ Notice that **Application** groups use the app name (`checkout`, `portal`, `api`
 
 Infrastructure resources don't. The VNet that your container app runs on was created months before the app and will outlive it. The VNet belongs in `rg-infra-network-*`, not `rg-pay-checkout-*`. Different lifecycles, different groups, different blast radii.
 
-## Enforcing It
+## Enforcing It: The Globals Module
 
 A naming convention that lives in a wiki is a suggestion. A naming convention enforced in Terraform is a rule.
 
-In practice, this means your Terraform modules construct resource names from variables. Teams don't choose names, they provide `team`, `app`, `environment`, and `region`, and the module assembles the name:
+The trick is a **globals module** that every other module depends on. Teams don't pick resource names. They provide `location`, `environment`, `team_acronym`, and `application_name`. The globals module validates the inputs, maps locations to region codes (`westeurope` -> `weu`), maps environments to full names (`stg` -> `Staging`), and outputs a `global_config` object that every downstream module consumes:
 
 ```hcl
-locals {
-  name_prefix = "${var.resource_type}-${var.team}-${var.app}-${var.environment}-${var.region}"
+module "globals" {
+  source           = "./modules/globals"
+  location         = "westeurope"
+  environment      = "stg"
+  application_name = "checkout"
+  team_acronym     = "pay"
 }
 ```
 
-If someone tries to create a resource outside the convention, the module won't let them. No code review needed for naming because naming isn't a decision anymore. It's a formula.
+Every module that creates resources takes `global_config` as a required input and constructs names from it. `ca-${global_config.team_acronym}-${global_config.application_name}-${global_config.environment}-${global_config.location_acronym}` becomes `ca-pay-checkout-stg-weu`. No decisions. Just a formula.
 
-Azure Policy can enforce it at the platform level too. A policy that denies resource creation if the name doesn't match the pattern `^[a-z]+-[a-z]+-[a-z]+-[a-z]+-[a-z]+` catches anything that slips through Terraform. Belt and suspenders.
+The module also enforces **validation at plan time**. Invalid locations, environments, or team acronyms fail the plan before anything touches Azure. And it attaches predefined tags (environment, region, team, data classification, business impact) to every resource automatically. No "forgot to tag" situations.
+
+For multi-app environments, teams override `application_name` per module while keeping everything else consistent:
+
+```hcl
+locals {
+  api_config = merge(module.globals.global_config, {
+    application_name = "api"
+  })
+}
+```
+
+Azure Policy adds a second layer: deny resource creation if the name doesn't match the pattern. Belt and suspenders.
 
 ## The Reference Table
 
-Common abbreviations: `rg` (resource group), `vnet`, `snet`, `ca` (container app), `kv` (key vault), `st` (storage), `nsg`, `pep` (private endpoint), `appi` (app insights), `sb` (service bus), `id` (managed identity), `afw` (firewall), `log` (log analytics).
-
-The full list follows [Microsoft's Cloud Adoption Framework](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations). When in doubt, check there first.
+Common abbreviations: `rg`, `vnet`, `snet`, `ca`, `kv`, `st`, `nsg`, `pep`, `appi`, `sb`, `id`, `afw`, `log`. Full list in [Microsoft's Cloud Adoption Framework](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations).
 
 ## The Payoff
 
