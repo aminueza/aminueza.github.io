@@ -45,13 +45,26 @@ The resource type comes first because that's what you filter on most. Searching 
 
 The order is optimized for the questions you ask: "What is this?" (resource), "Who owns this?" (team), "What's it for?" (app), "Is this production?" (env), "Where is it?" (region). Left to right, most important to least important.
 
-## What Goes in the Same Resource Group
+## Resource Group Categories
 
-Resources that share a lifecycle go in the same resource group. A container app, its managed identity, and its app-specific Key Vault references all deploy and delete together. They belong in one group.
+Resources are grouped by **function**, not by application. A VNet and an NSG both do networking, so they go in the same group. A Container App and the VNet it runs on have different lifecycles and different owners, so they go in different groups.
 
-Resources that have different lifecycles don't. The VNet that your container app deploys into was created months before the app and will outlive it. The VNet belongs in a networking resource group, not the app's group.
+The categories:
 
-The resource group itself follows the same convention: `rg-pay-api-prd-weu`. You can tell what's inside without opening it.
+| Category | What goes in it | Example group |
+|---|---|---|
+| **Network** | VNets, subnets, NSGs, DNS | `rg-infra-network-dev-weu` |
+| **Security** | Firewall, App Gateway, Bastion, Front Door | `rg-infra-security-prd-weu` |
+| **Storage** | Storage accounts, SQL, Cosmos, PostgreSQL | `rg-pay-storage-prd-weu` |
+| **Compute** | VMs, VM Scale Sets | `rg-ops-compute-dev-weu` |
+| **Application** | Container Apps, App Service, Functions, AKS | `rg-pay-checkout-prd-weu` |
+| **Monitoring** | Log Analytics, App Insights, Monitor | `rg-infra-monitoring-prd-weu` |
+| **Messaging** | Service Bus, Event Grid | `rg-pay-messaging-prd-weu` |
+| **Governance** | Azure Policies, management resources | `rg-infra-governance-global-weu` |
+
+Notice that **Application** groups use the app name (`checkout`, `portal`, `api`) instead of the category word. That's because applications are the thing that change most often. A Container App, its managed identity, and its app-specific config all deploy and delete together. They share a lifecycle, so they share a group.
+
+Infrastructure resources don't. The VNet that your container app runs on was created months before the app and will outlive it. The VNet belongs in `rg-infra-network-*`, not `rg-pay-checkout-*`. Different lifecycles, different groups, different blast radii.
 
 ## Enforcing It
 
@@ -71,23 +84,7 @@ Azure Policy can enforce it at the platform level too. A policy that denies reso
 
 ## The Reference Table
 
-Here are the abbreviations that matter most:
-
-| Resource | Abbreviation | Example |
-|---|---|---|
-| Resource Group | `rg` | `rg-pay-api-prd-weu` |
-| Virtual Network | `vnet` | `vnet-infra-network-dev-weu` |
-| Subnet | `snet` | `snet-infra-network-dev-weu-001` |
-| Container App | `ca` | `ca-pay-portal-prd-weu` |
-| Key Vault | `kv` | `kv-pay-api-prd-weu` |
-| Storage Account | `st` | `stpayapiprdweu` |
-| NSG | `nsg` | `nsg-infra-network-prd-weu` |
-| Private Endpoint | `pep` | `pep-pay-portal-prd-weu-001` |
-| App Insights | `appi` | `appi-pay-portal-prd-weu` |
-| Service Bus | `sb` | `sb-pay-messaging-prd-weu` |
-| Managed Identity | `id` | `id-pay-api-prd-weu` |
-| Azure Firewall | `afw` | `afw-infra-security-prd-weu` |
-| Log Analytics | `log` | `log-infra-monitoring-prd-weu` |
+Common abbreviations: `rg` (resource group), `vnet`, `snet`, `ca` (container app), `kv` (key vault), `st` (storage), `nsg`, `pep` (private endpoint), `appi` (app insights), `sb` (service bus), `id` (managed identity), `afw` (firewall), `log` (log analytics).
 
 The full list follows [Microsoft's Cloud Adoption Framework](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations). When in doubt, check there first.
 
