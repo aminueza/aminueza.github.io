@@ -58,18 +58,23 @@ Deploy DNS before the hub? VNet links fail. Deploy spokes before AVNM? VNets nev
 
 ## Remote State Storage: The Foundation
 
-Before you split anything, you need somewhere to put the state. Each subscription gets its own state storage: a Storage Account for the state files, a Key Vault for encryption, and network rules to lock down access. The naming follows the same convention as everything else:
+Before you split anything, you need somewhere to put the state. Each subscription gets its own state storage, and we wrap the whole thing in a Terraform module so every team gets the same secure setup without thinking about it. The module creates:
+
+- **Storage Account** with versioning enabled (point-in-time recovery if state gets corrupted), TLS 1.2 minimum, infrastructure encryption, network rules defaulting to Deny, and blob soft delete as a safety net.
+- **Key Vault** with a customer-managed encryption key for the storage account. Purge protection on. RBAC authorization, not access policies. The storage account's managed identity gets `Crypto Service Encryption User` so it can use the key. Key rotation is automatic (`key_version = null`).
+- **Private endpoints** for both storage and Key Vault, linked to the hub's private DNS zones, so state operations never touch the public internet.
+- **Diagnostic settings** shipping audit logs and metrics to Log Analytics. Every read, write, and delete on your state files is logged.
+
+Naming follows the same convention:
 
 ```
 rg-{team}-tfstate-{env}-{region}     → resource group
-st{team}tfstate{env}{region}          → storage account (no hyphens)
+st{team}tfstate{env}{region}          → storage account
 cttfstate                             → blob container
 statebucket/terraform.{app}.tfstate   → state file path
 ```
 
-The state file path is the key part. Each application gets its own file within the same container: `terraform.hub-global.tfstate`, `terraform.dns-global.tfstate`, `terraform.spokes-dev.tfstate`. One storage account, many state files, each isolated by path.
-
-Authentication uses OIDC (`use_oidc = true` in the backend config), so your CI/CD pipeline authenticates the same way it does for everything else. No storage keys stored as secrets. No SAS tokens to rotate. The state storage uses the same passwordless auth pattern as the rest of your infrastructure.
+Each application gets its own file within the same container. One storage account, many state files, each isolated by path. Authentication uses OIDC (`use_oidc = true`), so no storage keys or SAS tokens to manage.
 
 ## Things That Will Bite You (Ask Me How I Know)
 
@@ -81,8 +86,6 @@ Authentication uses OIDC (`use_oidc = true` in the backend config), so your CI/C
 
 ## The Trade-Off
 
-More state files = smaller blast radius but more operational complexity. My rule of thumb: split when the lifecycles are different. DNS changes quarterly, firewall rules change weekly, VPN changes monthly. Different cadences, different state files.
-
-Five state files is the sweet spot for a medium-sized company. But the principle is the same: **your state file boundary should match your blast radius boundary**.
+My rule of thumb: split when the lifecycles are different. DNS changes quarterly, firewall rules weekly, VPN monthly. Different cadences, different state files. **Your state file boundary should match your blast radius boundary.**
 
 Build it once, automate the repetitive parts, and make the wrong things impossible instead of just discouraged. Your future self will thank you. Or at least they won't curse your name. Which, in infrastructure, is basically the same thing :D
