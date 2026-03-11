@@ -7,7 +7,9 @@ description: "How to write effective alerts: required labels, severity contracts
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/the-alert-checklist-nobody-follows/
+redirect_from: /blog/2026/03/11/write-alerts-that-dont-suck/
+series: "Observability"
+series_part: 4
 ---
 
 Your alert is called `NginxDown`. It fires when the nginx pod restarts. The on-call person gets paged, opens Grafana, sees "NginxDown," and thinks "OK, nginx is down." Except nginx restarted because the node ran out of memory, which happened because the batch job that runs at midnight leaked memory, which happened because someone deployed a new version at 5 PM without load testing.

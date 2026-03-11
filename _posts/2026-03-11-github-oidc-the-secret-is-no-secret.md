@@ -7,7 +7,9 @@ description: "How to set up GitHub Actions OIDC federation with Azure to elimina
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/github-oidc-the-secret-is-no-secret/
+redirect_from: /blog/2026/03/11/stop-storing-azure-secrets-in-github/
+series: "Security & Auth"
+series_part: 3
 ---
 
 You have an Azure client secret stored in your GitHub repository settings right now. It was created 18 months ago by someone who may or may not still work here. It expires in 6 months. Nobody knows when exactly because nobody put it in the calendar. When it expires, your CI/CD pipeline will fail silently on a Friday afternoon, and someone will spend 2 hours figuring out why `terraform apply` suddenly returns "unauthorized."

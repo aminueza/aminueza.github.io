@@ -7,6 +7,8 @@ description: "How to use Azure AVNM Security Admin rules to create a security ba
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+series: "Azure Networking"
+series_part: 3
 ---
 
 You know that feeling when you spend two hours crafting the perfect NSG rules for your production subnet, push the change through your pipeline, and feel good about your security posture? And then on Monday, someone with Contributor access adds a rule that allows SSH from `0.0.0.0/0` because "I just need to debug something real quick, I'll remove it later."

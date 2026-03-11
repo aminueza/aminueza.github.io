@@ -7,7 +7,9 @@ description: "How to use Azure Virtual Network Manager to automate VNet peering,
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/avnm-replaced-54-peering-resources-with-zero/
+redirect_from: /blog/2026/03/11/stop-managing-peerings-like-its-2019/
+series: "Azure Networking"
+series_part: 2
 ---
 
 So you read my [last post](/blog/2026/02/24/your-azure-network-is-a-flat-disaster/) and now you have a hub-and-spoke network with three zones, nine spokes, and a beautiful architecture diagram on your Linear that makes you feel smart. Congratulations. Now you need to connect all of it.

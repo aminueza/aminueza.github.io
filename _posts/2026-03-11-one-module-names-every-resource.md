@@ -7,7 +7,9 @@ description: "How to auto-generate Azure resource names with a Terraform globals
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/one-module-names-every-resource/
+redirect_from: /blog/2026/03/11/autoname-every-azure-resource-with-one-module/
+series: "Terraform & IaC"
+series_part: 2
 ---
 
 Every naming convention fails the same way. Someone writes a document. Everyone agrees on the format. Then six months later you find `rg-prod-1`, `my-keyvault`, and `storage_account_test` in your subscriptions because the convention was a document, not code. People forget. People improvise. People copy-paste from Stack Overflow.

@@ -7,7 +7,9 @@ description: "How to manage Azure RBAC through Terraform pull requests: the thre
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/every-permission-change-is-a-pull-request/
+redirect_from: /blog/2026/03/11/your-rbac-should-be-a-pull-request/
+series: "Security & Auth"
+series_part: 2
 ---
 
 Someone just got Contributor on production. Who approved it? When does it expire? What was the justification? If you're managing RBAC through the Azure Portal, the answer to all three is "I don't know." There's no PR to review, no commit to trace, no plan output to verify. Just a click in a portal that nobody audits until the next SOC2 review finds 47 permanent role assignments with no expiration.

@@ -7,7 +7,9 @@ description: "How to replace Azure portal RBAC with six Terraform-managed custom
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/rbac-as-code-six-roles-zero-portal-clicks/
+redirect_from: /blog/2026/03/11/stop-clicking-buttons-to-manage-azure-permissions/
+series: "Security & Auth"
+series_part: 1
 ---
 
 Someone needs access to production. They message you on Slack. You open the Azure Portal. You click through IAM. You search for the right subscription. You assign Contributor because you're not sure what permissions they actually need and Contributor works. You forget to set an expiration. Three months later, they still have production access. They changed teams two months ago.

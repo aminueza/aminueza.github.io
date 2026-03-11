@@ -7,7 +7,9 @@ description: "How to build a Grafana IRM alert routing pipeline with notificatio
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/when-every-alert-is-critical-nothing-is/
+redirect_from: /blog/2026/03/11/your-alerts-are-just-noise/
+series: "Observability"
+series_part: 3
 ---
 
 You have 100 alerts. 80 of them are informational. 15 are warnings that nobody looks at. 4 are actual problems. And 1 is critical, buried in a Slack channel with 200 unread messages. The on-call person didn't see it because every alert looks the same: a wall of orange text in `#alerts` that everyone muted weeks ago.

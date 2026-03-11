@@ -7,7 +7,9 @@ description: "How to set up Azure Private DNS zones for private endpoints in a h
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/its-always-dns-and-heres-why/
+redirect_from: /blog/2026/03/11/your-dns-is-broken-and-you-dont-know-it/
+series: "Azure Networking"
+series_part: 4
 ---
 
 Pop quiz. You deploy a PostgreSQL Flexible Server with a private endpoint. You configure your connection string to `mydb.postgres.database.azure.com`. You deploy. Timeout. You stare at your screen. The screen stares back.

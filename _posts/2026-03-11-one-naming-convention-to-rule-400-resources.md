@@ -7,7 +7,9 @@ description: "A five-component Azure resource naming convention (resource-team-a
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/one-naming-convention-to-rule-400-resources/
+redirect_from: /blog/2026/03/11/name-your-azure-resources-like-you-mean-it/
+series: "Terraform & IaC"
+series_part: 1
 ---
 
 You're staring at the Azure Portal. There's a resource group called `rg-prod-1`. Inside it: `my-storage`, `vnet-main`, `nsg-default`, and `kv-secrets`. You don't know which team owns these. You don't know which application uses them. You don't know if `rg-prod-1` is actually production or if someone named it that during a demo and forgot to delete it. There are three other resource groups with equally helpful names. Good luck figuring out what to delete.

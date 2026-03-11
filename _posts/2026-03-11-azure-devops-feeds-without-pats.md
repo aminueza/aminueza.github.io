@@ -7,6 +7,8 @@ description: "How to authenticate GitHub Actions with Azure DevOps Artifacts fee
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+series: "Security & Auth"
+series_part: 4
 ---
 
 You're building in GitHub Actions. Your private packages live in Azure DevOps Artifacts. So someone created a Personal Access Token, pasted it into a GitHub secret called `ADO_PAT`, and your pipeline has been pulling packages with it ever since. It works great until it doesn't, which is usually 90 days later when the PAT expires and your builds start failing with "401 Unauthorized" on `pip install`.

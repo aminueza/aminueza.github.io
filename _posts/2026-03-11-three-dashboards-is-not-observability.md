@@ -7,7 +7,9 @@ description: "How to set up OpenTelemetry with Grafana Cloud for correlated logs
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/three-dashboards-is-not-observability/
+redirect_from: /blog/2026/03/11/your-observability-is-just-three-dashboards/
+series: "Observability"
+series_part: 1
 ---
 
 You have a logging dashboard. You have a metrics dashboard. You have a traces dashboard. When something breaks, you open all three, squint at timestamps trying to correlate them, and hope the clocks are synchronized. This is not observability. This is three dashboards and a prayer.

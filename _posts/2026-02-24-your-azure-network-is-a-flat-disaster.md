@@ -7,6 +7,8 @@ description: "How to migrate from a flat Azure VNet to hub-and-spoke networking 
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+series: "Azure Networking"
+series_part: 1
 ---
 
 Hey, I know what happened. Your company started with one subscription, one VNet, and a dream. Someone created `vnet-main` with a /16, threw in a few subnets named `default`, `backend`, and `apps`, and called it a day. It worked! Your app talked to your database, your database talked to your cache, everything was on the same network, life was beautiful.

@@ -7,6 +7,8 @@ description: "How to implement Google SRE Golden Signals with OpenTelemetry: lat
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+series: "Observability"
+series_part: 2
 ---
 
 Your service has 47 metrics. You have dashboards for CPU, memory, disk I/O, container restarts, pod count, HTTP status codes by path, database connection pool size, and that one custom metric someone added six months ago that nobody remembers the purpose of. When something breaks, you look at all of them and none of them tell you what's actually wrong.

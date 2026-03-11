@@ -1,0 +1,90 @@
+{% comment %}
+  Structured data for blog posts: Article schema + BreadcrumbList.
+  Series info comes from page.series and page.series_part front matter.
+{% endcomment %}
+
+{% assign reading_time = content | number_of_words | divided_by: 200 %}
+{% if reading_time < 1 %}{% assign reading_time = 1 %}{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "image": "{{ page.image | absolute_url }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "wordCount": {{ content | number_of_words }},
+  "timeRequired": "PT{{ reading_time }}M",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: site.author.name }}",
+    "url": "{{ site.url }}",
+    "jobTitle": "{{ site.author.title }}",
+    "sameAs": [
+      "https://www.linkedin.com/in/{{ site.author.linkedin }}/",
+      "https://github.com/{{ site.author.github }}"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "url": "{{ site.url }}",
+    "image": {
+      "@type": "ImageObject",
+      "url": "{{ '/assets/images/profile.png' | absolute_url }}"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "keywords": {{ page.tags | jsonify }}{% if page.series %},
+  "isPartOf": {
+    "@type": "CreativeWorkSeries",
+    "name": {{ page.series | jsonify }},
+    "url": "{{ '/series/' | absolute_url }}"
+  },
+  "position": {{ page.series_part }}{% endif %}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.url }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "{{ site.url }}/blog/"
+    }{% if page.series %},
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ page.series | jsonify }},
+      "item": "{{ '/series/' | absolute_url }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": {{ page.title | jsonify }},
+      "item": "{{ page.url | absolute_url }}"
+    }{% else %},
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ page.title | jsonify }},
+      "item": "{{ page.url | absolute_url }}"
+    }{% endif %}
+  ]
+}
+</script>

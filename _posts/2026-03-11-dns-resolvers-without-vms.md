@@ -7,7 +7,9 @@ description: "How to configure Azure DNS Private Resolver with inbound and outbo
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/dns-resolvers-without-vms/
+redirect_from: /blog/2026/03/11/the-dns-resolver-nobody-told-you-about/
+series: "Azure Networking"
+series_part: 5
 ---
 
 In my [last post](/blog/2026/03/11/its-always-dns-and-heres-why/) I explained why DNS makes or breaks private endpoints. But "there's a DNS resolver in the hub" doesn't tell you much when your VPN client can't resolve `privatelink.blob.core.windows.net`. So let's open the hood.

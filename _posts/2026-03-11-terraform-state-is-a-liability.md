@@ -7,6 +7,8 @@ description: "How to split Terraform state files by lifecycle for Azure networki
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+series: "Terraform & IaC"
+series_part: 3
 ---
 
 Let me tell you a story. I had one Terraform state file for all my hub networking. Three hub VNets, three VPN gateways, three DNS resolvers, 25 private DNS zones, all their VNet links. One state. One `terraform apply`. Very elegant. I was very proud of myself.

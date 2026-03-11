@@ -7,6 +7,8 @@ description: "A Terraform module for secure Azure remote state: customer-managed
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+series: "Terraform & IaC"
+series_part: 4
 ---
 
 Your Terraform state file contains every resource attribute in your infrastructure. Database connection strings, Key Vault URIs, private IPs, managed identity principal IDs. If someone gets read access to your state, they have a map of your entire environment. And by default, it's sitting in a storage account with a shared access key that three people have saved in their terminal history.

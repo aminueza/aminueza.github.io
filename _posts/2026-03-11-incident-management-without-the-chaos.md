@@ -7,7 +7,7 @@ description: "A complete incident management process based on Google SRE: three 
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/incident-management-without-the-chaos/
+redirect_from: /blog/2026/03/11/your-incident-process-is-a-slack-message-and-a-prayer/
 ---
 
 Someone posts "is the API down?" in a Slack channel. Three engineers start investigating independently. Nobody knows who's in charge. The product manager finds out from a customer tweet. Customer support has no talking points. Forty minutes later, someone restarts a pod and it fixes itself. No post-mortem. No timeline. No idea if it'll happen again tomorrow.

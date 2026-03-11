@@ -7,7 +7,7 @@ description: "How to set up custom domain names for Azure Container Apps using P
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
-redirect_from: /blog/2026/03/11/pretty-urls-for-internal-apps/
+redirect_from: /blog/2026/03/11/custom-domains-for-container-apps-without-the-internet/
 ---
 
 Your internal admin panel has a URL like `ca-platform-admin-dev-weu.happyfield-abc123.westeurope.azurecontainerapps.io`. You share it in Slack. Someone copies it wrong. Someone else bookmarks it and it stops working after a redeployment. Nobody can remember it. Nobody should have to.
