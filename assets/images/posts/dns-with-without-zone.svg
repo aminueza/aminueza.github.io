@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+    <marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrowR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c62828"/>
+    </marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5c5c5c"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="340" rx="12" fill="#f9fafb"/>
+  <text x="410" y="28" text-anchor="middle" fill="#333" font-size="16" font-weight="700">With vs. Without Private DNS Zone</text>
+  <text x="410" y="46" text-anchor="middle" fill="#888" font-size="11">Same private endpoint. Same VNet. Completely different outcome.</text>
+
+  <!-- ===== TOP: WITH DNS ZONE (works) ===== -->
+  <rect x="16" y="60" width="790" height="120" rx="10" fill="#f0f7f0" stroke="#c8e6c9" stroke-width="1"/>
+  <text x="36" y="80" fill="#2e7d32" font-size="13" font-weight="700">With Private DNS Zone</text>
+
+  <!-- App -->
+  <g filter="url(#shadow)">
+    <rect x="36" y="92" width="110" height="36" rx="6" fill="#fff" stroke="#2e7d32" stroke-width="1.2"/>
+    <text x="91" y="114" text-anchor="middle" fill="#333" font-size="10" font-weight="600">App</text>
+  </g>
+
+  <!-- Arrow: resolve -->
+  <line x1="150" y1="110" x2="190" y2="110" stroke="#5c5c5c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="170" y="102" text-anchor="middle" fill="#888" font-size="8">resolve</text>
+
+  <!-- DNS Zone -->
+  <g filter="url(#shadow)">
+    <rect x="195" y="88" width="160" height="44" rx="6" fill="#fff" stroke="#2e7d32" stroke-width="1.2"/>
+    <text x="275" y="108" text-anchor="middle" fill="#2e7d32" font-size="10" font-weight="600">Private DNS Zone</text>
+    <text x="275" y="124" text-anchor="middle" fill="#888" font-size="9">privatelink.postgres...</text>
+  </g>
+
+  <!-- Arrow: returns private IP -->
+  <line x1="360" y1="110" x2="415" y2="110" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowG)"/>
+  <text x="387" y="102" text-anchor="middle" fill="#2e7d32" font-size="8">10.20.4.5</text>
+
+  <!-- Private endpoint -->
+  <g filter="url(#shadow)">
+    <rect x="420" y="88" width="140" height="44" rx="6" fill="#fff" stroke="#2e7d32" stroke-width="1.2"/>
+    <text x="490" y="108" text-anchor="middle" fill="#2e7d32" font-size="10" font-weight="600">Private Endpoint</text>
+    <text x="490" y="124" text-anchor="middle" fill="#888" font-size="9">10.20.4.5</text>
+  </g>
+
+  <!-- Arrow: connects -->
+  <line x1="565" y1="110" x2="615" y2="110" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowG)"/>
+
+  <!-- Database -->
+  <g filter="url(#shadow)">
+    <rect x="620" y="88" width="140" height="44" rx="6" fill="#2e7d32"/>
+    <text x="690" y="108" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">PostgreSQL</text>
+    <text x="690" y="124" text-anchor="middle" fill="#c8e6c9" font-size="9">Connected!</text>
+  </g>
+
+  <!-- Result badge -->
+  <text x="782" y="114" text-anchor="middle" fill="#2e7d32" font-size="22" font-weight="700">&#10003;</text>
+
+  <!-- ===== BOTTOM: WITHOUT DNS ZONE (fails) ===== -->
+  <rect x="16" y="200" width="790" height="120" rx="10" fill="#fef0f0" stroke="#ffcdd2" stroke-width="1"/>
+  <text x="36" y="220" fill="#c62828" font-size="13" font-weight="700">Without Private DNS Zone</text>
+
+  <!-- App -->
+  <g filter="url(#shadow)">
+    <rect x="36" y="232" width="110" height="36" rx="6" fill="#fff" stroke="#c62828" stroke-width="1.2"/>
+    <text x="91" y="254" text-anchor="middle" fill="#333" font-size="10" font-weight="600">App</text>
+  </g>
+
+  <!-- Arrow: resolve -->
+  <line x1="150" y1="250" x2="190" y2="250" stroke="#5c5c5c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="170" y="242" text-anchor="middle" fill="#888" font-size="8">resolve</text>
+
+  <!-- Public DNS -->
+  <g filter="url(#shadow)">
+    <rect x="195" y="228" width="160" height="44" rx="6" fill="#fff" stroke="#c62828" stroke-width="1.2"/>
+    <text x="275" y="248" text-anchor="middle" fill="#c62828" font-size="10" font-weight="600">Public DNS</text>
+    <text x="275" y="264" text-anchor="middle" fill="#888" font-size="9">No zone to check!</text>
+  </g>
+
+  <!-- Arrow: returns PUBLIC IP -->
+  <line x1="360" y1="250" x2="415" y2="250" stroke="#c62828" stroke-width="1.5" marker-end="url(#arrowR)"/>
+  <text x="387" y="242" text-anchor="middle" fill="#c62828" font-size="8">52.x.x.x</text>
+
+  <!-- Internet -->
+  <g filter="url(#shadow)">
+    <rect x="420" y="228" width="140" height="44" rx="6" fill="#fff" stroke="#c62828" stroke-width="1.2"/>
+    <text x="490" y="248" text-anchor="middle" fill="#c62828" font-size="10" font-weight="600">Internet</text>
+    <text x="490" y="264" text-anchor="middle" fill="#888" font-size="9">Public IP 52.x.x.x</text>
+  </g>
+
+  <!-- Arrow: rejected -->
+  <line x1="565" y1="250" x2="615" y2="250" stroke="#c62828" stroke-width="1.5" marker-end="url(#arrowR)"/>
+
+  <!-- Database (blocked) -->
+  <g filter="url(#shadow)">
+    <rect x="620" y="228" width="140" height="44" rx="6" fill="#c62828"/>
+    <text x="690" y="248" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">PostgreSQL</text>
+    <text x="690" y="264" text-anchor="middle" fill="#ffcdd2" font-size="9">Public access OFF</text>
+  </g>
+
+  <!-- Result badge -->
+  <text x="782" y="254" text-anchor="middle" fill="#c62828" font-size="22" font-weight="700">&#10007;</text>
+
+  <!-- Bottom note -->
+  <text x="410" y="336" text-anchor="middle" fill="#999" font-size="10" font-style="italic">Same private endpoint. Same subnet. Same NSG. The only difference is DNS. No error message. Just... timeout.</text>
+</svg>

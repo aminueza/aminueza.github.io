@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 380" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <rect width="780" height="380" rx="12" fill="#f9fafb"/>
+  <text x="390" y="30" text-anchor="middle" fill="#333" font-size="16" font-weight="700">IPAM Pool Hierarchy</text>
+  <text x="390" y="48" text-anchor="middle" fill="#888" font-size="11">One root per region, identical layout, no spreadsheets</text>
+
+  <!-- Root Pool -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="65" width="260" height="44" rx="10" fill="#0078d4"/>
+    <text x="390" y="84" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Root Pool</text>
+    <text x="390" y="100" text-anchor="middle" fill="#c8e1f5" font-size="10">10.0.0.0/8 per region</text>
+  </g>
+
+  <!-- Connector lines from root -->
+  <line x1="390" y1="109" x2="390" y2="125" stroke="#5c5c5c" stroke-width="1.5"/>
+  <line x1="110" y1="125" x2="670" y2="125" stroke="#5c5c5c" stroke-width="1.5"/>
+  <line x1="110" y1="125" x2="110" y2="145" stroke="#5c5c5c" stroke-width="1.2"/>
+  <line x1="300" y1="125" x2="300" y2="145" stroke="#5c5c5c" stroke-width="1.2"/>
+  <line x1="480" y1="125" x2="480" y2="145" stroke="#5c5c5c" stroke-width="1.2"/>
+  <line x1="670" y1="125" x2="670" y2="145" stroke="#5c5c5c" stroke-width="1.2"/>
+
+  <!-- Hub Pool -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="145" width="160" height="44" rx="8" fill="#e8f4fd" stroke="#0078d4" stroke-width="1.2"/>
+    <text x="110" y="164" text-anchor="middle" fill="#0078d4" font-size="12" font-weight="700">Hub Pool</text>
+    <text x="110" y="180" text-anchor="middle" fill="#555" font-size="10">10.0.0.0/16</text>
+  </g>
+  <text x="110" y="204" text-anchor="middle" fill="#888" font-size="9">1 hub VNet</text>
+
+  <!-- Dev Pool -->
+  <g filter="url(#shadow)">
+    <rect x="220" y="145" width="160" height="44" rx="8" fill="#f0f7f0" stroke="#2e7d32" stroke-width="1.2"/>
+    <text x="300" y="164" text-anchor="middle" fill="#2e7d32" font-size="12" font-weight="700">Dev Pool</text>
+    <text x="300" y="180" text-anchor="middle" fill="#555" font-size="10">10.20.0.0/14</text>
+  </g>
+  <text x="300" y="204" text-anchor="middle" fill="#888" font-size="9">32 spoke VNets</text>
+
+  <!-- Stg Pool -->
+  <g filter="url(#shadow)">
+    <rect x="400" y="145" width="160" height="44" rx="8" fill="#fff8e8" stroke="#e65100" stroke-width="1.2"/>
+    <text x="480" y="164" text-anchor="middle" fill="#e65100" font-size="12" font-weight="700">Staging Pool</text>
+    <text x="480" y="180" text-anchor="middle" fill="#555" font-size="10">10.40.0.0/13</text>
+  </g>
+  <text x="480" y="204" text-anchor="middle" fill="#888" font-size="9">64 spoke VNets</text>
+  <text x="480" y="216" text-anchor="middle" fill="#e65100" font-size="8" font-style="italic">bigger because staging accumulates</text>
+
+  <!-- Prd Pool -->
+  <g filter="url(#shadow)">
+    <rect x="590" y="145" width="160" height="44" rx="8" fill="#fef0f0" stroke="#c62828" stroke-width="1.2"/>
+    <text x="670" y="164" text-anchor="middle" fill="#c62828" font-size="12" font-weight="700">Production Pool</text>
+    <text x="670" y="180" text-anchor="middle" fill="#555" font-size="10">10.60.0.0/14</text>
+  </g>
+  <text x="670" y="204" text-anchor="middle" fill="#888" font-size="9">32 spoke VNets</text>
+
+  <!-- Dev Pool expansion -->
+  <line x1="300" y1="222" x2="300" y2="245" stroke="#2e7d32" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="80" y="248" width="440" height="110" rx="10" fill="#f0f7f0" stroke="#c8e6c9" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="300" y="268" text-anchor="middle" fill="#2e7d32" font-size="11" font-weight="700">EU Dev Pool Allocations (each spoke gets /15)</text>
+
+  <rect x="100" y="280" width="96" height="32" rx="6" fill="#fff" stroke="#2e7d32" stroke-width="1"/>
+  <text x="148" y="296" text-anchor="middle" fill="#333" font-size="10" font-weight="600">VNet 0</text>
+  <text x="148" y="308" text-anchor="middle" fill="#888" font-size="9">10.20.0.0/15</text>
+  <text x="148" y="340" text-anchor="middle" fill="#777" font-size="9">WEU spoke</text>
+
+  <rect x="210" y="280" width="96" height="32" rx="6" fill="#fff" stroke="#2e7d32" stroke-width="1"/>
+  <text x="258" y="296" text-anchor="middle" fill="#333" font-size="10" font-weight="600">VNet 1</text>
+  <text x="258" y="308" text-anchor="middle" fill="#888" font-size="9">10.22.0.0/15</text>
+  <text x="258" y="340" text-anchor="middle" fill="#777" font-size="9">NEU spoke</text>
+
+  <rect x="320" y="280" width="96" height="32" rx="6" fill="#fff" stroke="#2e7d32" stroke-width="1"/>
+  <text x="368" y="296" text-anchor="middle" fill="#333" font-size="10" font-weight="600">VNet 2</text>
+  <text x="368" y="308" text-anchor="middle" fill="#888" font-size="9">10.24.0.0/15</text>
+  <text x="368" y="340" text-anchor="middle" fill="#777" font-size="9">SDC spoke</text>
+
+  <rect x="430" y="280" width="76" height="32" rx="6" fill="#f5f5f5" stroke="#ccc" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="468" y="300" text-anchor="middle" fill="#aaa" font-size="10">spare</text>
+  <text x="468" y="340" text-anchor="middle" fill="#aaa" font-size="9">10.26.0.0/15</text>
+
+  <!-- Bottom note -->
+  <text x="390" y="372" text-anchor="middle" fill="#999" font-size="10" font-style="italic">Boringly predictable. Exactly what you want in networking.</text>
+</svg>

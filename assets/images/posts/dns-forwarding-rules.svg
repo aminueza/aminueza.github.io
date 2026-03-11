@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+    <marker id="arrowB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0078d4"/>
+    </marker>
+    <marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrowO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e65100"/>
+    </marker>
+    <marker id="arrowGr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="340" rx="12" fill="#f9fafb"/>
+  <text x="410" y="28" text-anchor="middle" fill="#333" font-size="16" font-weight="700">DNS Forwarding Rules: Three Categories</text>
+  <text x="410" y="46" text-anchor="middle" fill="#888" font-size="11">The ruleset decides where each query goes. Linked to every spoke VNet.</text>
+
+  <!-- Source: DNS Query -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="80" width="140" height="50" rx="8" fill="#fff" stroke="#5c5c5c" stroke-width="1.5"/>
+    <text x="100" y="102" text-anchor="middle" fill="#333" font-size="11" font-weight="600">DNS Query</text>
+    <text x="100" y="118" text-anchor="middle" fill="#888" font-size="9">from spoke or VPN</text>
+  </g>
+
+  <!-- Arrow to ruleset -->
+  <line x1="174" y1="105" x2="225" y2="105" stroke="#5c5c5c" stroke-width="2" marker-end="url(#arrowGr)"/>
+
+  <!-- Forwarding Ruleset -->
+  <g filter="url(#shadow)">
+    <rect x="230" y="68" width="180" height="74" rx="10" fill="#fff8e8" stroke="#e65100" stroke-width="2"/>
+    <rect x="230" y="68" width="180" height="28" rx="10" fill="#e65100"/>
+    <rect x="230" y="84" width="180" height="12" fill="#e65100"/>
+    <text x="320" y="86" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">Forwarding Ruleset</text>
+  </g>
+  <text x="320" y="112" text-anchor="middle" fill="#333" font-size="10">Matches domain pattern</text>
+  <text x="320" y="128" text-anchor="middle" fill="#888" font-size="10">Routes to correct target</text>
+
+  <!-- Category 1: Privatelink zones (top path) -->
+  <line x1="414" y1="85" x2="480" y2="75" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowG)"/>
+  <g filter="url(#shadow)">
+    <rect x="485" y="55" width="300" height="50" rx="8" fill="#f0f7f0" stroke="#2e7d32" stroke-width="1.5"/>
+    <text x="635" y="76" text-anchor="middle" fill="#2e7d32" font-size="11" font-weight="700">Privatelink Zones &#8594; Inbound Endpoint</text>
+    <text x="635" y="94" text-anchor="middle" fill="#555" font-size="9">privatelink.postgres.* | privatelink.blob.* | privatelink.redis.*</text>
+  </g>
+  <text x="460" y="68" fill="#2e7d32" font-size="8" font-weight="600">match</text>
+
+  <!-- Category 2: Custom domains (middle path) -->
+  <line x1="414" y1="105" x2="480" y2="130" stroke="#0078d4" stroke-width="2" marker-end="url(#arrowB)"/>
+  <g filter="url(#shadow)">
+    <rect x="485" y="112" width="300" height="50" rx="8" fill="#e8f4fd" stroke="#0078d4" stroke-width="1.5"/>
+    <text x="635" y="133" text-anchor="middle" fill="#0078d4" font-size="11" font-weight="700">Custom Domains &#8594; Inbound Endpoint</text>
+    <text x="635" y="151" text-anchor="middle" fill="#555" font-size="9">myinternal.net | dev.internal | company zones</text>
+  </g>
+  <text x="460" y="122" fill="#0078d4" font-size="8" font-weight="600">match</text>
+
+  <!-- Category 3: External overrides (bottom path) -->
+  <line x1="414" y1="120" x2="480" y2="188" stroke="#999" stroke-width="2" marker-end="url(#arrowGr)"/>
+  <g filter="url(#shadow)">
+    <rect x="485" y="170" width="300" height="50" rx="8" fill="#f5f5f5" stroke="#999" stroke-width="1.5"/>
+    <text x="635" y="191" text-anchor="middle" fill="#555" font-size="11" font-weight="700">External Overrides &#8594; Public DNS</text>
+    <text x="635" y="209" text-anchor="middle" fill="#888" font-size="9">azure-api.net | domains that bypass private resolution</text>
+  </g>
+  <text x="460" y="162" fill="#999" font-size="8" font-weight="600">match</text>
+
+  <!-- Bottom: The trailing dot gotcha -->
+  <rect x="30" y="248" width="760" height="76" rx="10" fill="#fef0f0" stroke="#c62828" stroke-width="1.5"/>
+  <text x="410" y="272" text-anchor="middle" fill="#c62828" font-size="13" font-weight="700">The Trailing Dot Gotcha</text>
+  <text x="410" y="292" text-anchor="middle" fill="#333" font-size="11">Domain names in forwarding rules MUST end with a trailing dot (.)</text>
+  <text x="260" y="312" text-anchor="middle" fill="#2e7d32" font-size="11" font-weight="600">privatelink.blob.core.windows.net.  &#10003;</text>
+  <text x="580" y="312" text-anchor="middle" fill="#c62828" font-size="11" font-weight="600">privatelink.blob.core.windows.net  &#10007;</text>
+  <text x="410" y="318" text-anchor="middle" fill="#888" font-size="9"></text>
+</svg>

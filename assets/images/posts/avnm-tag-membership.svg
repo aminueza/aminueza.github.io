@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="hubGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f4fd" />
+      <stop offset="100%" style="stop-color:#d0e8f9" />
+    </linearGradient>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <rect width="860" height="340" rx="12" fill="#f9fafb"/>
+  <text x="430" y="30" text-anchor="middle" fill="#333" font-size="16" font-weight="700">Tag-Based Group Membership</text>
+  <text x="430" y="48" text-anchor="middle" fill="#888" font-size="11">Tag a VNet, AVNM does the rest</text>
+
+  <!-- Step 1: VNet with tags -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="75" width="180" height="130" rx="10" fill="#fff" stroke="#5c5c5c" stroke-width="1.5"/>
+    <rect x="30" y="75" width="180" height="32" rx="10" fill="#5c5c5c"/>
+    <rect x="30" y="92" width="180" height="15" fill="#5c5c5c"/>
+    <text x="120" y="96" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">New Spoke VNet</text>
+  </g>
+  <text x="50" y="128" fill="#0078d4" font-size="10" font-weight="600">network_type</text>
+  <text x="170" y="128" fill="#333" font-size="10" text-anchor="end">spoke</text>
+  <text x="50" y="146" fill="#0078d4" font-size="10" font-weight="600">data_residency_zone</text>
+  <text x="170" y="146" fill="#333" font-size="10" text-anchor="end">eu</text>
+  <text x="50" y="164" fill="#0078d4" font-size="10" font-weight="600">Environment</text>
+  <text x="170" y="164" fill="#333" font-size="10" text-anchor="end">development</text>
+  <text x="120" y="196" text-anchor="middle" fill="#888" font-size="10" font-style="italic">3 tags, that's it</text>
+
+  <!-- Arrow 1 -->
+  <line x1="215" y1="140" x2="275" y2="140" stroke="#0078d4" stroke-width="2" marker-end="url(#arrow)"/>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0078d4"/></marker></defs>
+  <text x="245" y="132" text-anchor="middle" fill="#0078d4" font-size="9" font-weight="600">deploy</text>
+
+  <!-- Step 2: AVNM evaluates -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="90" width="180" height="100" rx="10" fill="url(#hubGrad)" stroke="#0078d4" stroke-width="1.5"/>
+    <rect x="280" y="90" width="180" height="32" rx="10" fill="#0078d4"/>
+    <rect x="280" y="107" width="180" height="15" fill="#0078d4"/>
+    <text x="370" y="111" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">AVNM Evaluates</text>
+  </g>
+  <text x="370" y="142" text-anchor="middle" fill="#333" font-size="10">Checks membership rules</text>
+  <text x="370" y="158" text-anchor="middle" fill="#333" font-size="10">zone=eu + env=dev?</text>
+  <text x="370" y="178" text-anchor="middle" fill="#2e7d32" font-size="12" font-weight="700">Match!</text>
+
+  <!-- Arrow 2 -->
+  <line x1="465" y1="140" x2="525" y2="140" stroke="#0078d4" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="495" y="132" text-anchor="middle" fill="#0078d4" font-size="9" font-weight="600">joins</text>
+
+  <!-- Step 3: Network Group -->
+  <g filter="url(#shadow)">
+    <rect x="530" y="75" width="160" height="130" rx="10" fill="#f0f7f0" stroke="#2e7d32" stroke-width="1.5"/>
+    <rect x="530" y="75" width="160" height="32" rx="10" fill="#2e7d32"/>
+    <rect x="530" y="92" width="160" height="15" fill="#2e7d32"/>
+    <text x="610" y="96" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">eu-dev-spokes</text>
+  </g>
+  <text x="610" y="128" text-anchor="middle" fill="#333" font-size="10">WEU spoke</text>
+  <text x="610" y="144" text-anchor="middle" fill="#333" font-size="10">NEU spoke</text>
+  <text x="610" y="160" text-anchor="middle" fill="#333" font-size="10">SDC spoke</text>
+  <text x="610" y="178" text-anchor="middle" fill="#0078d4" font-size="10" font-weight="600">+ new spoke</text>
+  <text x="610" y="196" text-anchor="middle" fill="#888" font-size="9" font-style="italic">auto-joined</text>
+
+  <!-- Arrow 3 -->
+  <line x1="695" y1="140" x2="735" y2="140" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowG)"/>
+  <defs><marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2e7d32"/></marker></defs>
+
+  <!-- Step 4: Result -->
+  <g filter="url(#shadow)">
+    <rect x="740" y="80" width="100" height="120" rx="10" fill="#fff" stroke="#2e7d32" stroke-width="1.5"/>
+  </g>
+  <text x="790" y="108" text-anchor="middle" fill="#2e7d32" font-size="20">&#10003;</text>
+  <text x="790" y="128" text-anchor="middle" fill="#333" font-size="10">Hub peered</text>
+  <text x="790" y="144" text-anchor="middle" fill="#333" font-size="10">Mesh active</text>
+  <text x="790" y="160" text-anchor="middle" fill="#333" font-size="10">VPN gateway</text>
+  <text x="790" y="176" text-anchor="middle" fill="#333" font-size="10">Security rules</text>
+  <text x="790" y="192" text-anchor="middle" fill="#888" font-size="9" font-style="italic">zero manual work</text>
+
+  <!-- Bottom: Change tag scenario -->
+  <rect x="30" y="230" width="810" height="90" rx="10" fill="#fff8e8" stroke="#ff9800" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="50" y="254" fill="#e65100" font-size="12" font-weight="700">Change tag? Topology reconfigures automatically</text>
+  <text x="50" y="276" fill="#333" font-size="11">Environment: "development" &#8594; "Staging"</text>
+  <text x="50" y="296" fill="#888" font-size="11">VNet leaves eu-dev-spokes, joins eu-stg-spokes. Hub peering, mesh, security rules, all updated. No Terraform change needed.</text>
+</svg>

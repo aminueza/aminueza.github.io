@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <rect width="820" height="340" rx="12" fill="#f9fafb"/>
+  <text x="410" y="28" text-anchor="middle" fill="#333" font-size="16" font-weight="700">Five State Files, Five Blast Radii</text>
+  <text x="410" y="46" text-anchor="middle" fill="#888" font-size="11">Split by lifecycle. Things that change together stay together.</text>
+
+  <!-- State 1: AVNM -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="70" width="145" height="120" rx="10" fill="#fef0f0" stroke="#c62828" stroke-width="1.5"/>
+    <rect x="30" y="70" width="145" height="30" rx="10" fill="#c62828"/>
+    <rect x="30" y="86" width="145" height="14" fill="#c62828"/>
+    <text x="103" y="90" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">AVNM</text>
+  </g>
+  <text x="103" y="116" text-anchor="middle" fill="#333" font-size="10">Network groups</text>
+  <text x="103" y="132" text-anchor="middle" fill="#333" font-size="10">IPAM pools</text>
+  <text x="103" y="148" text-anchor="middle" fill="#333" font-size="10">Security rules</text>
+  <text x="103" y="168" text-anchor="middle" fill="#c62828" font-size="9" font-weight="600">Rarely changes</text>
+  <text x="103" y="182" text-anchor="middle" fill="#888" font-size="8" font-style="italic">Make coffee first</text>
+
+  <!-- State 2: Hub -->
+  <g filter="url(#shadow)">
+    <rect x="195" y="70" width="145" height="120" rx="10" fill="#e8f4fd" stroke="#0078d4" stroke-width="1.5"/>
+    <rect x="195" y="70" width="145" height="30" rx="10" fill="#0078d4"/>
+    <rect x="195" y="86" width="145" height="14" fill="#0078d4"/>
+    <text x="268" y="90" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">Hub</text>
+  </g>
+  <text x="268" y="116" text-anchor="middle" fill="#333" font-size="10">Hub VNets (x3)</text>
+  <text x="268" y="132" text-anchor="middle" fill="#333" font-size="10">VPN gateways</text>
+  <text x="268" y="148" text-anchor="middle" fill="#333" font-size="10">DNS resolvers</text>
+  <text x="268" y="168" text-anchor="middle" fill="#0078d4" font-size="9" font-weight="600">Monthly changes</text>
+  <text x="268" y="182" text-anchor="middle" fill="#888" font-size="8" font-style="italic">3 regions, 1 state</text>
+
+  <!-- State 3: DNS -->
+  <g filter="url(#shadow)">
+    <rect x="360" y="70" width="145" height="120" rx="10" fill="#f0f7f0" stroke="#2e7d32" stroke-width="1.5"/>
+    <rect x="360" y="70" width="145" height="30" rx="10" fill="#2e7d32"/>
+    <rect x="360" y="86" width="145" height="14" fill="#2e7d32"/>
+    <text x="433" y="90" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">DNS</text>
+  </g>
+  <text x="433" y="116" text-anchor="middle" fill="#333" font-size="10">25 DNS zones</text>
+  <text x="433" y="132" text-anchor="middle" fill="#333" font-size="10">VNet links</text>
+  <text x="433" y="148" text-anchor="middle" fill="#333" font-size="10">Zone records</text>
+  <text x="433" y="168" text-anchor="middle" fill="#2e7d32" font-size="9" font-weight="600">Quarterly changes</text>
+  <text x="433" y="182" text-anchor="middle" fill="#888" font-size="8" font-style="italic">Set and forget</text>
+
+  <!-- State 4: Firewall -->
+  <g filter="url(#shadow)">
+    <rect x="525" y="70" width="145" height="120" rx="10" fill="#fff8e8" stroke="#e65100" stroke-width="1.5"/>
+    <rect x="525" y="70" width="145" height="30" rx="10" fill="#e65100"/>
+    <rect x="525" y="86" width="145" height="14" fill="#e65100"/>
+    <text x="598" y="90" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">Firewall</text>
+  </g>
+  <text x="598" y="116" text-anchor="middle" fill="#333" font-size="10">Azure Firewall</text>
+  <text x="598" y="132" text-anchor="middle" fill="#333" font-size="10">Rule collections</text>
+  <text x="598" y="148" text-anchor="middle" fill="#333" font-size="10">FQDN rules</text>
+  <text x="598" y="168" text-anchor="middle" fill="#e65100" font-size="9" font-weight="600">Weekly changes</text>
+  <text x="598" y="182" text-anchor="middle" fill="#888" font-size="8" font-style="italic">New deps all the time</text>
+
+  <!-- State 5: Spokes -->
+  <g filter="url(#shadow)">
+    <rect x="690" y="70" width="108" height="120" rx="10" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
+    <rect x="690" y="70" width="108" height="30" rx="10" fill="#7b1fa2"/>
+    <rect x="690" y="86" width="108" height="14" fill="#7b1fa2"/>
+    <text x="744" y="90" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">Spokes</text>
+  </g>
+  <text x="744" y="116" text-anchor="middle" fill="#333" font-size="10">Spoke VNets</text>
+  <text x="744" y="132" text-anchor="middle" fill="#333" font-size="10">Per env</text>
+  <text x="744" y="148" text-anchor="middle" fill="#333" font-size="10">dev/stg/prd</text>
+  <text x="744" y="168" text-anchor="middle" fill="#7b1fa2" font-size="9" font-weight="600">Per deployment</text>
+  <text x="744" y="182" text-anchor="middle" fill="#888" font-size="8" font-style="italic">Dev first, then prd</text>
+
+  <!-- Dependency arrows -->
+  <defs>
+    <marker id="depArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
+    </marker>
+  </defs>
+
+  <!-- AVNM -> Hub -->
+  <line x1="103" y1="195" x2="103" y2="218" stroke="#999" stroke-width="1.2"/>
+  <line x1="103" y1="218" x2="268" y2="218" stroke="#999" stroke-width="1.2" marker-end="url(#depArrow)"/>
+
+  <!-- Hub -> DNS -->
+  <line x1="268" y1="195" x2="268" y2="230" stroke="#999" stroke-width="1.2"/>
+  <line x1="268" y1="230" x2="433" y2="230" stroke="#999" stroke-width="1.2" marker-end="url(#depArrow)"/>
+
+  <!-- Hub -> Firewall -->
+  <line x1="268" y1="195" x2="268" y2="242" stroke="#999" stroke-width="1.2"/>
+  <line x1="268" y1="242" x2="598" y2="242" stroke="#999" stroke-width="1.2" marker-end="url(#depArrow)"/>
+
+  <!-- AVNM -> Spokes -->
+  <line x1="103" y1="195" x2="103" y2="256" stroke="#999" stroke-width="1.2"/>
+  <line x1="103" y1="256" x2="744" y2="256" stroke="#999" stroke-width="1.2" marker-end="url(#depArrow)"/>
+
+  <!-- Labels on dep lines -->
+  <text x="186" y="214" text-anchor="middle" fill="#999" font-size="8">IPAM pools</text>
+  <text x="350" y="226" text-anchor="middle" fill="#999" font-size="8">VNets to link</text>
+  <text x="440" y="238" text-anchor="middle" fill="#999" font-size="8">subnets</text>
+  <text x="440" y="252" text-anchor="middle" fill="#999" font-size="8">AVNM + hubs</text>
+
+  <!-- Pipeline stages -->
+  <rect x="30" y="280" width="768" height="42" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="50" y="298" fill="#333" font-size="11" font-weight="700">Pipeline:</text>
+  <rect x="120" y="288" width="80" height="24" rx="5" fill="#c62828"/>
+  <text x="160" y="304" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Stage 1</text>
+  <text x="215" y="304" fill="#888" font-size="10">&#8594;</text>
+  <rect x="230" y="288" width="80" height="24" rx="5" fill="#0078d4"/>
+  <text x="270" y="304" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Stage 2</text>
+  <text x="325" y="304" fill="#888" font-size="10">&#8594;</text>
+  <rect x="340" y="288" width="80" height="24" rx="5" fill="#2e7d32"/>
+  <rect x="430" y="288" width="80" height="24" rx="5" fill="#e65100"/>
+  <text x="380" y="304" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Stage 3</text>
+  <text x="470" y="304" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Stage 3</text>
+  <text x="525" y="304" fill="#888" font-size="10">&#8594;</text>
+  <rect x="540" y="288" width="80" height="24" rx="5" fill="#7b1fa2"/>
+  <text x="580" y="304" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Stage 4</text>
+  <text x="660" y="304" fill="#888" font-size="10" font-style="italic">DNS + FW run in parallel</text>
+</svg>

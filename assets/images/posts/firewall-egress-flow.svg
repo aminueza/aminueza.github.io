@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5c5c5c"/>
+    </marker>
+    <marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrowR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c62828"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="300" rx="12" fill="#f9fafb"/>
+  <text x="410" y="28" text-anchor="middle" fill="#333" font-size="16" font-weight="700">Centralized Egress with Azure Firewall</text>
+  <text x="410" y="46" text-anchor="middle" fill="#888" font-size="11">All outbound traffic goes through the firewall. No exceptions.</text>
+
+  <!-- App in spoke -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="80" width="130" height="60" rx="8" fill="#fff" stroke="#0078d4" stroke-width="1.5"/>
+    <text x="95" y="106" text-anchor="middle" fill="#0078d4" font-size="12" font-weight="700">App in Spoke</text>
+    <text x="95" y="122" text-anchor="middle" fill="#888" font-size="10">wants internet</text>
+  </g>
+
+  <!-- Arrow to route table -->
+  <line x1="165" y1="110" x2="205" y2="110" stroke="#5c5c5c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Route table -->
+  <g filter="url(#shadow)">
+    <rect x="210" y="80" width="130" height="60" rx="8" fill="#f5f5f5" stroke="#5c5c5c" stroke-width="1.2"/>
+    <text x="275" y="106" text-anchor="middle" fill="#333" font-size="12" font-weight="600">Route Table</text>
+    <text x="275" y="122" text-anchor="middle" fill="#888" font-size="10">0.0.0.0/0 &#8594; FW</text>
+  </g>
+
+  <!-- Arrow to firewall -->
+  <line x1="345" y1="110" x2="395" y2="110" stroke="#5c5c5c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Firewall -->
+  <g filter="url(#shadow)">
+    <rect x="400" y="65" width="160" height="90" rx="10" fill="#fff8e8" stroke="#e65100" stroke-width="2"/>
+    <rect x="400" y="65" width="160" height="30" rx="10" fill="#e65100"/>
+    <rect x="400" y="81" width="160" height="14" fill="#e65100"/>
+    <text x="480" y="86" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Azure Firewall</text>
+  </g>
+  <text x="480" y="112" text-anchor="middle" fill="#333" font-size="11">Checks rules</text>
+  <text x="480" y="128" text-anchor="middle" fill="#888" font-size="10">FQDN + Network</text>
+  <text x="480" y="144" text-anchor="middle" fill="#888" font-size="10">Standard SKU</text>
+
+  <!-- Allowed path -->
+  <line x1="565" y1="95" x2="625" y2="75" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowG)"/>
+  <g filter="url(#shadow)">
+    <rect x="630" y="55" width="160" height="50" rx="8" fill="#f0f7f0" stroke="#2e7d32" stroke-width="1.2"/>
+    <text x="710" y="76" text-anchor="middle" fill="#2e7d32" font-size="12" font-weight="700">Allowed</text>
+    <text x="710" y="94" text-anchor="middle" fill="#555" font-size="10">github.com, ACR, npm...</text>
+  </g>
+
+  <!-- Denied path -->
+  <line x1="565" y1="125" x2="625" y2="145" stroke="#c62828" stroke-width="2" marker-end="url(#arrowR)"/>
+  <g filter="url(#shadow)">
+    <rect x="630" y="120" width="160" height="50" rx="8" fill="#fef0f0" stroke="#c62828" stroke-width="1.2"/>
+    <text x="710" y="142" text-anchor="middle" fill="#c62828" font-size="12" font-weight="700">Denied + Logged</text>
+    <text x="710" y="158" text-anchor="middle" fill="#888" font-size="10">random-ip.sketchy.io</text>
+  </g>
+
+  <!-- Bottom: What's allowed list -->
+  <rect x="30" y="195" width="760" height="86" rx="10" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="410" y="216" text-anchor="middle" fill="#333" font-size="12" font-weight="700">Explicit allow list for CI/CD runners</text>
+
+  <text x="100" y="240" text-anchor="middle" fill="#0078d4" font-size="10" font-weight="600">GitHub</text>
+  <text x="100" y="254" text-anchor="middle" fill="#888" font-size="9">github.com</text>
+  <text x="100" y="266" text-anchor="middle" fill="#888" font-size="9">ghcr.io</text>
+
+  <text x="240" y="240" text-anchor="middle" fill="#0078d4" font-size="10" font-weight="600">Registries</text>
+  <text x="240" y="254" text-anchor="middle" fill="#888" font-size="9">Docker Hub</text>
+  <text x="240" y="266" text-anchor="middle" fill="#888" font-size="9">MCR, ACR</text>
+
+  <text x="380" y="240" text-anchor="middle" fill="#0078d4" font-size="10" font-weight="600">Packages</text>
+  <text x="380" y="254" text-anchor="middle" fill="#888" font-size="9">npm, PyPI</text>
+  <text x="380" y="266" text-anchor="middle" fill="#888" font-size="9">RubyGems</text>
+
+  <text x="520" y="240" text-anchor="middle" fill="#0078d4" font-size="10" font-weight="600">Azure</text>
+  <text x="520" y="254" text-anchor="middle" fill="#888" font-size="9">Key Vault</text>
+  <text x="520" y="266" text-anchor="middle" fill="#888" font-size="9">Storage, API</text>
+
+  <text x="660" y="240" text-anchor="middle" fill="#0078d4" font-size="10" font-weight="600">Terraform</text>
+  <text x="660" y="254" text-anchor="middle" fill="#888" font-size="9">registry.terraform.io</text>
+  <text x="660" y="266" text-anchor="middle" fill="#888" font-size="9">releases.hashicorp.com</text>
+
+  <text x="410" y="294" text-anchor="middle" fill="#999" font-size="10" font-style="italic">Everything else is denied. A compromised runner can't phone home.</text>
+</svg>
