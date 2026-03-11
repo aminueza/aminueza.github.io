@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <rect width="860" height="380" rx="12" fill="#f9fafb"/>
+  <text x="430" y="28" text-anchor="middle" fill="#333" font-size="16" font-weight="700">RBAC Custom Roles: Who Can Do What</text>
+  <text x="430" y="46" text-anchor="middle" fill="#888" font-size="11">Six roles. Management group scope. PIM for elevated access. No more clickOps.</text>
+
+  <!-- Infra Deployment -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="65" width="250" height="90" rx="8" fill="#fff" stroke="#c62828" stroke-width="1.5"/>
+    <rect x="30" y="65" width="250" height="26" rx="8" fill="#c62828"/>
+    <rect x="30" y="79" width="250" height="12" fill="#c62828"/>
+    <text x="155" y="82" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Infra Deployment</text>
+  </g>
+  <text x="155" y="108" text-anchor="middle" fill="#c62828" font-size="10" font-weight="600">actions: *  |  data_actions: *</text>
+  <text x="155" y="124" text-anchor="middle" fill="#555" font-size="9">Full control. Platform management.</text>
+  <text x="155" y="140" text-anchor="middle" fill="#888" font-size="8">PIM: 2h | Approval: yes | MFA: no (pipeline)</text>
+
+  <!-- Team App Deployment -->
+  <g filter="url(#shadow)">
+    <rect x="300" y="65" width="250" height="90" rx="8" fill="#fff" stroke="#e65100" stroke-width="1.5"/>
+    <rect x="300" y="65" width="250" height="26" rx="8" fill="#e65100"/>
+    <rect x="300" y="79" width="250" height="12" fill="#e65100"/>
+    <text x="425" y="82" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Team App Deployment</text>
+  </g>
+  <text x="425" y="108" text-anchor="middle" fill="#e65100" font-size="10" font-weight="600">actions: * minus escalation/billing</text>
+  <text x="425" y="124" text-anchor="middle" fill="#555" font-size="9">App resources + role assignments.</text>
+  <text x="425" y="140" text-anchor="middle" fill="#888" font-size="8">PIM: 2h | Approval: yes | MFA: no (pipeline)</text>
+
+  <!-- Products Contributor -->
+  <g filter="url(#shadow)">
+    <rect x="570" y="65" width="260" height="90" rx="8" fill="#fff" stroke="#0078d4" stroke-width="1.5"/>
+    <rect x="570" y="65" width="260" height="26" rx="8" fill="#0078d4"/>
+    <rect x="570" y="79" width="260" height="12" fill="#0078d4"/>
+    <text x="700" y="82" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Products Contributor</text>
+  </g>
+  <text x="700" y="108" text-anchor="middle" fill="#0078d4" font-size="10" font-weight="600">actions: * minus authz writes/billing</text>
+  <text x="700" y="124" text-anchor="middle" fill="#555" font-size="9">Build apps. Can't change permissions.</text>
+  <text x="700" y="140" text-anchor="middle" fill="#888" font-size="8">PIM: 4h | Approval: no | MFA: yes</text>
+
+  <!-- Products Reader -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="175" width="250" height="90" rx="8" fill="#fff" stroke="#2e7d32" stroke-width="1.5"/>
+    <rect x="30" y="175" width="250" height="26" rx="8" fill="#2e7d32"/>
+    <rect x="30" y="189" width="250" height="12" fill="#2e7d32"/>
+    <text x="155" y="192" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Products Reader</text>
+  </g>
+  <text x="155" y="218" text-anchor="middle" fill="#2e7d32" font-size="10" font-weight="600">Read-only resources + secrets</text>
+  <text x="155" y="234" text-anchor="middle" fill="#555" font-size="9">View everything. Change nothing.</text>
+  <text x="155" y="250" text-anchor="middle" fill="#888" font-size="8">No PIM required</text>
+
+  <!-- Customer Data -->
+  <g filter="url(#shadow)">
+    <rect x="300" y="175" width="250" height="90" rx="8" fill="#fff" stroke="#7b1fa2" stroke-width="1.5"/>
+    <rect x="300" y="175" width="250" height="26" rx="8" fill="#7b1fa2"/>
+    <rect x="300" y="189" width="250" height="12" fill="#7b1fa2"/>
+    <text x="425" y="192" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Customer Data</text>
+  </g>
+  <text x="425" y="218" text-anchor="middle" fill="#7b1fa2" font-size="10" font-weight="600">Read-only: storage, DB, cache</text>
+  <text x="425" y="234" text-anchor="middle" fill="#555" font-size="9">View customer data. Strictest PIM.</text>
+  <text x="425" y="250" text-anchor="middle" fill="#888" font-size="8">PIM: 2h | Approval: yes | MFA: yes</text>
+
+  <!-- Products Data -->
+  <g filter="url(#shadow)">
+    <rect x="570" y="175" width="260" height="90" rx="8" fill="#fff" stroke="#0078d4" stroke-width="1.5"/>
+    <rect x="570" y="175" width="260" height="26" rx="8" fill="#0078d4"/>
+    <rect x="570" y="189" width="260" height="12" fill="#0078d4"/>
+    <text x="700" y="192" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Products Data</text>
+  </g>
+  <text x="700" y="218" text-anchor="middle" fill="#0078d4" font-size="10" font-weight="600">actions: * minus authz writes/billing</text>
+  <text x="700" y="234" text-anchor="middle" fill="#555" font-size="9">Build + manage all data.</text>
+  <text x="700" y="250" text-anchor="middle" fill="#888" font-size="8">PIM: 4h | Approval: no | MFA: yes</text>
+
+  <!-- Bottom: Key principle -->
+  <rect x="30" y="290" width="800" height="72" rx="10" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="430" y="312" text-anchor="middle" fill="#333" font-size="12" font-weight="700">Design Principles</text>
+  <text x="175" y="334" text-anchor="middle" fill="#c62828" font-size="10" font-weight="600">Pipeline roles: no MFA</text>
+  <text x="175" y="350" text-anchor="middle" fill="#888" font-size="9">(can't prompt a CI runner)</text>
+  <text x="430" y="334" text-anchor="middle" fill="#7b1fa2" font-size="10" font-weight="600">Customer data: strictest PIM</text>
+  <text x="430" y="350" text-anchor="middle" fill="#888" font-size="9">(approval + MFA + justification)</text>
+  <text x="685" y="334" text-anchor="middle" fill="#0078d4" font-size="10" font-weight="600">On-call roles: no approval</text>
+  <text x="685" y="350" text-anchor="middle" fill="#888" font-size="9">(can't wait for approval at 3 AM)</text>
+</svg>
