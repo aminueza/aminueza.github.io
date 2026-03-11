@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <rect width="860" height="320" rx="12" fill="#f9fafb"/>
+  <text x="430" y="28" text-anchor="middle" fill="#333" font-size="16" font-weight="700">The Four Golden Signals</text>
+  <text x="430" y="46" text-anchor="middle" fill="#888" font-size="11">Every service must emit these. One dashboard filters by namespace + service. That's it.</text>
+
+  <!-- Latency -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="68" width="190" height="170" rx="10" fill="#fff" stroke="#7b1fa2" stroke-width="1.5"/>
+    <rect x="30" y="68" width="190" height="32" rx="10" fill="#7b1fa2"/>
+    <rect x="30" y="86" width="190" height="14" fill="#7b1fa2"/>
+    <text x="125" y="88" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Latency</text>
+  </g>
+  <text x="125" y="118" text-anchor="middle" fill="#7b1fa2" font-size="11" font-weight="600">Histogram</text>
+  <text x="125" y="138" text-anchor="middle" fill="#333" font-size="10">How long do requests take?</text>
+  <text x="125" y="158" text-anchor="middle" fill="#888" font-size="9">p50 = typical user</text>
+  <text x="125" y="172" text-anchor="middle" fill="#888" font-size="9">p95 = slowest 5%</text>
+  <text x="125" y="186" text-anchor="middle" fill="#888" font-size="9">p99 = the pain point</text>
+  <rect x="42" y="198" width="166" height="28" rx="4" fill="#f3e5f5"/>
+  <text x="125" y="216" text-anchor="middle" fill="#7b1fa2" font-size="8" font-family="monospace">http.server.request</text>
+  <text x="125" y="228" text-anchor="middle" fill="#7b1fa2" font-size="8" font-family="monospace">.duration_seconds</text>
+
+  <!-- Errors -->
+  <g filter="url(#shadow)">
+    <rect x="235" y="68" width="190" height="170" rx="10" fill="#fff" stroke="#c62828" stroke-width="1.5"/>
+    <rect x="235" y="68" width="190" height="32" rx="10" fill="#c62828"/>
+    <rect x="235" y="86" width="190" height="14" fill="#c62828"/>
+    <text x="330" y="88" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Errors</text>
+  </g>
+  <text x="330" y="118" text-anchor="middle" fill="#c62828" font-size="11" font-weight="600">Counter</text>
+  <text x="330" y="138" text-anchor="middle" fill="#333" font-size="10">How often do requests fail?</text>
+  <text x="330" y="158" text-anchor="middle" fill="#888" font-size="9">5xx bursts, exceptions</text>
+  <text x="330" y="172" text-anchor="middle" fill="#888" font-size="9">SLO burn calculation</text>
+  <text x="330" y="186" text-anchor="middle" fill="#888" font-size="9">Root-cause analysis</text>
+  <rect x="247" y="198" width="166" height="28" rx="4" fill="#fef0f0"/>
+  <text x="330" y="216" text-anchor="middle" fill="#c62828" font-size="8" font-family="monospace">custom.service</text>
+  <text x="330" y="228" text-anchor="middle" fill="#c62828" font-size="8" font-family="monospace">.errors_total</text>
+
+  <!-- Traffic -->
+  <g filter="url(#shadow)">
+    <rect x="440" y="68" width="190" height="170" rx="10" fill="#fff" stroke="#0078d4" stroke-width="1.5"/>
+    <rect x="440" y="68" width="190" height="32" rx="10" fill="#0078d4"/>
+    <rect x="440" y="86" width="190" height="14" fill="#0078d4"/>
+    <text x="535" y="88" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Traffic</text>
+  </g>
+  <text x="535" y="118" text-anchor="middle" fill="#0078d4" font-size="11" font-weight="600">Counter &#8594; Rate</text>
+  <text x="535" y="138" text-anchor="middle" fill="#333" font-size="10">How much demand exists?</text>
+  <text x="535" y="158" text-anchor="middle" fill="#888" font-size="9">Requests per second</text>
+  <text x="535" y="172" text-anchor="middle" fill="#888" font-size="9">Scaling signals</text>
+  <text x="535" y="186" text-anchor="middle" fill="#888" font-size="9">Sudden load changes</text>
+  <rect x="452" y="198" width="166" height="28" rx="4" fill="#e8f4fd"/>
+  <text x="535" y="216" text-anchor="middle" fill="#0078d4" font-size="8" font-family="monospace">rate(duration_seconds</text>
+  <text x="535" y="228" text-anchor="middle" fill="#0078d4" font-size="8" font-family="monospace">_count[5m])</text>
+
+  <!-- Saturation -->
+  <g filter="url(#shadow)">
+    <rect x="645" y="68" width="190" height="170" rx="10" fill="#fff" stroke="#2e7d32" stroke-width="1.5"/>
+    <rect x="645" y="68" width="190" height="32" rx="10" fill="#2e7d32"/>
+    <rect x="645" y="86" width="190" height="14" fill="#2e7d32"/>
+    <text x="740" y="88" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Saturation</text>
+  </g>
+  <text x="740" y="118" text-anchor="middle" fill="#2e7d32" font-size="11" font-weight="600">Gauge</text>
+  <text x="740" y="138" text-anchor="middle" fill="#333" font-size="10">How full is the system?</text>
+  <text x="740" y="158" text-anchor="middle" fill="#888" font-size="9">CPU, memory (platform)</text>
+  <text x="740" y="172" text-anchor="middle" fill="#888" font-size="9">Queue depth (app-level)</text>
+  <text x="740" y="186" text-anchor="middle" fill="#888" font-size="9">Connection pool usage</text>
+  <rect x="657" y="198" width="166" height="28" rx="4" fill="#f0f7f0"/>
+  <text x="740" y="216" text-anchor="middle" fill="#2e7d32" font-size="8" font-family="monospace">container_cpu_usage</text>
+  <text x="740" y="228" text-anchor="middle" fill="#2e7d32" font-size="8" font-family="monospace">_seconds_total</text>
+
+  <!-- Bottom: SLO note -->
+  <rect x="30" y="258" width="800" height="46" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="430" y="278" text-anchor="middle" fill="#333" font-size="11" font-weight="700">SLO Boundary = service.namespace (product/domain), not individual workloads</text>
+  <text x="430" y="296" text-anchor="middle" fill="#888" font-size="10">Workloads (API, worker, scheduler) roll up to their namespace. Reliability is measured by product, not by container.</text>
+</svg>

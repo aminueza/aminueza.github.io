@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0078d4"/>
+    </marker>
+    <marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrowO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e65100"/>
+    </marker>
+    <marker id="arrowP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7b1fa2"/>
+    </marker>
+  </defs>
+
+  <rect width="860" height="380" rx="12" fill="#f9fafb"/>
+  <text x="430" y="28" text-anchor="middle" fill="#333" font-size="16" font-weight="700">OpenTelemetry Collector Architecture</text>
+  <text x="430" y="46" text-anchor="middle" fill="#888" font-size="11">Apps push OTLP. Collector filters, enriches, and routes. One pipeline for everything.</text>
+
+  <!-- Apps column -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="70" width="150" height="50" rx="8" fill="#fff" stroke="#0078d4" stroke-width="1.2"/>
+    <text x="105" y="92" text-anchor="middle" fill="#0078d4" font-size="11" font-weight="600">.NET API</text>
+    <text x="105" y="108" text-anchor="middle" fill="#888" font-size="9">OTel SDK</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="30" y="132" width="150" height="50" rx="8" fill="#fff" stroke="#2e7d32" stroke-width="1.2"/>
+    <text x="105" y="154" text-anchor="middle" fill="#2e7d32" font-size="11" font-weight="600">Python Worker</text>
+    <text x="105" y="170" text-anchor="middle" fill="#888" font-size="9">OTel SDK</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="30" y="194" width="150" height="50" rx="8" fill="#fff" stroke="#e65100" stroke-width="1.2"/>
+    <text x="105" y="216" text-anchor="middle" fill="#e65100" font-size="11" font-weight="600">Node.js Frontend</text>
+    <text x="105" y="232" text-anchor="middle" fill="#888" font-size="9">OTel SDK</text>
+  </g>
+
+  <!-- OTLP arrows -->
+  <line x1="184" y1="95" x2="265" y2="145" stroke="#0078d4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="184" y1="157" x2="265" y2="157" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowG)"/>
+  <line x1="184" y1="219" x2="265" y2="170" stroke="#e65100" stroke-width="1.5" marker-end="url(#arrowO)"/>
+  <text x="225" y="130" text-anchor="middle" fill="#888" font-size="8">OTLP</text>
+
+  <!-- Collector -->
+  <g filter="url(#shadow)">
+    <rect x="270" y="80" width="220" height="190" rx="10" fill="#fff" stroke="#7b1fa2" stroke-width="2"/>
+    <rect x="270" y="80" width="220" height="32" rx="10" fill="#7b1fa2"/>
+    <rect x="270" y="98" width="220" height="14" fill="#7b1fa2"/>
+    <text x="380" y="100" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">OTel Collector</text>
+  </g>
+  <text x="380" y="132" text-anchor="middle" fill="#333" font-size="10" font-weight="600">Receive</text>
+  <text x="380" y="146" text-anchor="middle" fill="#888" font-size="9">OTLP endpoint (all signals)</text>
+  <line x1="290" y1="154" x2="470" y2="154" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="380" y="170" text-anchor="middle" fill="#333" font-size="10" font-weight="600">Process</text>
+  <text x="380" y="184" text-anchor="middle" fill="#888" font-size="9">Filter, batch, enrich attributes</text>
+  <text x="380" y="198" text-anchor="middle" fill="#888" font-size="9">Inject env + region labels</text>
+  <line x1="290" y1="206" x2="470" y2="206" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="380" y="222" text-anchor="middle" fill="#333" font-size="10" font-weight="600">Export</text>
+  <text x="380" y="236" text-anchor="middle" fill="#888" font-size="9">Route each signal type</text>
+  <text x="380" y="252" text-anchor="middle" fill="#888" font-size="9">to correct backend</text>
+
+  <!-- Export arrows -->
+  <line x1="494" y1="120" x2="570" y2="90" stroke="#0078d4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="494" y1="157" x2="570" y2="157" stroke="#e65100" stroke-width="1.5" marker-end="url(#arrowO)"/>
+  <line x1="494" y1="195" x2="570" y2="225" stroke="#7b1fa2" stroke-width="1.5" marker-end="url(#arrowP)"/>
+
+  <!-- Backends -->
+  <g filter="url(#shadow)">
+    <rect x="575" y="68" width="150" height="46" rx="8" fill="#e8f4fd" stroke="#0078d4" stroke-width="1.2"/>
+    <text x="650" y="88" text-anchor="middle" fill="#0078d4" font-size="11" font-weight="700">Logs &#8594; Loki</text>
+    <text x="650" y="104" text-anchor="middle" fill="#888" font-size="9">Structured JSON</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="575" y="130" width="150" height="46" rx="8" fill="#fff8e8" stroke="#e65100" stroke-width="1.2"/>
+    <text x="650" y="150" text-anchor="middle" fill="#e65100" font-size="11" font-weight="700">Metrics &#8594; Mimir</text>
+    <text x="650" y="166" text-anchor="middle" fill="#888" font-size="9">Prometheus-compatible</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="575" y="202" width="150" height="46" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.2"/>
+    <text x="650" y="222" text-anchor="middle" fill="#7b1fa2" font-size="11" font-weight="700">Traces &#8594; Tempo</text>
+    <text x="650" y="238" text-anchor="middle" fill="#888" font-size="9">Distributed tracing</text>
+  </g>
+
+  <!-- Grafana -->
+  <g filter="url(#shadow)">
+    <rect x="755" y="105" width="80" height="120" rx="10" fill="#f0f7f0" stroke="#2e7d32" stroke-width="2"/>
+    <text x="795" y="148" text-anchor="middle" fill="#2e7d32" font-size="22">G</text>
+    <text x="795" y="168" text-anchor="middle" fill="#2e7d32" font-size="10" font-weight="700">Grafana</text>
+    <text x="795" y="184" text-anchor="middle" fill="#888" font-size="8">Dashboards</text>
+    <text x="795" y="196" text-anchor="middle" fill="#888" font-size="8">Alerts</text>
+    <text x="795" y="208" text-anchor="middle" fill="#888" font-size="8">Explore</text>
+  </g>
+  <line x1="729" y1="91" x2="751" y2="130" stroke="#0078d4" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="729" y1="153" x2="751" y2="157" stroke="#e65100" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="729" y1="225" x2="751" y2="200" stroke="#7b1fa2" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Bottom: Auto vs Manual -->
+  <rect x="30" y="290" width="395" height="72" rx="10" fill="#e8f4fd" stroke="#0078d4" stroke-width="1"/>
+  <text x="228" y="312" text-anchor="middle" fill="#0078d4" font-size="12" font-weight="700">Auto Instrumentation</text>
+  <text x="228" y="330" text-anchor="middle" fill="#555" font-size="10">HTTP, DB, messaging spans out of the box</text>
+  <text x="228" y="346" text-anchor="middle" fill="#888" font-size="10">Start here. Deploy. Validate. Then enhance.</text>
+
+  <rect x="445" y="290" width="385" height="72" rx="10" fill="#fff8e8" stroke="#e65100" stroke-width="1"/>
+  <text x="638" y="312" text-anchor="middle" fill="#e65100" font-size="12" font-weight="700">Manual Instrumentation</text>
+  <text x="638" y="330" text-anchor="middle" fill="#555" font-size="10">Business spans, KPIs, workflow checkpoints</text>
+  <text x="638" y="346" text-anchor="middle" fill="#888" font-size="10">Add when auto isn't enough for domain clarity.</text>
+</svg>
