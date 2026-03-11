@@ -31,7 +31,7 @@ Five components, separated by hyphens, always in the same order:
 
 **Environment** is `dev`, `stg`, `prd`, or `global`. Three characters, matches the deployment. No ambiguity about whether something is production.
 
-**Region** is a 3-character Azure region code: `weu` (West Europe), `eus` (East US), `eau` (Australia East). Tells you where the resource lives without opening the portal.
+**Region** is a 3-character [Azure region abbreviation](https://www.jlaundry.nz/2022/azure_region_abbreviations/): `weu` (West Europe), `eus` (East US), `eau` (Australia East). Tells you where the resource lives without opening the portal.
 
 For resources that have multiple instances (subnets, private endpoints), add a 3-digit suffix: `snet-infra-network-dev-weu-001`.
 

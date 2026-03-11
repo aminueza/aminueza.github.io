@@ -51,7 +51,7 @@ variable "environment" {
 }
 ```
 
-**Locals do the mapping** - locations to 3-char codes, environments to full names, and tags:
+**Locals do the mapping** - locations to [3-char region codes](https://www.jlaundry.nz/2022/azure_region_abbreviations/), environments to full names, and tags:
 
 ```hcl
 locals {
