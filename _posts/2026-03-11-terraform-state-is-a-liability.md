@@ -56,28 +56,33 @@ Split state files have **dependencies**. You can't deploy in any order.
 
 Deploy DNS before the hub? VNet links fail. Deploy spokes before AVNM? VNets never join a network group. This ordering is enforced by convention and pipeline stages, not by Terraform. Terraform just reads data sources, and if the resource doesn't exist, it fails.
 
+## Remote State Storage: The Foundation
+
+Before you split anything, you need somewhere to put the state. Each subscription gets its own state storage: a Storage Account for the state files, a Key Vault for encryption, and network rules to lock down access. The naming follows the same convention as everything else:
+
+```
+rg-{team}-tfstate-{env}-{region}     → resource group
+st{team}tfstate{env}{region}          → storage account (no hyphens)
+cttfstate                             → blob container
+statebucket/terraform.{app}.tfstate   → state file path
+```
+
+The state file path is the key part. Each application gets its own file within the same container: `terraform.hub-global.tfstate`, `terraform.dns-global.tfstate`, `terraform.spokes-dev.tfstate`. One storage account, many state files, each isolated by path.
+
+Authentication uses OIDC (`use_oidc = true` in the backend config), so your CI/CD pipeline authenticates the same way it does for everything else. No storage keys stored as secrets. No SAS tokens to rotate. The state storage uses the same passwordless auth pattern as the rest of your infrastructure.
+
 ## Things That Will Bite You (Ask Me How I Know)
 
 **Never `terraform apply` without reviewing the plan.** I once changed a tag value and Terraform cheerfully proposed to recreate 3 production VNets because tags are used in the `for_each` key. My heart rate still goes up thinking about it. Always plan, always review, always save the plan file.
 
-**State locks are your friend until they're not.** If Terraform crashes mid-apply, the lock stays. Your first instinct will be to `force-unlock` immediately. Resist. Maybe your coworker is mid-deploy and you're about to ruin their afternoon. Only force-unlock when you're sure.
+**State locks: don't panic.** If Terraform crashes mid-apply, the lock stays. Resist the urge to `force-unlock` immediately. Maybe your coworker is mid-deploy. Only force-unlock when you're sure nobody else is using the state.
 
-**Don't put secrets in state.** Terraform state is plain text. If your PostgreSQL admin password is a variable, congratulations, it's in a JSON file in your storage account. Use Key Vault references or `sensitive` variables. If you just realized your password is in state right now... go fix that. I'll wait.
+**Don't put secrets in state.** It's plain text. If your PostgreSQL password is a variable, it's in a JSON file in your storage account. Use Key Vault references or `sensitive` variables.
 
 ## The Trade-Off
 
 More state files = smaller blast radius but more operational complexity. My rule of thumb: split when the lifecycles are different. DNS changes quarterly, firewall rules change weekly, VPN changes monthly. Different cadences, different state files.
 
 Five state files is the sweet spot for a medium-sized company. But the principle is the same: **your state file boundary should match your blast radius boundary**.
-
----
-
-That's the series. Five posts, one architecture:
-
-1. [Your Azure Network Is a Flat Disaster](#) on why hub-and-spoke
-2. [Stop Managing Peerings Like It's 2019](#) on AVNM and IPAM
-3. [Security Rules Your Developers Can't Delete](#) on AVNM security admin and firewall
-4. [Your DNS Is Broken and You Don't Know It](#) on private DNS zones and resolvers
-5. **Terraform State Is a Liability** on state splitting and deployment order
 
 Build it once, automate the repetitive parts, and make the wrong things impossible instead of just discouraged. Your future self will thank you. Or at least they won't curse your name. Which, in infrastructure, is basically the same thing :D
