@@ -25,21 +25,78 @@ The system uses two modules working together:
 
 You provide four inputs. You get correctly named, correctly tagged resources for everything.
 
-## The Globals Module
+## The Globals Module: Full Code
 
-The globals module is the single source of truth for your infrastructure's identity:
+The globals module does three things: validate inputs, map short codes to full values, and assemble a config object that every other module consumes.
+
+**Inputs with validation** - invalid values fail at plan time, not at deploy time:
 
 ```hcl
-module "globals" {
-  source           = "./modules/globals"
-  location         = "westeurope"    # validated: weu/eus/eas only
-  environment      = "stg"           # validated: dev/stg/prd/tst/global
-  application_name = "api"
-  team_acronym     = "pay"
+variable "location" {
+  type = string
+  validation {
+    condition = contains([
+      "westeurope", "eastus", "australiaeast",
+      "swedencentral", "southcentralus"
+    ], var.location)
+  }
+}
+
+variable "environment" {
+  type    = string
+  default = "stg"
+  validation {
+    condition = contains(["prd", "stg", "dev", "global", "tst"], var.environment)
+  }
 }
 ```
 
-It outputs `global_config`, a map containing everything downstream modules need: `location`, `location_acronym`, `environment`, `full_environment`, `team_acronym`, `application_name`, `predefined_tags`, `all_tags`. Validation happens at plan time. Pass an invalid location? Plan fails. Invalid environment? Plan fails. No bad names reach Azure.
+**Locals do the mapping** - locations to 3-char codes, environments to full names, and tags:
+
+```hcl
+locals {
+  location_acronyms = {
+    "westeurope"    = "weu"
+    "eastus"        = "eus"
+    "australiaeast" = "eau"
+    "swedencentral" = "sdc"
+  }
+  location_acronym = local.location_acronyms[var.location]
+
+  fullname_environments = {
+    dev = "development", stg = "staging",
+    prd = "production",  tst = "testing"
+  }
+  full_environment = local.fullname_environments[var.environment]
+
+  predefined_tags = {
+    "Data Classification" = var.data_classification
+    "Business Impact"     = var.business_impact
+    "Team"                = var.team_name
+    "Environment"         = local.full_environment
+  }
+  all_tags = merge(local.predefined_tags, var.tags)
+}
+```
+
+**One output** - the `global_config` map that every module takes as a required input:
+
+```hcl
+output "global_config" {
+  value = {
+    location         = var.location
+    location_acronym = local.location_acronym
+    environment      = var.environment
+    full_environment = local.full_environment
+    team_acronym     = var.team_acronym
+    application_name = var.application_name
+    predefined_tags  = local.predefined_tags
+    all_tags         = local.all_tags
+  }
+}
+```
+
+Every downstream module declares `variable "global_config" { nullable = false }`. You can't create a resource without passing globals through. The naming and tagging are mandatory, not optional.
 
 ## The Label Module
 
@@ -137,14 +194,6 @@ The API module creates `rg-pay-api-stg-weu`. The worker module creates `rg-pay-w
 
 ## Why This Works
 
-The pattern eliminates three classes of problems:
-
-**Typos.** Nobody types names. A typo in `team_acronym` fails validation. A typo in `location` fails validation. The module is the only thing that builds name strings.
-
-**Inconsistency.** Every module in every team's infrastructure uses the same globals. The Key Vault and the resource group it lives in always have matching team/app/env/region because they come from the same `global_config`.
-
-**Forgotten tags.** Tags come from `global_config.all_tags`, which includes environment, region, team, data classification, and business impact. You can't forget to tag because tagging isn't a decision. It's a default.
-
-The convention is only as strong as the code that enforces it. A wiki page is a wish. A globals module with validation is a guarantee.
+**Typos** fail validation at plan time. **Inconsistency** is impossible because every module reads the same `global_config`. **Forgotten tags** can't happen because `all_tags` is built into the config, not a manual step. The convention is only as strong as the code that enforces it. A wiki page is a wish. A globals module with `nullable = false` is a guarantee.
 
 Go check your Terraform code. If you see resource names built with string interpolation instead of a label module... that's where the drift starts ;)
