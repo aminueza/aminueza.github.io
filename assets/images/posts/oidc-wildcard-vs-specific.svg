@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 310" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <rect width="820" height="310" rx="12" fill="#f9fafb"/>
+  <text x="410" y="28" text-anchor="middle" fill="#333" font-size="16" font-weight="700">Wildcard vs. Specific Federated Credentials</text>
+  <text x="410" y="46" text-anchor="middle" fill="#888" font-size="11">Wildcards for dev/staging speed. Specific patterns for production safety.</text>
+
+  <!-- Non-production: Wildcard -->
+  <rect x="30" y="65" width="370" height="220" rx="10" fill="#fff8e8" stroke="#e65100" stroke-width="1.5"/>
+  <rect x="30" y="65" width="370" height="32" rx="10" fill="#e65100"/>
+  <rect x="30" y="83" width="370" height="14" fill="#e65100"/>
+  <text x="215" y="86" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Non-Production: Wildcards</text>
+
+  <text x="50" y="116" fill="#333" font-size="10" font-weight="600">Subject claims:</text>
+  <rect x="50" y="124" width="330" height="20" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="60" y="138" fill="#e65100" font-size="9" font-family="monospace">repo:my-org/*:environment:*</text>
+  <rect x="50" y="150" width="330" height="20" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="60" y="164" fill="#e65100" font-size="9" font-family="monospace">repo:my-org/*:ref:*</text>
+  <rect x="50" y="176" width="330" height="20" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="60" y="190" fill="#e65100" font-size="9" font-family="monospace">repo:my-org/*:pull_request</text>
+
+  <text x="50" y="218" fill="#2e7d32" font-size="10">&#10003; One-time setup for all repos</text>
+  <text x="50" y="236" fill="#2e7d32" font-size="10">&#10003; No changes when adding new repos</text>
+  <text x="50" y="254" fill="#e65100" font-size="10">&#9888; Any repo in org can authenticate</text>
+  <text x="50" y="272" fill="#888" font-size="10" font-style="italic">Acceptable risk for dev/staging</text>
+
+  <!-- Production: Specific -->
+  <rect x="420" y="65" width="370" height="220" rx="10" fill="#f0f7f0" stroke="#2e7d32" stroke-width="1.5"/>
+  <rect x="420" y="65" width="370" height="32" rx="10" fill="#2e7d32"/>
+  <rect x="420" y="83" width="370" height="14" fill="#2e7d32"/>
+  <text x="605" y="86" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Production: Specific Patterns</text>
+
+  <text x="440" y="116" fill="#333" font-size="10" font-weight="600">Subject claims:</text>
+  <rect x="440" y="124" width="330" height="20" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="450" y="138" fill="#2e7d32" font-size="9" font-family="monospace">repo:my-org/api:environment:Production*</text>
+  <rect x="440" y="150" width="330" height="20" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="450" y="164" fill="#2e7d32" font-size="9" font-family="monospace">repo:my-org/web:environment:Production*</text>
+  <rect x="440" y="176" width="330" height="20" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="450" y="190" fill="#2e7d32" font-size="9" font-family="monospace">repo:my-org/infra:ref:refs/heads/main</text>
+
+  <text x="440" y="218" fill="#2e7d32" font-size="10">&#10003; Only authorized repos can deploy</text>
+  <text x="440" y="236" fill="#2e7d32" font-size="10">&#10003; Clear audit trail per application</text>
+  <text x="440" y="254" fill="#e65100" font-size="10">&#9888; Must add credential per new repo</text>
+  <text x="440" y="272" fill="#888" font-size="10" font-style="italic">Required for production / SOC2</text>
+
+  <!-- Bottom note -->
+  <text x="410" y="302" text-anchor="middle" fill="#999" font-size="10" font-style="italic">Combine both: wildcards for non-prod speed, specific patterns for prod compliance. Multiple credentials on one app.</text>
+</svg>
