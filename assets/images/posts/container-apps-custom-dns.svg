@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0078d4"/>
+    </marker>
+    <marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrowP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7b1fa2"/>
+    </marker>
+  </defs>
+
+  <rect width="860" height="340" rx="12" fill="#f9fafb"/>
+  <text x="430" y="28" text-anchor="middle" fill="#333" font-size="16" font-weight="700">Custom DNS for Container Apps (Internal Only)</text>
+  <text x="430" y="46" text-anchor="middle" fill="#888" font-size="11">Private DNS Zone + self-signed cert + VPN = internal-only access with proper domain names.</text>
+
+  <!-- VPN Client -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="75" width="130" height="55" rx="8" fill="#fff" stroke="#7b1fa2" stroke-width="1.5"/>
+    <text x="95" y="98" text-anchor="middle" fill="#7b1fa2" font-size="11" font-weight="700">VPN Client</text>
+    <text x="95" y="116" text-anchor="middle" fill="#888" font-size="9">admin.internal.net</text>
+  </g>
+
+  <line x1="164" y1="102" x2="210" y2="102" stroke="#7b1fa2" stroke-width="1.5" marker-end="url(#arrowP)"/>
+  <text x="187" y="94" text-anchor="middle" fill="#7b1fa2" font-size="8">resolve</text>
+
+  <!-- Private DNS Zone -->
+  <g filter="url(#shadow)">
+    <rect x="215" y="68" width="180" height="70" rx="8" fill="#f0f7f0" stroke="#2e7d32" stroke-width="1.5"/>
+    <rect x="215" y="68" width="180" height="26" rx="8" fill="#2e7d32"/>
+    <rect x="215" y="82" width="180" height="12" fill="#2e7d32"/>
+    <text x="305" y="84" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Private DNS Zone</text>
+  </g>
+  <text x="305" y="108" text-anchor="middle" fill="#333" font-size="9">A: @ &#8594; private endpoint IP</text>
+  <text x="305" y="122" text-anchor="middle" fill="#333" font-size="9">CNAME: admin &#8594; app FQDN</text>
+  <text x="305" y="134" text-anchor="middle" fill="#888" font-size="8">TXT: domain verification ID</text>
+
+  <line x1="399" y1="102" x2="445" y2="102" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowG)"/>
+  <text x="422" y="94" text-anchor="middle" fill="#2e7d32" font-size="8">10.x.x.x</text>
+
+  <!-- Container App Environment -->
+  <g filter="url(#shadow)">
+    <rect x="450" y="62" width="220" height="84" rx="10" fill="#fff" stroke="#0078d4" stroke-width="2"/>
+    <rect x="450" y="62" width="220" height="28" rx="10" fill="#0078d4"/>
+    <rect x="450" y="78" width="220" height="12" fill="#0078d4"/>
+    <text x="560" y="80" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Container App Environment</text>
+  </g>
+  <text x="560" y="106" text-anchor="middle" fill="#333" font-size="9">Custom domain registered</text>
+  <text x="560" y="120" text-anchor="middle" fill="#888" font-size="9">admin.internal.net</text>
+  <text x="560" y="136" text-anchor="middle" fill="#0078d4" font-size="9" font-weight="600">Self-signed cert from Key Vault</text>
+
+  <!-- Key Vault -->
+  <g filter="url(#shadow)">
+    <rect x="710" y="75" width="120" height="55" rx="8" fill="#fff8e8" stroke="#e65100" stroke-width="1.5"/>
+    <text x="770" y="98" text-anchor="middle" fill="#e65100" font-size="10" font-weight="700">Key Vault</text>
+    <text x="770" y="114" text-anchor="middle" fill="#888" font-size="8">wildcard cert</text>
+  </g>
+  <line x1="674" y1="110" x2="706" y2="102" stroke="#e65100" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Bottom: 4 steps -->
+  <rect x="30" y="180" width="800" height="140" rx="10" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="430" y="202" text-anchor="middle" fill="#333" font-size="12" font-weight="700">Setup in Four Steps</text>
+
+  <!-- Step 1 -->
+  <rect x="50" y="214" width="175" height="90" rx="8" fill="#f0f7f0" stroke="#2e7d32" stroke-width="1"/>
+  <text x="60" y="230" fill="#2e7d32" font-size="18" font-weight="700">1</text>
+  <text x="80" y="232" fill="#2e7d32" font-size="10" font-weight="600">Create DNS Zone</text>
+  <text x="60" y="250" fill="#555" font-size="9">Create private zone</text>
+  <text x="60" y="264" fill="#555" font-size="9">Link to hub VNets</text>
+  <text x="60" y="278" fill="#555" font-size="9">Auto-registration: off</text>
+  <text x="60" y="296" fill="#888" font-size="8" font-style="italic">internal.net or similar</text>
+
+  <!-- Step 2 -->
+  <rect x="240" y="214" width="175" height="90" rx="8" fill="#e8f4fd" stroke="#0078d4" stroke-width="1"/>
+  <text x="250" y="230" fill="#0078d4" font-size="18" font-weight="700">2</text>
+  <text x="270" y="232" fill="#0078d4" font-size="10" font-weight="600">Add DNS Records</text>
+  <text x="250" y="250" fill="#555" font-size="9">A record &#8594; private EP IP</text>
+  <text x="250" y="264" fill="#555" font-size="9">TXT &#8594; verification ID</text>
+  <text x="250" y="278" fill="#555" font-size="9">CNAME &#8594; app FQDN</text>
+  <text x="250" y="296" fill="#888" font-size="8" font-style="italic">per app, per environment</text>
+
+  <!-- Step 3 -->
+  <rect x="430" y="214" width="175" height="90" rx="8" fill="#fff8e8" stroke="#e65100" stroke-width="1"/>
+  <text x="440" y="230" fill="#e65100" font-size="18" font-weight="700">3</text>
+  <text x="460" y="232" fill="#e65100" font-size="10" font-weight="600">Import Certificate</text>
+  <text x="440" y="250" fill="#555" font-size="9">Managed identity on env</text>
+  <text x="440" y="264" fill="#555" font-size="9">KV Certificate User role</text>
+  <text x="440" y="278" fill="#555" font-size="9">Import cert to env</text>
+  <text x="440" y="296" fill="#888" font-size="8" font-style="italic">self-signed, internal only</text>
+
+  <!-- Step 4 -->
+  <rect x="620" y="214" width="175" height="90" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1"/>
+  <text x="630" y="230" fill="#7b1fa2" font-size="18" font-weight="700">4</text>
+  <text x="650" y="232" fill="#7b1fa2" font-size="10" font-weight="600">Register Domain</text>
+  <text x="630" y="250" fill="#555" font-size="9">Add custom domain</text>
+  <text x="630" y="264" fill="#555" font-size="9">Select KV certificate</text>
+  <text x="630" y="278" fill="#555" font-size="9">Wait for validation</text>
+  <text x="630" y="296" fill="#888" font-size="8" font-style="italic">VPN access, done!</text>
+</svg>
