@@ -25,23 +25,23 @@ Five components, separated by hyphens, always in the same order:
 
 **Resource type** comes first. Use Microsoft's official abbreviations: `vm`, `vnet`, `kv`, `ca`, `nsg`, `snet`, `pep`. Always first so you can immediately see what kind of resource you're looking at.
 
-**Team** is a 2-4 character identifier. `cnct` for connectivity, `fss` for a product team, `ai` for the AI team. Defined once in a globals config, used everywhere. When you see `kv-fss-*` you instantly know which team owns it.
+**Team** is a 2-4 character identifier. `infra` for infrastructure, `pay` for payments, `ai` for the AI team. Defined once in a globals config, used everywhere. When you see `kv-pay-*` you instantly know which team owns it.
 
-**Application name** for app-specific resources, or a category (`network`, `security`, `compute`, `storage`) for shared infrastructure. `ca-fss-api-prd-weu` is an API container app. `vnet-cnct-network-dev-weu` is the connectivity team's dev VNet.
+**Application name** for app-specific resources, or a category (`network`, `security`, `compute`, `storage`) for shared infrastructure. `ca-pay-api-prd-weu` is an API container app. `vnet-infra-network-dev-weu` is the connectivity team's dev VNet.
 
 **Environment** is `dev`, `stg`, `prd`, or `global`. Three characters, matches the deployment. No ambiguity about whether something is production.
 
 **Region** is a 3-character Azure region code: `weu` (West Europe), `eus` (East US), `eau` (Australia East). Tells you where the resource lives without opening the portal.
 
-For resources that have multiple instances (subnets, private endpoints), add a 3-digit suffix: `snet-cnct-network-dev-weu-001`.
+For resources that have multiple instances (subnets, private endpoints), add a 3-digit suffix: `snet-infra-network-dev-weu-001`.
 
 ## The One Exception
 
-Storage accounts can't have hyphens. Azure's naming rules require alphanumeric only, max 24 characters. So you strip the hyphens and keep the same components: `stcnctstoragedevweu`. Ugly, but consistent. Everyone knows the pattern, so even without hyphens you can parse it: `st` / `cnct` / `storage` / `dev` / `weu`.
+Storage accounts can't have hyphens. Azure's naming rules require alphanumeric only, max 24 characters. So you strip the hyphens and keep the same components: `stinfrastoragedevweu`. Ugly, but consistent. Everyone knows the pattern, so even without hyphens you can parse it: `st` / `infra` / `storage` / `dev` / `weu`.
 
 ## Why This Order Matters
 
-The resource type comes first because that's what you filter on most. Searching for "all VNets" means searching `vnet-*`. Team comes second because "all infra team resources" is `*-cnct-*`. Environment and region come last because they're the context you already know when you're working in a specific subscription.
+The resource type comes first because that's what you filter on most. Searching for "all VNets" means searching `vnet-*`. Team comes second because "all infra team resources" is `*-infra-*`. Environment and region come last because they're the context you already know when you're working in a specific subscription.
 
 The order is optimized for the questions you ask: "What is this?" (resource), "Who owns this?" (team), "What's it for?" (app), "Is this production?" (env), "Where is it?" (region). Left to right, most important to least important.
 
@@ -51,7 +51,7 @@ Resources that share a lifecycle go in the same resource group. A container app,
 
 Resources that have different lifecycles don't. The VNet that your container app deploys into was created months before the app and will outlive it. The VNet belongs in a networking resource group, not the app's group.
 
-The resource group itself follows the same convention: `rg-fss-api-prd-weu`. You can tell what's inside without opening it.
+The resource group itself follows the same convention: `rg-pay-api-prd-weu`. You can tell what's inside without opening it.
 
 ## Enforcing It
 
@@ -75,25 +75,25 @@ Here are the abbreviations that matter most:
 
 | Resource | Abbreviation | Example |
 |---|---|---|
-| Resource Group | `rg` | `rg-fss-api-prd-weu` |
-| Virtual Network | `vnet` | `vnet-cnct-network-dev-weu` |
-| Subnet | `snet` | `snet-cnct-network-dev-weu-001` |
-| Container App | `ca` | `ca-fss-portal-prd-weu` |
-| Key Vault | `kv` | `kv-fss-api-prd-weu` |
-| Storage Account | `st` | `stfssapiprdweu` |
-| NSG | `nsg` | `nsg-cnct-network-prd-weu` |
-| Private Endpoint | `pep` | `pep-fss-portal-prd-weu-001` |
-| App Insights | `appi` | `appi-fss-portal-prd-weu` |
-| Service Bus | `sb` | `sb-fss-messaging-prd-weu` |
-| Managed Identity | `id` | `id-fss-api-prd-weu` |
-| Azure Firewall | `afw` | `afw-cnct-security-prd-weu` |
-| Log Analytics | `log` | `log-cnct-monitoring-prd-weu` |
+| Resource Group | `rg` | `rg-pay-api-prd-weu` |
+| Virtual Network | `vnet` | `vnet-infra-network-dev-weu` |
+| Subnet | `snet` | `snet-infra-network-dev-weu-001` |
+| Container App | `ca` | `ca-pay-portal-prd-weu` |
+| Key Vault | `kv` | `kv-pay-api-prd-weu` |
+| Storage Account | `st` | `stpayapiprdweu` |
+| NSG | `nsg` | `nsg-infra-network-prd-weu` |
+| Private Endpoint | `pep` | `pep-pay-portal-prd-weu-001` |
+| App Insights | `appi` | `appi-pay-portal-prd-weu` |
+| Service Bus | `sb` | `sb-pay-messaging-prd-weu` |
+| Managed Identity | `id` | `id-pay-api-prd-weu` |
+| Azure Firewall | `afw` | `afw-infra-security-prd-weu` |
+| Log Analytics | `log` | `log-infra-monitoring-prd-weu` |
 
 The full list follows [Microsoft's Cloud Adoption Framework](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations). When in doubt, check there first.
 
 ## The Payoff
 
-When every resource follows the same format, you can answer questions without opening the portal. "Which team's Key Vaults are in production West Europe?" That's `kv-*-*-prd-weu`. "What resources does the FSS team own?" That's `*-fss-*`. "Is this subnet in dev or prod?" Read the name.
+When every resource follows the same format, you can answer questions without opening the portal. "Which team's Key Vaults are in production West Europe?" That's `kv-*-*-prd-weu`. "What resources does the payments team own?" That's `*-pay-*`. "Is this subnet in dev or prod?" Read the name.
 
 No spreadsheets tracking resource ownership. No "who created this?" Slack messages. No guessing whether `storage123` is safe to delete.
 

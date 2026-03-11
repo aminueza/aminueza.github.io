@@ -35,7 +35,7 @@
     <text x="268" y="147" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Team</text>
   </g>
   <text x="268" y="172" text-anchor="middle" fill="#333" font-size="9">2-4 char identifier</text>
-  <text x="268" y="188" text-anchor="middle" fill="#e65100" font-size="9" font-family="monospace">cnct ai up fss</text>
+  <text x="268" y="188" text-anchor="middle" fill="#e65100" font-size="9" font-family="monospace">infra pay ai ops</text>
   <text x="268" y="204" text-anchor="middle" fill="#888" font-size="9">Consistent per team</text>
   <text x="268" y="222" text-anchor="middle" fill="#888" font-size="8">Defined in globals</text>
 
@@ -78,8 +78,8 @@
   <!-- Example -->
   <rect x="30" y="252" width="800" height="50" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
   <text x="430" y="272" text-anchor="middle" fill="#333" font-size="11" font-weight="700">Examples</text>
-  <text x="155" y="292" text-anchor="middle" fill="#0078d4" font-size="10" font-family="monospace">ca-fss-api-prd-weu</text>
-  <text x="370" y="292" text-anchor="middle" fill="#0078d4" font-size="10" font-family="monospace">vnet-cnct-network-dev-weu</text>
-  <text x="600" y="292" text-anchor="middle" fill="#0078d4" font-size="10" font-family="monospace">snet-cnct-network-dev-weu-001</text>
-  <text x="785" y="292" text-anchor="middle" fill="#0078d4" font-size="10" font-family="monospace">stcnctstoragedevweu</text>
+  <text x="155" y="292" text-anchor="middle" fill="#0078d4" font-size="10" font-family="monospace">ca-pay-api-prd-weu</text>
+  <text x="370" y="292" text-anchor="middle" fill="#0078d4" font-size="10" font-family="monospace">vnet-infra-network-dev-weu</text>
+  <text x="600" y="292" text-anchor="middle" fill="#0078d4" font-size="10" font-family="monospace">snet-infra-network-dev-weu-001</text>
+  <text x="785" y="292" text-anchor="middle" fill="#0078d4" font-size="10" font-family="monospace">stinfrastoragedevweu</text>
 </svg>
