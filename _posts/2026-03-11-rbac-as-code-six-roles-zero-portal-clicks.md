@@ -3,10 +3,11 @@ layout: post
 title: "RBAC as Code: Six Roles, Zero Portal Clicks"
 date: 2026-03-11
 tags: [Azure, RBAC, Security, Terraform, PIM]
-description: "ClickOps RBAC is inconsistent, unauditable, and slow. Six custom roles with PIM, managed in Terraform, replace the chaos with a system that actually works."
+description: "How to replace Azure portal RBAC with six Terraform-managed custom roles and PIM. Covers infrastructure, team deployment, contributor, reader, customer data, and products data roles."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+redirect_from: /blog/2026/03/11/rbac-as-code-six-roles-zero-portal-clicks/
 ---
 
 Someone needs access to production. They message you on Slack. You open the Azure Portal. You click through IAM. You search for the right subscription. You assign Contributor because you're not sure what permissions they actually need and Contributor works. You forget to set an expiration. Three months later, they still have production access. They changed teams two months ago.
@@ -83,4 +84,4 @@ Go check your Azure IAM assignments. If you see permanent Contributor roles on p
 
 ---
 
-*This is part 1 of the Security & Auth series. Next: [Every Permission Change Is a Pull Request](/blog/2026/03/11/your-rbac-should-be-a-pull-request/) covers the IaC workflow for managing these roles.*
+*This is part 1 of the Security & Auth series. Next: [Every Permission Change Is a Pull Request](/blog/2026/03/11/every-permission-change-is-a-pull-request/) covers the IaC workflow for managing these roles.*

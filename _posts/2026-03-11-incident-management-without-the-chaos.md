@@ -3,10 +3,11 @@ layout: post
 title: "Incident Management Without the Chaos"
 date: 2026-03-11
 tags: [SRE, Incident Management, On-Call, Observability, DevOps]
-description: "Someone posts 'is the API down?' in Slack. Three people investigate the same thing. Nobody updates customers. Here's the incident process that actually works."
+description: "A complete incident management process based on Google SRE: three roles, four severity levels, eight steps from detection to post-mortem, communication templates, and a post-incident report template."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+redirect_from: /blog/2026/03/11/incident-management-without-the-chaos/
 ---
 
 Someone posts "is the API down?" in a Slack channel. Three engineers start investigating independently. Nobody knows who's in charge. The product manager finds out from a customer tweet. Customer support has no talking points. Forty minutes later, someone restarts a pod and it fixes itself. No post-mortem. No timeline. No idea if it'll happen again tomorrow.
@@ -139,4 +140,4 @@ Go check your last three incidents. Did they have a coordinator? A timeline? A p
 
 ---
 
-*Related: The [Observability series](/blog/2026/03/11/your-observability-is-just-three-dashboards/) covers the monitoring and alerting side that feeds into incident detection.*
+*Related: The [Observability series](/blog/2026/03/11/three-dashboards-is-not-observability/) covers the monitoring and alerting side that feeds into incident detection.*

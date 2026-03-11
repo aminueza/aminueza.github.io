@@ -3,10 +3,11 @@ layout: post
 title: "The Alert Checklist Nobody Follows"
 date: 2026-03-11
 tags: [Observability, Grafana, Alerting, SRE, On-Call]
-description: "Most alerts describe the cause, not the symptom. They fire on single data points. They have no runbook. Here's the label contract and checklist that fixes all of it."
+description: "How to write effective alerts: required labels, severity contracts, symptom-based naming, the for clause, annotations with runbook links, and grouping rules that prevent notification floods."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+redirect_from: /blog/2026/03/11/the-alert-checklist-nobody-follows/
 ---
 
 Your alert is called `NginxDown`. It fires when the nginx pod restarts. The on-call person gets paged, opens Grafana, sees "NginxDown," and thinks "OK, nginx is down." Except nginx restarted because the node ran out of memory, which happened because the batch job that runs at midnight leaked memory, which happened because someone deployed a new version at 5 PM without load testing.
@@ -99,4 +100,4 @@ Go review your last 5 fired alerts. How many have a summary? A runbook link? A `
 
 ---
 
-*This is part 4 of the Observability series. Previous: [When Every Alert Is Critical, Nothing Is](/blog/2026/03/11/your-alerts-are-just-noise/). Start from [part 1](/blog/2026/03/11/your-observability-is-just-three-dashboards/).*
+*This is part 4 of the Observability series. Previous: [When Every Alert Is Critical, Nothing Is](/blog/2026/03/11/when-every-alert-is-critical-nothing-is/). Start from [part 1](/blog/2026/03/11/three-dashboards-is-not-observability/).*

@@ -3,7 +3,7 @@ layout: post
 title: "Terraform State Is a Liability"
 date: 2026-03-11
 tags: [Terraform, Azure, DevOps, Infrastructure as Code, Cloud Architecture]
-description: "One state file for all networking is a ticking time bomb. How to split Terraform state by lifecycle, manage deployment order, and shrink your blast radius."
+description: "How to split Terraform state files by lifecycle for Azure networking. Covers five-state architecture, deployment order dependencies, remote state storage with encryption, and common pitfalls."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
@@ -92,4 +92,4 @@ Build it once, automate the repetitive parts, and make the wrong things impossib
 
 ---
 
-*This is part 3 of the Terraform & IaC series. Previous: [One Module Names Every Resource](/blog/2026/03/11/autoname-every-azure-resource-with-one-module/). Next: [Terraform Remote State: The Module That Protects Itself](/blog/2026/03/11/terraform-remote-state-the-module-that-protects-itself/).*
+*This is part 3 of the Terraform & IaC series. Previous: [One Module Names Every Resource](/blog/2026/03/11/one-module-names-every-resource/). Next: [Terraform Remote State: The Module That Protects Itself](/blog/2026/03/11/terraform-remote-state-the-module-that-protects-itself/).*

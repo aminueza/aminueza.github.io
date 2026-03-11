@@ -3,7 +3,7 @@ layout: post
 title: "The Four Numbers That Tell You Everything"
 date: 2026-03-11
 tags: [Observability, SRE, Golden Signals, Grafana, Cloud Architecture]
-description: "Latency, errors, traffic, saturation. Four signals, one dashboard, zero guessing. How to implement Google's Golden Signals with OpenTelemetry and actually use them."
+description: "How to implement Google SRE Golden Signals with OpenTelemetry: latency histograms, error counters, traffic rates, and saturation gauges. One shared Grafana dashboard for every team."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
@@ -97,4 +97,4 @@ Until then, go count your metrics. If the number makes you proud, you probably h
 
 ---
 
-*This is part 2 of the Observability series. Previous: [Three Dashboards Is Not Observability](/blog/2026/03/11/your-observability-is-just-three-dashboards/). Next: [When Every Alert Is Critical, Nothing Is](/blog/2026/03/11/your-alerts-are-just-noise/).*
+*This is part 2 of the Observability series. Previous: [Three Dashboards Is Not Observability](/blog/2026/03/11/three-dashboards-is-not-observability/). Next: [When Every Alert Is Critical, Nothing Is](/blog/2026/03/11/when-every-alert-is-critical-nothing-is/).*

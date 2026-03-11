@@ -1,0 +1,66 @@
+---
+layout: default
+title: Blog Series
+description: "Technical blog series on Azure infrastructure, Terraform, observability, and security. From networking architecture to incident management."
+permalink: /series/
+---
+
+<section class="section">
+  <div class="container">
+    <h1 class="title is-2">Blog Series</h1>
+    <p class="subtitle">Deep dives organized by topic. Each series builds on the previous post.</p>
+
+    <hr>
+
+    <h2 class="title is-4">Azure Networking</h2>
+    <p>From a flat VNet to a production-ready hub-and-spoke network with AVNM automation, security baselines, and private DNS.</p>
+    <ol>
+      <li><a href="/blog/2026/02/24/your-azure-network-is-a-flat-disaster/">Your Azure Network Is a Flat Disaster</a> — Why hub-and-spoke, zone architecture, CIDR planning</li>
+      <li><a href="/blog/2026/03/11/avnm-replaced-54-peering-resources-with-zero/">AVNM Replaced 54 Peering Resources With Zero</a> — Tag-based topology, IPAM pools, network groups</li>
+      <li><a href="/blog/2026/03/11/security-rules-your-developers-cant-delete/">Security Rules Your Developers Can't Delete</a> — AVNM Security Admin, firewall egress control</li>
+      <li><a href="/blog/2026/03/11/its-always-dns-and-heres-why/">It's Always DNS (And Here's Why)</a> — Private DNS zones, hub resolvers, debugging failures</li>
+      <li><a href="/blog/2026/03/11/dns-resolvers-without-vms/">DNS Resolvers Without VMs</a> — Inbound/outbound endpoints, forwarding rulesets, VPN resolution</li>
+    </ol>
+
+    <hr>
+
+    <h2 class="title is-4">Terraform & IaC</h2>
+    <p>Naming conventions, auto-naming modules, state splitting, and secure remote state storage.</p>
+    <ol>
+      <li><a href="/blog/2026/03/11/one-naming-convention-to-rule-400-resources/">One Naming Convention to Rule 400 Resources</a> — Five-component format, resource group categories</li>
+      <li><a href="/blog/2026/03/11/one-module-names-every-resource/">One Module Names Every Resource</a> — Globals module + CloudPosse labels, full code</li>
+      <li><a href="/blog/2026/03/11/terraform-state-is-a-liability/">Terraform State Is a Liability</a> — Five-state split, deployment order, blast radius</li>
+      <li><a href="/blog/2026/03/11/terraform-remote-state-the-module-that-protects-itself/">Terraform Remote State: The Module That Protects Itself</a> — Encrypted, network-isolated state storage module</li>
+    </ol>
+
+    <hr>
+
+    <h2 class="title is-4">Observability</h2>
+    <p>OpenTelemetry setup, Golden Signals, alert routing, and writing alerts that don't cause fatigue.</p>
+    <ol>
+      <li><a href="/blog/2026/03/11/three-dashboards-is-not-observability/">Three Dashboards Is Not Observability</a> — OTel collector, auto instrumentation, cardinality trap</li>
+      <li><a href="/blog/2026/03/11/the-four-numbers-that-tell-you-everything/">The Four Numbers That Tell You Everything</a> — Golden Signals, SLO boundaries, one dashboard</li>
+      <li><a href="/blog/2026/03/11/when-every-alert-is-critical-nothing-is/">When Every Alert Is Critical, Nothing Is</a> — Grafana IRM routing, escalation chains, on-call</li>
+      <li><a href="/blog/2026/03/11/the-alert-checklist-nobody-follows/">The Alert Checklist Nobody Follows</a> — Severity contract, symptom naming, for clause, annotations</li>
+    </ol>
+
+    <hr>
+
+    <h2 class="title is-4">Security & Auth</h2>
+    <p>Custom RBAC roles, PIM, OIDC federation, and passwordless CI/CD authentication.</p>
+    <ol>
+      <li><a href="/blog/2026/03/11/rbac-as-code-six-roles-zero-portal-clicks/">RBAC as Code: Six Roles, Zero Portal Clicks</a> — Custom roles, PIM configuration, least privilege</li>
+      <li><a href="/blog/2026/03/11/every-permission-change-is-a-pull-request/">Every Permission Change Is a Pull Request</a> — IaC workflow, testing, rollback, audit trails</li>
+      <li><a href="/blog/2026/03/11/github-oidc-the-secret-is-no-secret/">GitHub OIDC: The Secret Is No Secret</a> — Federated credentials, wildcard patterns, SOC2</li>
+      <li><a href="/blog/2026/03/11/azure-devops-feeds-without-pats/">Azure DevOps Feeds Without PATs</a> — OIDC token exchange for Artifacts feeds</li>
+    </ol>
+
+    <hr>
+
+    <h2 class="title is-4">Standalone</h2>
+    <ol>
+      <li><a href="/blog/2026/03/11/pretty-urls-for-internal-apps/">Pretty URLs for Internal Apps</a> — Custom domains for Container Apps with Private DNS and self-signed certs</li>
+      <li><a href="/blog/2026/03/11/incident-management-without-the-chaos/">Incident Management Without the Chaos</a> — Eight-step process, severity levels, post-mortem template</li>
+    </ol>
+  </div>
+</section>

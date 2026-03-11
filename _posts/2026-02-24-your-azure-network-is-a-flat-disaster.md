@@ -3,7 +3,7 @@ layout: post
 title: "Your Azure Network Is a Flat Disaster"
 date: 2026-02-24
 tags: [Azure, Networking, Security, Cloud Architecture]
-description: "Your one-VNet-to-rule-them-all worked for a startup. It's a liability now. How to re-architect Azure networking for compliance, isolation, and multi-region without six months of downtime."
+description: "How to migrate from a flat Azure VNet to hub-and-spoke networking for multi-region compliance and isolation. Covers CIDR planning, zone architecture, subnet layout, and spoke design."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
@@ -102,10 +102,10 @@ The alternative is the flat network approach: fast to start, impossible to maint
 
 Right now you might be thinking: "OK, hub-and-spoke makes sense, but managing 9 spoke peerings per environment, times 3 environments, that's 27 peering configurations. And I need to keep them consistent, add new ones when spokes are added, tear them down cleanly..." You're right. Manual peering management at this scale is its own disaster.
 
-In my next post, I'll show you how [AVNM automates all of it](/blog/2026/03/11/stop-managing-peerings-like-its-2019/). Tag a VNet, it joins the right group, gets peered, gets mesh connectivity, gets the security baseline. Zero manual peering resources.
+In my next post, I'll show you how [AVNM automates all of it](/blog/2026/03/11/avnm-replaced-54-peering-resources-with-zero/). Tag a VNet, it joins the right group, gets peered, gets mesh connectivity, gets the security baseline. Zero manual peering resources.
 
 Until then, go check your VNets. If you see one called `default` with three subnets and a /16 CIDR, we need to talk :D
 
 ---
 
-*This is part 1 of the [Azure Networking series](/blog/2026/03/11/stop-managing-peerings-like-its-2019/). Next: AVNM Replaced 54 Peering Resources With Zero.*
+*This is part 1 of the [Azure Networking series](/blog/2026/03/11/avnm-replaced-54-peering-resources-with-zero/). Next: AVNM Replaced 54 Peering Resources With Zero.*

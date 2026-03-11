@@ -3,10 +3,11 @@ layout: post
 title: "It's Always DNS (And Here's Why)"
 date: 2026-03-11
 tags: [Azure, DNS, Networking, Private Endpoints, Cloud Architecture]
-description: "Private endpoints without proper DNS are expensive NICs nobody talks to. How to set up Azure Private DNS zones, hub resolvers, and debug the silent failures."
+description: "How to set up Azure Private DNS zones for private endpoints in a hub-and-spoke network. Covers zone inventory, hub resolvers, VNet links, and debugging silent DNS failures."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+redirect_from: /blog/2026/03/11/its-always-dns-and-heres-why/
 ---
 
 Pop quiz. You deploy a PostgreSQL Flexible Server with a private endpoint. You configure your connection string to `mydb.postgres.database.azure.com`. You deploy. Timeout. You stare at your screen. The screen stares back.
@@ -72,10 +73,10 @@ DNS is the invisible layer that makes private networking work. Every private end
 
 Set up the zones. Set up the resolvers. And when something doesn't connect, always check DNS first. It's always DNS. The answer to "why isn't this working?" is DNS about 80% of the time. The other 20% is also DNS, but with extra steps.
 
-For a deeper look at the resolver itself, see [DNS Resolvers Without VMs](/blog/2026/03/11/the-dns-resolver-nobody-told-you-about/).
+For a deeper look at the resolver itself, see [DNS Resolvers Without VMs](/blog/2026/03/11/dns-resolvers-without-vms/).
 
 Until then, go count your private DNS zones. If the number doesn't match the number of service types you use with private endpoints... that's your bug right there >.<
 
 ---
 
-*This is part 4 of the Azure Networking series. Previous: [Security Rules Your Developers Can't Delete](/blog/2026/03/11/security-rules-your-developers-cant-delete/). Next: [DNS Resolvers Without VMs](/blog/2026/03/11/the-dns-resolver-nobody-told-you-about/).*
+*This is part 4 of the Azure Networking series. Previous: [Security Rules Your Developers Can't Delete](/blog/2026/03/11/security-rules-your-developers-cant-delete/). Next: [DNS Resolvers Without VMs](/blog/2026/03/11/dns-resolvers-without-vms/).*

@@ -3,10 +3,11 @@ layout: post
 title: "GitHub OIDC: The Secret Is No Secret"
 date: 2026-03-11
 tags: [Azure, GitHub Actions, Security, OIDC, DevOps]
-description: "Client secrets in GitHub repos expire, leak, and break pipelines. OIDC federated credentials eliminate them entirely. Here's how to set it up in 20 minutes."
+description: "How to set up GitHub Actions OIDC federation with Azure to eliminate stored credentials. Step-by-step guide for federated credentials, wildcard vs specific patterns, and SOC2 compliance."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+redirect_from: /blog/2026/03/11/github-oidc-the-secret-is-no-secret/
 ---
 
 You have an Azure client secret stored in your GitHub repository settings right now. It was created 18 months ago by someone who may or may not still work here. It expires in 6 months. Nobody knows when exactly because nobody put it in the calendar. When it expires, your CI/CD pipeline will fail silently on a Friday afternoon, and someone will spend 2 hours figuring out why `terraform apply` suddenly returns "unauthorized."
@@ -120,4 +121,4 @@ Until then, go check your GitHub repo secrets. If you see `AZURE_CLIENT_SECRET` 
 
 ---
 
-*This is part 3 of the Security & Auth series. Previous: [Every Permission Change Is a Pull Request](/blog/2026/03/11/your-rbac-should-be-a-pull-request/). Next: [Azure DevOps Feeds Without PATs](/blog/2026/03/11/azure-devops-feeds-without-pats/).*
+*This is part 3 of the Security & Auth series. Previous: [Every Permission Change Is a Pull Request](/blog/2026/03/11/every-permission-change-is-a-pull-request/). Next: [Azure DevOps Feeds Without PATs](/blog/2026/03/11/azure-devops-feeds-without-pats/).*

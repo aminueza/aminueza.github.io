@@ -3,10 +3,11 @@ layout: post
 title: "Three Dashboards Is Not Observability"
 date: 2026-03-11
 tags: [Observability, OpenTelemetry, Grafana, SRE, Cloud Architecture]
-description: "Logs, metrics, and traces as separate tools isn't observability. OpenTelemetry with a collector pipeline gives you correlated signals, vendor neutrality, and one place to look."
+description: "How to set up OpenTelemetry with Grafana Cloud for correlated logs, metrics, and traces. Covers the collector pipeline, auto vs manual instrumentation, resource attributes, and the cardinality trap."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+redirect_from: /blog/2026/03/11/three-dashboards-is-not-observability/
 ---
 
 You have a logging dashboard. You have a metrics dashboard. You have a traces dashboard. When something breaks, you open all three, squint at timestamps trying to correlate them, and hope the clocks are synchronized. This is not observability. This is three dashboards and a prayer.

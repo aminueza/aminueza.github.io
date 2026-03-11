@@ -3,7 +3,7 @@ layout: post
 title: "Security Rules Your Developers Can't Delete"
 date: 2026-03-11
 tags: [Azure, Security, AVNM, Firewall, Cloud Architecture]
-description: "NSGs are suggestions. AVNM Security Admin rules are enforced. How to build a security baseline that developers can't bypass, plus centralized egress with Azure Firewall."
+description: "How to use Azure AVNM Security Admin rules to create a security baseline that developers can't override. Covers the seven-rule baseline, two-layer model, and centralized egress with Azure Firewall."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
@@ -64,10 +64,10 @@ A misconfigured NSG costs you nothing until it costs you everything. An open SSH
 
 The AVNM security baseline + firewall combo makes the most common mistakes structurally impossible instead of just discouraged.
 
-Next up: [It's Always DNS (And Here's Why)](/blog/2026/03/11/your-dns-is-broken-and-you-dont-know-it/) explains the DNS setup, because private endpoints are useless if your apps can't resolve them.
+Next up: [It's Always DNS (And Here's Why)](/blog/2026/03/11/its-always-dns-and-heres-why/) explains the DNS setup, because private endpoints are useless if your apps can't resolve them.
 
 Until then, go check your NSGs. Search for rules with source `*` on ports 22 or 3389. If you find any... do it with AVNM so nobody can add them back ;)
 
 ---
 
-*This is part 3 of the Azure Networking series. Previous: [AVNM Replaced 54 Peering Resources With Zero](/blog/2026/03/11/stop-managing-peerings-like-its-2019/). Next: [It's Always DNS](/blog/2026/03/11/your-dns-is-broken-and-you-dont-know-it/).*
+*This is part 3 of the Azure Networking series. Previous: [AVNM Replaced 54 Peering Resources With Zero](/blog/2026/03/11/avnm-replaced-54-peering-resources-with-zero/). Next: [It's Always DNS](/blog/2026/03/11/its-always-dns-and-heres-why/).*

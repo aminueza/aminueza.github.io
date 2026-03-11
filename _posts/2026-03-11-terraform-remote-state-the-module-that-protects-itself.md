@@ -3,7 +3,7 @@ layout: post
 title: "Terraform Remote State: The Module That Protects Itself"
 date: 2026-03-11
 tags: [Terraform, Azure, Security, Infrastructure as Code, DevOps]
-description: "Your state file is plain text with secrets in it. Here's a Terraform module that encrypts it with customer-managed keys, locks it behind private endpoints, and logs every access."
+description: "A Terraform module for secure Azure remote state: customer-managed Key Vault encryption, private endpoints, blob versioning, diagnostic logging, and OIDC authentication. Full code included."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
@@ -109,7 +109,7 @@ Same pattern for Key Vault. The `count` is conditional on `subnet_ids` being pro
 
 ## Using the Module
 
-Teams call it with their [globals config](https://github.com/aminueza/taskflow-platform/tree/main/infrastructure/terraform/modules/globals) (see my [auto-naming post](/blog/2026/03/11/autoname-every-azure-resource-with-one-module/) for the full module) and an IP allowlist:
+Teams call it with their [globals config](https://github.com/aminueza/taskflow-platform/tree/main/infrastructure/terraform/modules/globals) (see my [auto-naming post](/blog/2026/03/11/one-module-names-every-resource/) for the full module) and an IP allowlist:
 
 ```hcl
 module "globals" {
@@ -174,4 +174,4 @@ Go check your state storage. If your storage account has `default_action = "Allo
 
 ---
 
-*This is part 4 of the Terraform & IaC series. Previous: [Terraform State Is a Liability](/blog/2026/03/11/terraform-state-is-a-liability/). Start from [part 1](/blog/2026/03/11/name-your-azure-resources-like-you-mean-it/).*
+*This is part 4 of the Terraform & IaC series. Previous: [Terraform State Is a Liability](/blog/2026/03/11/terraform-state-is-a-liability/). Start from [part 1](/blog/2026/03/11/one-naming-convention-to-rule-400-resources/).*

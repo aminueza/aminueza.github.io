@@ -3,10 +3,11 @@ layout: post
 title: "AVNM Replaced 54 Peering Resources With Zero"
 date: 2026-03-11
 tags: [Azure, Networking, AVNM, Terraform, Cloud Architecture]
-description: "Manual VNet peerings don't scale. Azure Virtual Network Manager automates topology, IPAM, and group membership with tags. Here's how to replace 54 peering resources with zero."
+description: "How to use Azure Virtual Network Manager to automate VNet peering, IPAM, and network group membership with tags instead of managing 54 Terraform peering resources manually."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+redirect_from: /blog/2026/03/11/avnm-replaced-54-peering-resources-with-zero/
 ---
 
 So you read my [last post](/blog/2026/02/24/your-azure-network-is-a-flat-disaster/) and now you have a hub-and-spoke network with three zones, nine spokes, and a beautiful architecture diagram on your Linear that makes you feel smart. Congratulations. Now you need to connect all of it.

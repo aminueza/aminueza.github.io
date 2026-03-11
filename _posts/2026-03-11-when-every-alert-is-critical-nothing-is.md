@@ -3,10 +3,11 @@ layout: post
 title: "When Every Alert Is Critical, Nothing Is"
 date: 2026-03-11
 tags: [Observability, Grafana, Alerting, SRE, On-Call]
-description: "100 alerts firing and nobody knows which ones matter. How to build an alert routing pipeline with Grafana IRM that pages the right person for the right reason."
+description: "How to build a Grafana IRM alert routing pipeline with notification policies, escalation chains, on-call schedules, and label-based routing. Terraform configuration included."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+redirect_from: /blog/2026/03/11/when-every-alert-is-critical-nothing-is/
 ---
 
 You have 100 alerts. 80 of them are informational. 15 are warnings that nobody looks at. 4 are actual problems. And 1 is critical, buried in a Slack channel with 200 unread messages. The on-call person didn't see it because every alert looks the same: a wall of orange text in `#alerts` that everyone muted weeks ago.
@@ -90,10 +91,10 @@ Schedules are 24/7 rolling weekly rotations defined in Terraform. Temporary over
 
 **Maintenance windows as code.** Silencing alerts during planned maintenance is currently a manual UI operation. It should be a `grafana_silence` resource in Terraform, tracked in version control alongside the infrastructure it covers.
 
-Next up: [The Alert Checklist Nobody Follows](/blog/2026/03/11/write-alerts-that-dont-suck/) covers how to write alerts that actually work with this routing model.
+Next up: [The Alert Checklist Nobody Follows](/blog/2026/03/11/the-alert-checklist-nobody-follows/) covers how to write alerts that actually work with this routing model.
 
 Until then, go check your Slack alert channels. If you've muted any of them... that's the symptom right there ;)
 
 ---
 
-*This is part 3 of the Observability series. Previous: [The Four Numbers That Tell You Everything](/blog/2026/03/11/the-four-numbers-that-tell-you-everything/). Next: [The Alert Checklist Nobody Follows](/blog/2026/03/11/write-alerts-that-dont-suck/).*
+*This is part 3 of the Observability series. Previous: [The Four Numbers That Tell You Everything](/blog/2026/03/11/the-four-numbers-that-tell-you-everything/). Next: [The Alert Checklist Nobody Follows](/blog/2026/03/11/the-alert-checklist-nobody-follows/).*

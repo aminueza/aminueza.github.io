@@ -3,10 +3,11 @@ layout: post
 title: "One Module Names Every Resource"
 date: 2026-03-11
 tags: [Terraform, Azure, DevOps, Infrastructure as Code, Best Practices]
-description: "Nobody should type a resource name by hand. A globals module plus CloudPosse labels generates consistent names for every resource type from four inputs."
+description: "How to auto-generate Azure resource names with a Terraform globals module and CloudPosse labels. Full module code for validated inputs, location mapping, and per-resource-type naming."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+redirect_from: /blog/2026/03/11/one-module-names-every-resource/
 ---
 
 Every naming convention fails the same way. Someone writes a document. Everyone agrees on the format. Then six months later you find `rg-prod-1`, `my-keyvault`, and `storage_account_test` in your subscriptions because the convention was a document, not code. People forget. People improvise. People copy-paste from Stack Overflow.
@@ -200,4 +201,4 @@ Go check your Terraform code. If you see resource names built with string interp
 
 ---
 
-*This is part 2 of the Terraform & IaC series. Previous: [One Naming Convention to Rule 400 Resources](/blog/2026/03/11/name-your-azure-resources-like-you-mean-it/). Next: [Terraform State Is a Liability](/blog/2026/03/11/terraform-state-is-a-liability/).*
+*This is part 2 of the Terraform & IaC series. Previous: [One Naming Convention to Rule 400 Resources](/blog/2026/03/11/one-naming-convention-to-rule-400-resources/). Next: [Terraform State Is a Liability](/blog/2026/03/11/terraform-state-is-a-liability/).*

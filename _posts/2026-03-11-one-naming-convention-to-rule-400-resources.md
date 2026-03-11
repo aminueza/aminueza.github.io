@@ -3,10 +3,11 @@ layout: post
 title: "One Naming Convention to Rule 400 Resources"
 date: 2026-03-11
 tags: [Azure, Terraform, Cloud Architecture, DevOps, Best Practices]
-description: "rg-prod-1, storage123, my-vnet. Your naming is chaos. A five-component convention that tells you what it is, who owns it, and where it lives at a glance."
+description: "A five-component Azure resource naming convention (resource-team-app-env-region) with resource group categories, Terraform enforcement via a globals module, and the full abbreviation reference."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+redirect_from: /blog/2026/03/11/one-naming-convention-to-rule-400-resources/
 ---
 
 You're staring at the Azure Portal. There's a resource group called `rg-prod-1`. Inside it: `my-storage`, `vnet-main`, `nsg-default`, and `kv-secrets`. You don't know which team owns these. You don't know which application uses them. You don't know if `rg-prod-1` is actually production or if someone named it that during a demo and forgot to delete it. There are three other resource groups with equally helpful names. Good luck figuring out what to delete.
@@ -70,7 +71,7 @@ Infrastructure resources don't. The VNet that your container app runs on was cre
 
 A naming convention that lives in a wiki is a suggestion. A naming convention enforced in Terraform is a rule.
 
-The trick is a **[globals module](https://github.com/aminueza/taskflow-platform/tree/main/infrastructure/terraform/modules/globals)** that every other module depends on (I wrote a [deep dive on how it works](/blog/2026/03/11/autoname-every-azure-resource-with-one-module/)). Teams don't pick resource names. They provide `location`, `environment`, `team_acronym`, and `application_name`. The globals module validates the inputs, maps locations to region codes (`westeurope` -> `weu`), maps environments to full names (`stg` -> `Staging`), and outputs a `global_config` object that every downstream module consumes:
+The trick is a **[globals module](https://github.com/aminueza/taskflow-platform/tree/main/infrastructure/terraform/modules/globals)** that every other module depends on (I wrote a [deep dive on how it works](/blog/2026/03/11/one-module-names-every-resource/)). Teams don't pick resource names. They provide `location`, `environment`, `team_acronym`, and `application_name`. The globals module validates the inputs, maps locations to region codes (`westeurope` -> `weu`), maps environments to full names (`stg` -> `Staging`), and outputs a `global_config` object that every downstream module consumes:
 
 ```hcl
 module "globals" {
@@ -112,4 +113,4 @@ Go check your Azure subscriptions. If you see resources named `default`, `test`,
 
 ---
 
-*This is part 1 of the Terraform & IaC series. Next: [One Module Names Every Resource](/blog/2026/03/11/autoname-every-azure-resource-with-one-module/) shows the full globals + labels code.*
+*This is part 1 of the Terraform & IaC series. Next: [One Module Names Every Resource](/blog/2026/03/11/one-module-names-every-resource/) shows the full globals + labels code.*

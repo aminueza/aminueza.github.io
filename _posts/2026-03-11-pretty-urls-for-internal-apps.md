@@ -3,10 +3,11 @@ layout: post
 title: "Pretty URLs for Internal Apps"
 date: 2026-03-11
 tags: [Azure, Container Apps, DNS, Networking, Security]
-description: "Your internal apps deserve real domain names, not 55-character Azure FQDNs. How to set up Private DNS zones with custom domains and self-signed certs for VPN-only access."
+description: "How to set up custom domain names for Azure Container Apps using Private DNS zones and self-signed certificates for VPN-only internal access without public internet exposure."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
+redirect_from: /blog/2026/03/11/pretty-urls-for-internal-apps/
 ---
 
 Your internal admin panel has a URL like `ca-platform-admin-dev-weu.happyfield-abc123.westeurope.azurecontainerapps.io`. You share it in Slack. Someone copies it wrong. Someone else bookmarks it and it stops working after a redeployment. Nobody can remember it. Nobody should have to.

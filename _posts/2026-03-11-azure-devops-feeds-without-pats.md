@@ -3,7 +3,7 @@ layout: post
 title: "Azure DevOps Feeds Without PATs"
 date: 2026-03-11
 tags: [Azure, GitHub Actions, DevOps, OIDC, CI/CD]
-description: "Personal Access Tokens for Azure DevOps Artifacts expire, leak, and break builds. Use OIDC + a magic scope to authenticate your GitHub Actions pipelines instead."
+description: "How to authenticate GitHub Actions with Azure DevOps Artifacts feeds using OIDC instead of PATs. Covers the magic scope UUID, token exchange, and configs for pip, npm, NuGet, and Maven."
 author: Amanda Souza
 image: /assets/images/profile.png
 toc: true
@@ -13,7 +13,7 @@ You're building in GitHub Actions. Your private packages live in Azure DevOps Ar
 
 "Just rotate the PAT." => Sure, and also set a calendar reminder, and also remember which repos use it, and also hope the person who created it still has permissions to make a new one. Or... just stop using PATs entirely.
 
-If you read my [last post on OIDC federation](/blog/2026/03/11/stop-storing-azure-secrets-in-github/), you already have passwordless authentication between GitHub Actions and Azure. The trick is extending that to Azure DevOps Artifacts. And it's all about one magic scope that nobody tells you about.
+If you read my [last post on OIDC federation](/blog/2026/03/11/github-oidc-the-secret-is-no-secret/), you already have passwordless authentication between GitHub Actions and Azure. The trick is extending that to Azure DevOps Artifacts. And it's all about one magic scope that nobody tells you about.
 
 ## The Magic Scope
 
@@ -149,4 +149,4 @@ Go check your GitHub secrets. If you see `ADO_PAT` in there, now you know the al
 
 ---
 
-*This is part 4 of the Security & Auth series. Previous: [GitHub OIDC: The Secret Is No Secret](/blog/2026/03/11/stop-storing-azure-secrets-in-github/). Start from [part 1](/blog/2026/03/11/stop-clicking-buttons-to-manage-azure-permissions/).*
+*This is part 4 of the Security & Auth series. Previous: [GitHub OIDC: The Secret Is No Secret](/blog/2026/03/11/github-oidc-the-secret-is-no-secret/). Start from [part 1](/blog/2026/03/11/rbac-as-code-six-roles-zero-portal-clicks/).*
