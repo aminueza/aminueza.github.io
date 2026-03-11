@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <rect width="860" height="320" rx="12" fill="#f9fafb"/>
+  <text x="430" y="28" text-anchor="middle" fill="#333" font-size="16" font-weight="700">Azure Resource Naming Convention</text>
+  <text x="430" y="46" text-anchor="middle" fill="#888" font-size="11">Five components. One format. Every resource. No guessing.</text>
+
+  <!-- The format -->
+  <rect x="100" y="62" width="660" height="50" rx="10" fill="#fff" stroke="#0078d4" stroke-width="2"/>
+  <text x="430" y="84" text-anchor="middle" fill="#0078d4" font-size="16" font-weight="700" font-family="monospace">{resource}-{team}-{app}-{env}-{region}</text>
+  <text x="430" y="102" text-anchor="middle" fill="#888" font-size="10">+ optional -001 instance suffix for subnets, private endpoints, etc.</text>
+
+  <!-- Five component boxes -->
+  <!-- Resource -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="130" width="148" height="100" rx="8" fill="#fff" stroke="#c62828" stroke-width="1.5"/>
+    <rect x="30" y="130" width="148" height="26" rx="8" fill="#c62828"/>
+    <rect x="30" y="144" width="148" height="12" fill="#c62828"/>
+    <text x="104" y="147" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Resource Type</text>
+  </g>
+  <text x="104" y="172" text-anchor="middle" fill="#333" font-size="9">Microsoft abbreviation</text>
+  <text x="104" y="188" text-anchor="middle" fill="#0078d4" font-size="9" font-family="monospace">vm vnet kv ca</text>
+  <text x="104" y="204" text-anchor="middle" fill="#0078d4" font-size="9" font-family="monospace">nsg snet pep</text>
+  <text x="104" y="222" text-anchor="middle" fill="#888" font-size="8">Always first</text>
+
+  <!-- Team -->
+  <g filter="url(#shadow)">
+    <rect x="194" y="130" width="148" height="100" rx="8" fill="#fff" stroke="#e65100" stroke-width="1.5"/>
+    <rect x="194" y="130" width="148" height="26" rx="8" fill="#e65100"/>
+    <rect x="194" y="144" width="148" height="12" fill="#e65100"/>
+    <text x="268" y="147" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Team</text>
+  </g>
+  <text x="268" y="172" text-anchor="middle" fill="#333" font-size="9">2-4 char identifier</text>
+  <text x="268" y="188" text-anchor="middle" fill="#e65100" font-size="9" font-family="monospace">cnct ai up fss</text>
+  <text x="268" y="204" text-anchor="middle" fill="#888" font-size="9">Consistent per team</text>
+  <text x="268" y="222" text-anchor="middle" fill="#888" font-size="8">Defined in globals</text>
+
+  <!-- App -->
+  <g filter="url(#shadow)">
+    <rect x="358" y="130" width="148" height="100" rx="8" fill="#fff" stroke="#0078d4" stroke-width="1.5"/>
+    <rect x="358" y="130" width="148" height="26" rx="8" fill="#0078d4"/>
+    <rect x="358" y="144" width="148" height="12" fill="#0078d4"/>
+    <text x="432" y="147" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Application</text>
+  </g>
+  <text x="432" y="172" text-anchor="middle" fill="#333" font-size="9">App or category name</text>
+  <text x="432" y="188" text-anchor="middle" fill="#0078d4" font-size="9" font-family="monospace">portal api</text>
+  <text x="432" y="204" text-anchor="middle" fill="#0078d4" font-size="9" font-family="monospace">network security</text>
+  <text x="432" y="222" text-anchor="middle" fill="#888" font-size="8">Lowercase, no spaces</text>
+
+  <!-- Env -->
+  <g filter="url(#shadow)">
+    <rect x="522" y="130" width="148" height="100" rx="8" fill="#fff" stroke="#2e7d32" stroke-width="1.5"/>
+    <rect x="522" y="130" width="148" height="26" rx="8" fill="#2e7d32"/>
+    <rect x="522" y="144" width="148" height="12" fill="#2e7d32"/>
+    <text x="596" y="147" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Environment</text>
+  </g>
+  <text x="596" y="172" text-anchor="middle" fill="#333" font-size="9">3-6 char code</text>
+  <text x="596" y="188" text-anchor="middle" fill="#2e7d32" font-size="9" font-family="monospace">dev stg prd</text>
+  <text x="596" y="204" text-anchor="middle" fill="#2e7d32" font-size="9" font-family="monospace">tst global</text>
+  <text x="596" y="222" text-anchor="middle" fill="#888" font-size="8">Match deployment env</text>
+
+  <!-- Region -->
+  <g filter="url(#shadow)">
+    <rect x="686" y="130" width="148" height="100" rx="8" fill="#fff" stroke="#7b1fa2" stroke-width="1.5"/>
+    <rect x="686" y="130" width="148" height="26" rx="8" fill="#7b1fa2"/>
+    <rect x="686" y="144" width="148" height="12" fill="#7b1fa2"/>
+    <text x="760" y="147" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Region</text>
+  </g>
+  <text x="760" y="172" text-anchor="middle" fill="#333" font-size="9">3 char Azure code</text>
+  <text x="760" y="188" text-anchor="middle" fill="#7b1fa2" font-size="9" font-family="monospace">weu eus eau</text>
+  <text x="760" y="204" text-anchor="middle" fill="#7b1fa2" font-size="9" font-family="monospace">neu sea sbr</text>
+  <text x="760" y="222" text-anchor="middle" fill="#888" font-size="8">Match deployment region</text>
+
+  <!-- Example -->
+  <rect x="30" y="252" width="800" height="50" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="430" y="272" text-anchor="middle" fill="#333" font-size="11" font-weight="700">Examples</text>
+  <text x="155" y="292" text-anchor="middle" fill="#0078d4" font-size="10" font-family="monospace">ca-fss-api-prd-weu</text>
+  <text x="370" y="292" text-anchor="middle" fill="#0078d4" font-size="10" font-family="monospace">vnet-cnct-network-dev-weu</text>
+  <text x="600" y="292" text-anchor="middle" fill="#0078d4" font-size="10" font-family="monospace">snet-cnct-network-dev-weu-001</text>
+  <text x="785" y="292" text-anchor="middle" fill="#0078d4" font-size="10" font-family="monospace">stcnctstoragedevweu</text>
+</svg>
