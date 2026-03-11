@@ -74,6 +74,57 @@ The structure: **timeline** (what happened, when, who did what), **root cause** 
 
 The action items are the whole point. A post-mortem without action items is a story. A post-mortem with action items is a prevention plan. Track them. Review them monthly. If action items from three months ago are still open, your post-mortem process is theater.
 
+Here's the template we use (works in Linear, Notion, or any ticket system):
+
+```markdown
+# [Incident Title] - Post-Incident Report
+
+**Date:** YYYY-MM-DD | **Severity:** P0/P1/P2/P3
+**Duration:** X hours | **Coordinator:** @name
+**Tech Lead:** @name | **Comms Lead:** @name
+
+## Description
+One paragraph. What happened and what users experienced.
+
+## Timeline
+| Time | Event | Who | Action Taken |
+|------|-------|-----|-------------|
+| HH:MM | Alert fired / report received | | |
+| HH:MM | Incident declared, roles assigned | | |
+| HH:MM | Root cause identified | | |
+| HH:MM | Fix deployed | | |
+| HH:MM | Incident resolved | | |
+
+## Impact Analysis
+- **Scope:** X% of users/customers affected
+- **Duration:** X hours of degraded service
+- **Confidentiality:** Was data exposure possible? Y/N
+- **Integrity:** Was data accuracy compromised? Y/N
+- **Availability:** Was service availability affected? Y/N
+
+## Containment
+What was done to stop the bleeding before the permanent fix.
+
+## Root Cause Analysis
+Why it happened. Primary cause + contributing factors.
+
+## Resolution
+The permanent fix. What was deployed, changed, or reverted.
+
+## Related Incidents
+Links to upstream or related incidents, if any.
+
+## What Worked Well / What Didn't
+Honest retro. No blame, just systems thinking.
+
+## Action Items
+| Action | Owner | Due Date | Status |
+|--------|-------|----------|--------|
+| | @name | YYYY-MM-DD | Open |
+```
+
+The template forces structure. No "I'll write it up later" that turns into never. Fill it in as the incident progresses, not after.
+
 ## The On-Call Access Model
 
 During incidents, responders need elevated access. The pattern: a PIM-eligible role (Contributor + Key Vault access, no customer data, no RBAC changes) activated with MFA, justification, and the incident ticket number. Capped at 4 hours. Manager approval required within 24 hours (but activation is instant because you can't wait for approval at 3 AM). No permanent elevated assignments.
