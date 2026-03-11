@@ -27,7 +27,7 @@ You provide four inputs. You get correctly named, correctly tagged resources for
 
 ## The Globals Module: Full Code
 
-The globals module does three things: validate inputs, map short codes to full values, and assemble a config object that every other module consumes.
+The [globals module](https://github.com/aminueza/taskflow-platform/tree/main/infrastructure/terraform/modules/globals) does three things: validate inputs, map short codes to full values, and assemble a config object that every other module consumes.
 
 **Inputs with validation** - invalid values fail at plan time, not at deploy time:
 

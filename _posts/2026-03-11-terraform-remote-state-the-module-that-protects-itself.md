@@ -109,7 +109,7 @@ Same pattern for Key Vault. The `count` is conditional on `subnet_ids` being pro
 
 ## Using the Module
 
-Teams call it with their globals config and an IP allowlist:
+Teams call it with their [globals config](https://github.com/aminueza/taskflow-platform/tree/main/infrastructure/terraform/modules/globals) (see my [auto-naming post](/2026/03/11/autoname-every-azure-resource-with-one-module/) for the full module) and an IP allowlist:
 
 ```hcl
 module "globals" {

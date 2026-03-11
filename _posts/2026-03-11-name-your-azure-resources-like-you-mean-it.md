@@ -70,7 +70,7 @@ Infrastructure resources don't. The VNet that your container app runs on was cre
 
 A naming convention that lives in a wiki is a suggestion. A naming convention enforced in Terraform is a rule.
 
-The trick is a **globals module** that every other module depends on. Teams don't pick resource names. They provide `location`, `environment`, `team_acronym`, and `application_name`. The globals module validates the inputs, maps locations to region codes (`westeurope` -> `weu`), maps environments to full names (`stg` -> `Staging`), and outputs a `global_config` object that every downstream module consumes:
+The trick is a **[globals module](https://github.com/aminueza/taskflow-platform/tree/main/infrastructure/terraform/modules/globals)** that every other module depends on (I wrote a [deep dive on how it works](/2026/03/11/autoname-every-azure-resource-with-one-module/)). Teams don't pick resource names. They provide `location`, `environment`, `team_acronym`, and `application_name`. The globals module validates the inputs, maps locations to region codes (`westeurope` -> `weu`), maps environments to full names (`stg` -> `Staging`), and outputs a `global_config` object that every downstream module consumes:
 
 ```hcl
 module "globals" {
