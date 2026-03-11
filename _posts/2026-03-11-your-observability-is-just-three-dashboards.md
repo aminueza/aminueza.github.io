@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Your Observability Is Just Three Dashboards"
+title: "Three Dashboards Is Not Observability"
 date: 2026-03-11
 tags: [Observability, OpenTelemetry, Grafana, SRE, Cloud Architecture]
 description: "Logs, metrics, and traces as separate tools isn't observability. OpenTelemetry with a collector pipeline gives you correlated signals, vendor neutrality, and one place to look."
@@ -90,6 +90,10 @@ Unstructured logs are useless at scale. `"Error processing request"` tells you n
 
 The `trace_id` is the magic field. It lets Grafana pivot from this log directly to the trace that produced it, and from the trace to every other log and span in the same request. One click from "something failed" to "here's the entire request flow." That's observability.
 
-In my next post, I'll cover the four Golden Signals that every service must emit, and why your SLO boundary is the namespace, not the individual workload.
+Next up: [The Four Numbers That Tell You Everything](/blog/2026/03/11/the-four-numbers-that-tell-you-everything/) covers the Golden Signals that every service must emit.
 
 Until then, go check your logs. If they're unstructured strings without trace IDs... we need to talk :D
+
+---
+
+*This is part 1 of the Observability series. Next: [The Four Numbers That Tell You Everything](/blog/2026/03/11/the-four-numbers-that-tell-you-everything/).*

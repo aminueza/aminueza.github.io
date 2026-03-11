@@ -102,6 +102,10 @@ The alternative is the flat network approach: fast to start, impossible to maint
 
 Right now you might be thinking: "OK, hub-and-spoke makes sense, but managing 9 spoke peerings per environment, times 3 environments, that's 27 peering configurations. And I need to keep them consistent, add new ones when spokes are added, tear them down cleanly..." You're right. Manual peering management at this scale is its own disaster.
 
-In my next post, I'll show you how Azure Virtual Network Manager (AVNM) automates all of it. Tag a VNet, it joins the right group, gets peered, gets mesh connectivity, gets the security baseline. Zero manual peering resources. It also manages IP address allocation so you never touch a CIDR spreadsheet again. That's the payoff for building this topology.
+In my next post, I'll show you how [AVNM automates all of it](/blog/2026/03/11/stop-managing-peerings-like-its-2019/). Tag a VNet, it joins the right group, gets peered, gets mesh connectivity, gets the security baseline. Zero manual peering resources.
 
 Until then, go check your VNets. If you see one called `default` with three subnets and a /16 CIDR, we need to talk :D
+
+---
+
+*This is part 1 of the [Azure Networking series](/blog/2026/03/11/stop-managing-peerings-like-its-2019/). Next: AVNM Replaced 54 Peering Resources With Zero.*

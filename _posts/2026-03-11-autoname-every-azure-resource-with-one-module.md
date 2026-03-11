@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Auto-Name Every Azure Resource With One Module"
+title: "One Module Names Every Resource"
 date: 2026-03-11
 tags: [Terraform, Azure, DevOps, Infrastructure as Code, Best Practices]
 description: "Nobody should type a resource name by hand. A globals module plus CloudPosse labels generates consistent names for every resource type from four inputs."
@@ -197,3 +197,7 @@ The API module creates `rg-pay-api-stg-weu`. The worker module creates `rg-pay-w
 **Typos** fail validation at plan time. **Inconsistency** is impossible because every module reads the same `global_config`. **Forgotten tags** can't happen because `all_tags` is built into the config, not a manual step. The convention is only as strong as the code that enforces it. A wiki page is a wish. A globals module with `nullable = false` is a guarantee.
 
 Go check your Terraform code. If you see resource names built with string interpolation instead of a label module... that's where the drift starts ;)
+
+---
+
+*This is part 2 of the Terraform & IaC series. Previous: [One Naming Convention to Rule 400 Resources](/blog/2026/03/11/name-your-azure-resources-like-you-mean-it/). Next: [Terraform State Is a Liability](/blog/2026/03/11/terraform-state-is-a-liability/).*

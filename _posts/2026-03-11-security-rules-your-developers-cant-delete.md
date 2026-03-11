@@ -64,6 +64,10 @@ A misconfigured NSG costs you nothing until it costs you everything. An open SSH
 
 The AVNM security baseline + firewall combo makes the most common mistakes structurally impossible instead of just discouraged.
 
-In my next post, I'll explain the DNS setup, because private endpoints are useless if your apps can't resolve them.
+Next up: [It's Always DNS (And Here's Why)](/blog/2026/03/11/your-dns-is-broken-and-you-dont-know-it/) explains the DNS setup, because private endpoints are useless if your apps can't resolve them.
 
 Until then, go check your NSGs. Search for rules with source `*` on ports 22 or 3389. If you find any... do it with AVNM so nobody can add them back ;)
+
+---
+
+*This is part 3 of the Azure Networking series. Previous: [AVNM Replaced 54 Peering Resources With Zero](/blog/2026/03/11/stop-managing-peerings-like-its-2019/). Next: [It's Always DNS](/blog/2026/03/11/your-dns-is-broken-and-you-dont-know-it/).*

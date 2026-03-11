@@ -89,3 +89,7 @@ Each application gets its own file within the same container. One storage accoun
 My rule of thumb: split when the lifecycles are different. DNS changes quarterly, firewall rules weekly, VPN monthly. Different cadences, different state files. **Your state file boundary should match your blast radius boundary.**
 
 Build it once, automate the repetitive parts, and make the wrong things impossible instead of just discouraged. Your future self will thank you. Or at least they won't curse your name. Which, in infrastructure, is basically the same thing :D
+
+---
+
+*This is part 3 of the Terraform & IaC series. Previous: [One Module Names Every Resource](/blog/2026/03/11/autoname-every-azure-resource-with-one-module/). Next: [Terraform Remote State: The Module That Protects Itself](/blog/2026/03/11/terraform-remote-state-the-module-that-protects-itself/).*

@@ -94,3 +94,7 @@ Every team selects their namespace. The data is there because every service emit
 That's what observability looks like when everyone speaks the same language.
 
 Until then, go count your metrics. If the number makes you proud, you probably have too many. If you can point to four that answer "is my service healthy?"... you're already ahead of most teams :D
+
+---
+
+*This is part 2 of the Observability series. Previous: [Three Dashboards Is Not Observability](/blog/2026/03/11/your-observability-is-just-three-dashboards/). Next: [When Every Alert Is Critical, Nothing Is](/blog/2026/03/11/your-alerts-are-just-noise/).*

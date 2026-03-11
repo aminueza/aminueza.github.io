@@ -171,3 +171,7 @@ Because a storage account with defaults is a liability. No encryption beyond Azu
 The module turns "storage account with a blob" into "encrypted, network-isolated, audited, recoverable state storage." The difference is about 100 lines of Terraform and zero ongoing maintenance.
 
 Go check your state storage. If your storage account has `default_action = "Allow"` in its network rules... you know what to do ;)
+
+---
+
+*This is part 4 of the Terraform & IaC series. Previous: [Terraform State Is a Liability](/blog/2026/03/11/terraform-state-is-a-liability/). Start from [part 1](/blog/2026/03/11/name-your-azure-resources-like-you-mean-it/).*

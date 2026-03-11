@@ -13,7 +13,7 @@ You're building in GitHub Actions. Your private packages live in Azure DevOps Ar
 
 "Just rotate the PAT." => Sure, and also set a calendar reminder, and also remember which repos use it, and also hope the person who created it still has permissions to make a new one. Or... just stop using PATs entirely.
 
-If you read my last post on OIDC federation, you already have passwordless authentication between GitHub Actions and Azure. The trick is extending that to Azure DevOps Artifacts. And it's all about one magic scope that nobody tells you about.
+If you read my [last post on OIDC federation](/blog/2026/03/11/stop-storing-azure-secrets-in-github/), you already have passwordless authentication between GitHub Actions and Azure. The trick is extending that to Azure DevOps Artifacts. And it's all about one magic scope that nobody tells you about.
 
 ## The Magic Scope
 
@@ -146,3 +146,7 @@ Then configure their package manager with the token. It works for pip, npm, NuGe
 **npm needs base64-encoded passwords.** Don't pass the token directly. Pipe it through `echo -n "$TOKEN" | base64`. Without base64, npm silently fails authentication. No error. Just 401. Lovely.
 
 Go check your GitHub secrets. If you see `ADO_PAT` in there, now you know the alternative ;)
+
+---
+
+*This is part 4 of the Security & Auth series. Previous: [GitHub OIDC: The Secret Is No Secret](/blog/2026/03/11/stop-storing-azure-secrets-in-github/). Start from [part 1](/blog/2026/03/11/stop-clicking-buttons-to-manage-azure-permissions/).*

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Your Incident Process Is a Slack Message and a Prayer"
+title: "Incident Management Without the Chaos"
 date: 2026-03-11
 tags: [SRE, Incident Management, On-Call, Observability, DevOps]
 description: "Someone posts 'is the API down?' in Slack. Three people investigate the same thing. Nobody updates customers. Here's the incident process that actually works."
@@ -136,3 +136,7 @@ This means: the on-call person can restart services, read secrets, modify networ
 Everything here builds on three books: **[Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)** (Google, chapters 14-15 on incident management and post-mortems), **[The Site Reliability Workbook](https://sre.google/workbook/table-of-contents/)** (the practical companion, especially the incident response and post-mortem culture chapters), and **[Incident Management for Operations](https://www.oreilly.com/library/view/incident-management-for/9781491917619/)** by Rob Schnepp (more tactical, how to actually run the coordination). Start with the SRE book. The principles are universal.
 
 Go check your last three incidents. Did they have a coordinator? A timeline? A post-mortem with tracked action items? If not... well, now you have the playbook :D
+
+---
+
+*Related: The [Observability series](/blog/2026/03/11/your-observability-is-just-three-dashboards/) covers the monitoring and alerting side that feeds into incident detection.*

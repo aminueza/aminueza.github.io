@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The DNS Resolver Nobody Told You About"
+title: "DNS Resolvers Without VMs"
 date: 2026-03-11
 tags: [Azure, DNS, Networking, Private Endpoints, Cloud Architecture]
 description: "Azure DNS Private Resolver replaces DNS VMs entirely. How to set up inbound/outbound endpoints, forwarding rulesets, and VPN resolution in a hub-and-spoke network."
@@ -9,7 +9,7 @@ image: /assets/images/profile.png
 toc: true
 ---
 
-In my last post I explained why DNS makes or breaks private endpoints. But "there's a DNS resolver in the hub" doesn't tell you much when your VPN client can't resolve `privatelink.blob.core.windows.net`. So let's open the hood.
+In my [last post](/blog/2026/03/11/your-dns-is-broken-and-you-dont-know-it/) I explained why DNS makes or breaks private endpoints. But "there's a DNS resolver in the hub" doesn't tell you much when your VPN client can't resolve `privatelink.blob.core.windows.net`. So let's open the hood.
 
 ## DNS Private Resolver: The Components
 
@@ -79,3 +79,7 @@ No spoke-side changes needed. The ruleset is already linked to all spoke VNets, 
 The only catch: it resolves within its own VNet's linked zones. Cross-VNet resolution requires healthy hub-and-spoke peering, which circles back to AVNM and tags from my earlier posts. The chain is always: tags correct &#8594; peering active &#8594; DNS resolves &#8594; everything works.
 
 Go check your forwarding rules. If any domain is missing a trailing dot... well, now you know why it's not working :D
+
+---
+
+*This is part 5 of the Azure Networking series. Previous: [It's Always DNS](/blog/2026/03/11/your-dns-is-broken-and-you-dont-know-it/). Start from [part 1](/blog/2026/02/24/your-azure-network-is-a-flat-disaster/).*

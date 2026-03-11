@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Stop Clicking Buttons to Manage Azure Permissions"
+title: "RBAC as Code: Six Roles, Zero Portal Clicks"
 date: 2026-03-11
 tags: [Azure, RBAC, Security, Terraform, PIM]
 description: "ClickOps RBAC is inconsistent, unauditable, and slow. Six custom roles with PIM, managed in Terraform, replace the chaos with a system that actually works."
@@ -80,3 +80,7 @@ Teams share role definitions. "Products Contributor" has the same permissions re
 The other tradeoff: everything goes through Terraform. No quick portal fixes. This is annoying once a month and prevents security incidents the rest of the time.
 
 Go check your Azure IAM assignments. If you see permanent Contributor roles on production subscriptions with no expiration... you know what to do ;)
+
+---
+
+*This is part 1 of the Security & Auth series. Next: [Every Permission Change Is a Pull Request](/blog/2026/03/11/your-rbac-should-be-a-pull-request/) covers the IaC workflow for managing these roles.*

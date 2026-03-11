@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Stop Storing Azure Secrets in GitHub"
+title: "GitHub OIDC: The Secret Is No Secret"
 date: 2026-03-11
 tags: [Azure, GitHub Actions, Security, OIDC, DevOps]
 description: "Client secrets in GitHub repos expire, leak, and break pipelines. OIDC federated credentials eliminate them entirely. Here's how to set it up in 20 minutes."
@@ -117,3 +117,7 @@ You can combine both on the same app registration. Multiple federated credential
 Stop rotating secrets. Stop storing them. Let GitHub and Azure handle the handshake, and go fix something that actually matters.
 
 Until then, go check your GitHub repo secrets. If you see `AZURE_CLIENT_SECRET` in there... you know what to do ;)
+
+---
+
+*This is part 3 of the Security & Auth series. Previous: [Every Permission Change Is a Pull Request](/blog/2026/03/11/your-rbac-should-be-a-pull-request/). Next: [Azure DevOps Feeds Without PATs](/blog/2026/03/11/azure-devops-feeds-without-pats/).*

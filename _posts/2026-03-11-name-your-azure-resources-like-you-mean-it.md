@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Name Your Azure Resources Like You Mean It"
+title: "One Naming Convention to Rule 400 Resources"
 date: 2026-03-11
 tags: [Azure, Terraform, Cloud Architecture, DevOps, Best Practices]
 description: "rg-prod-1, storage123, my-vnet. Your naming is chaos. A five-component convention that tells you what it is, who owns it, and where it lives at a glance."
@@ -109,3 +109,7 @@ When every resource follows the same format, you can answer questions without op
 No spreadsheets tracking resource ownership. No "who created this?" Slack messages. No guessing whether `storage123` is safe to delete.
 
 Go check your Azure subscriptions. If you see resources named `default`, `test`, or `my-*`... it's time for a convention :D
+
+---
+
+*This is part 1 of the Terraform & IaC series. Next: [One Module Names Every Resource](/blog/2026/03/11/autoname-every-azure-resource-with-one-module/) shows the full globals + labels code.*

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Your DNS Is Broken and You Don't Know It"
+title: "It's Always DNS (And Here's Why)"
 date: 2026-03-11
 tags: [Azure, DNS, Networking, Private Endpoints, Cloud Architecture]
 description: "Private endpoints without proper DNS are expensive NICs nobody talks to. How to set up Azure Private DNS zones, hub resolvers, and debug the silent failures."
@@ -72,6 +72,10 @@ DNS is the invisible layer that makes private networking work. Every private end
 
 Set up the zones. Set up the resolvers. And when something doesn't connect, always check DNS first. It's always DNS. The answer to "why isn't this working?" is DNS about 80% of the time. The other 20% is also DNS, but with extra steps.
 
-In my next post, I'll talk about Terraform state management, because putting everything in one state file is its own kind of disaster.
+For a deeper look at the resolver itself, see [DNS Resolvers Without VMs](/blog/2026/03/11/the-dns-resolver-nobody-told-you-about/).
 
 Until then, go count your private DNS zones. If the number doesn't match the number of service types you use with private endpoints... that's your bug right there >.<
+
+---
+
+*This is part 4 of the Azure Networking series. Previous: [Security Rules Your Developers Can't Delete](/blog/2026/03/11/security-rules-your-developers-cant-delete/). Next: [DNS Resolvers Without VMs](/blog/2026/03/11/the-dns-resolver-nobody-told-you-about/).*

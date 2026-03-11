@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Custom Domains for Container Apps Without the Internet"
+title: "Pretty URLs for Internal Apps"
 date: 2026-03-11
 tags: [Azure, Container Apps, DNS, Networking, Security]
 description: "Your internal apps deserve real domain names, not 55-character Azure FQDNs. How to set up Private DNS zones with custom domains and self-signed certs for VPN-only access."
@@ -75,6 +75,6 @@ The self-signed cert lives in Key Vault, gets rotated when you update it there, 
 
 Connect to VPN. Open `https://admin.internal.mycompany.net`. It works. The browser trusts the cert because the root CA is installed. DNS resolves through the hub resolver to the private DNS zone. Traffic stays inside the Azure network. No internet involved at any point.
 
-Clean, memorable URLs. No more sharing 55-character FQDNs in Slack. And if you're using the DNS resolver setup from my earlier posts, spoke resources can resolve these too, not just VPN clients.
+Clean, memorable URLs. No more sharing 55-character FQDNs in Slack. And if you're using the DNS resolver setup from the [Azure Networking series](/blog/2026/02/24/your-azure-network-is-a-flat-disaster/), spoke resources can resolve these too, not just VPN clients.
 
 Go check your internal app URLs. If you're bookmarking `happyfield-abc123.westeurope.azurecontainerapps.io`... there's a better way :D

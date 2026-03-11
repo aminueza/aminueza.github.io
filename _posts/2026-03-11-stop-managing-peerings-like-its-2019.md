@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Stop Managing Peerings Like It's 2019"
+title: "AVNM Replaced 54 Peering Resources With Zero"
 date: 2026-03-11
 tags: [Azure, Networking, AVNM, Terraform, Cloud Architecture]
 description: "Manual VNet peerings don't scale. Azure Virtual Network Manager automates topology, IPAM, and group membership with tags. Here's how to replace 54 peering resources with zero."
@@ -9,7 +9,7 @@ image: /assets/images/profile.png
 toc: true
 ---
 
-So you read my last post and now you have a hub-and-spoke network with three zones, nine spokes, and a beautiful architecture diagram on your Linear that makes you feel smart. Congratulations. Now you need to connect all of it.
+So you read my [last post](/blog/2026/02/24/your-azure-network-is-a-flat-disaster/) and now you have a hub-and-spoke network with three zones, nine spokes, and a beautiful architecture diagram on your Linear that makes you feel smart. Congratulations. Now you need to connect all of it.
 
 Let's do the math. 9 spoke VNets, each peered to its hub. Azure peerings are bidirectional, so that's 18 `azurerm_virtual_network_peering` resources. For one environment. Three environments? 54 peering resources. Add a new spoke and you're editing 6 files, creating 6 resources, and hoping you didn't typo a VNet ID.
 
@@ -79,6 +79,10 @@ The trade-off is real: more automation, less visibility. When peering works, you
 
 One more thing: you only need **one** AVNM instance. Not per region, not per zone. One. It governs every VNet in every subscription. One ring to rule them all, except this time it's actually a good idea.
 
-In my next post, I'll show you the security side of AVNM, and why your firewall is more than just a subnet with a reserved name.
+Next up: [Security Rules Your Developers Can't Delete](/blog/2026/03/11/security-rules-your-developers-cant-delete/) covers the security side of AVNM and why your firewall is more than just a subnet with a reserved name.
 
 Until then, go count your peering resources. If the number makes you uncomfortable, you know what to do ;)
+
+---
+
+*This is part 2 of the Azure Networking series. Previous: [Your Azure Network Is a Flat Disaster](/blog/2026/02/24/your-azure-network-is-a-flat-disaster/). Next: [Security Rules Your Developers Can't Delete](/blog/2026/03/11/security-rules-your-developers-cant-delete/).*

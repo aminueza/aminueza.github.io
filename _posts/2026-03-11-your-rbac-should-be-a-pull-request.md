@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Your RBAC Should Be a Pull Request"
+title: "Every Permission Change Is a Pull Request"
 date: 2026-03-11
 tags: [Azure, Terraform, RBAC, Security, DevOps]
 description: "If your access management lives in portal clicks, it's unauditable, unreviewable, and one bad day from a security incident. Put it in Terraform. Make it a PR."
@@ -11,7 +11,7 @@ toc: true
 
 Someone just got Contributor on production. Who approved it? When does it expire? What was the justification? If you're managing RBAC through the Azure Portal, the answer to all three is "I don't know." There's no PR to review, no commit to trace, no plan output to verify. Just a click in a portal that nobody audits until the next SOC2 review finds 47 permanent role assignments with no expiration.
 
-In my last post I covered the six custom roles and PIM configuration. This post is about the workflow: how those roles get assigned, reviewed, tested, and revoked, all through Terraform and pull requests. No portal clicks. Everything auditable.
+In my [last post](/blog/2026/03/11/stop-clicking-buttons-to-manage-azure-permissions/) I covered the six custom roles and PIM configuration. This post is about the workflow: how those roles get assigned, reviewed, tested, and revoked, all through Terraform and pull requests. No portal clicks. Everything auditable.
 
 ## The Three Layers
 
@@ -96,3 +96,7 @@ Every role assignment change is a git commit with an author, a timestamp, a PR n
 Compare that to "I clicked some buttons in the portal 6 months ago." The audit practically writes itself.
 
 Go check your Azure IAM. Count the role assignments that have no expiration and no documented approval. That's your migration backlog ;)
+
+---
+
+*This is part 2 of the Security & Auth series. Previous: [RBAC as Code: Six Roles, Zero Portal Clicks](/blog/2026/03/11/stop-clicking-buttons-to-manage-azure-permissions/). Next: [GitHub OIDC: The Secret Is No Secret](/blog/2026/03/11/stop-storing-azure-secrets-in-github/).*

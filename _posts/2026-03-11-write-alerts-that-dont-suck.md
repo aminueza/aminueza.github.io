@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Write Alerts That Don't Suck"
+title: "The Alert Checklist Nobody Follows"
 date: 2026-03-11
 tags: [Observability, Grafana, Alerting, SRE, On-Call]
 description: "Most alerts describe the cause, not the symptom. They fire on single data points. They have no runbook. Here's the label contract and checklist that fixes all of it."
@@ -96,3 +96,7 @@ Before shipping any alert rule:
 If every alert in your system passed this checklist, your on-call experience would be dramatically better. Not perfect, that requires alert inhibition and proper SLO-based alerting, but better than most teams have today.
 
 Go review your last 5 fired alerts. How many have a summary? A runbook link? A `for` clause longer than 0 seconds? Start there :D
+
+---
+
+*This is part 4 of the Observability series. Previous: [When Every Alert Is Critical, Nothing Is](/blog/2026/03/11/your-alerts-are-just-noise/). Start from [part 1](/blog/2026/03/11/your-observability-is-just-three-dashboards/).*
