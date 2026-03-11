@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 820" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <rect width="740" height="820" rx="12" fill="#f9fafb" stroke="#333" stroke-width="2"/>
+
+  <!-- Grafana Alert badge -->
+  <rect x="280" y="18" width="180" height="36" rx="18" fill="#1a1a2e"/>
+  <text x="370" y="41" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Grafana Alert</text>
+
+  <!-- Arrow down -->
+  <line x1="370" y1="54" x2="370" y2="78" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- IRM Module label -->
+  <text x="40" y="92" fill="#555" font-size="11">IRM Module</text>
+
+  <!-- IRM container -->
+  <rect x="24" y="100" width="692" height="700" rx="10" fill="#fff" stroke="#ccc" stroke-width="1"/>
+
+  <!-- notification_policy box -->
+  <g filter="url(#shadow)">
+    <rect x="210" y="118" width="320" height="64" rx="8" fill="#fef0f0" stroke="#c62828" stroke-width="1.5"/>
+  </g>
+  <text x="370" y="140" text-anchor="middle" fill="#c62828" font-size="12" font-weight="700">notification_policy</text>
+  <text x="370" y="156" text-anchor="middle" fill="#555" font-size="10">label matchers &#8594; contact point</text>
+  <text x="370" y="170" text-anchor="middle" fill="#888" font-size="9">priority: critical > high-urgency > other</text>
+
+  <!-- Arrow + label match -->
+  <line x1="370" y1="182" x2="370" y2="212" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="395" y="200" fill="#888" font-size="9">label match</text>
+
+  <!-- Per Route section -->
+  <text x="60" y="230" fill="#333" font-size="11" font-weight="700" text-decoration="underline">Per Route (all routes)</text>
+  <rect x="44" y="238" width="652" height="180" rx="8" fill="#f5f5f5"/>
+
+  <!-- contact_point -->
+  <g filter="url(#shadow)">
+    <rect x="235" y="252" width="270" height="42" rx="6" fill="#fff8e8" stroke="#e65100" stroke-width="1.5"/>
+  </g>
+  <text x="370" y="270" text-anchor="middle" fill="#e65100" font-size="11" font-weight="700">contact_point</text>
+  <text x="370" y="286" text-anchor="middle" fill="#555" font-size="9">IRM - team - route</text>
+
+  <line x1="370" y1="294" x2="370" y2="314" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- integration -->
+  <g filter="url(#shadow)">
+    <rect x="235" y="318" width="270" height="42" rx="6" fill="#fff8e8" stroke="#e65100" stroke-width="1.5"/>
+  </g>
+  <text x="370" y="336" text-anchor="middle" fill="#e65100" font-size="11" font-weight="700">integration</text>
+  <text x="370" y="352" text-anchor="middle" fill="#555" font-size="9">type: grafana_alerting</text>
+
+  <line x1="370" y1="360" x2="370" y2="380" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- escalation_chain -->
+  <g filter="url(#shadow)">
+    <rect x="235" y="384" width="270" height="42" rx="6" fill="#fff8e8" stroke="#e65100" stroke-width="1.5"/>
+  </g>
+  <text x="370" y="402" text-anchor="middle" fill="#e65100" font-size="11" font-weight="700">escalation_chain</text>
+  <text x="370" y="418" text-anchor="middle" fill="#555" font-size="9">team - route</text>
+
+  <!-- Arrow down from per-route -->
+  <line x1="370" y1="426" x2="370" y2="458" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Escalation box -->
+  <g filter="url(#shadow)">
+    <rect x="225" y="462" width="290" height="56" rx="6" fill="#fff8e8" stroke="#e65100" stroke-width="1.5"/>
+  </g>
+  <text x="370" y="482" text-anchor="middle" fill="#e65100" font-size="11" font-weight="700">escalation</text>
+  <text x="370" y="496" text-anchor="middle" fill="#555" font-size="9">steps from escalation_policy</text>
+  <text x="370" y="510" text-anchor="middle" fill="#888" font-size="8" font-style="italic">(empty if no policy)</text>
+
+  <!-- Three branches -->
+  <!-- Left: no steps (stg/dev) -->
+  <line x1="280" y1="518" x2="280" y2="538" stroke="#333" stroke-width="1.2"/>
+  <line x1="280" y1="538" x2="120" y2="538" stroke="#333" stroke-width="1.2"/>
+  <line x1="120" y1="538" x2="120" y2="700" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="188" y="534" text-anchor="middle" fill="#888" font-size="9">no steps</text>
+
+  <!-- Center: notify_team_members / notify-only (prd) -->
+  <line x1="370" y1="518" x2="370" y2="538" stroke="#333" stroke-width="1.2"/>
+  <line x1="370" y1="538" x2="370" y2="700" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="370" y="560" text-anchor="middle" fill="#555" font-size="9">notify_team_members</text>
+  <text x="370" y="574" text-anchor="middle" fill="#888" font-size="8">notify-only</text>
+
+  <!-- Right: high-urgency → Per Team -->
+  <line x1="460" y1="518" x2="460" y2="538" stroke="#333" stroke-width="1.2"/>
+  <line x1="460" y1="538" x2="610" y2="538" stroke="#333" stroke-width="1.2"/>
+  <line x1="610" y1="538" x2="610" y2="588" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="545" y="534" text-anchor="middle" fill="#555" font-size="9">high-urgency</text>
+
+  <!-- Per Team section -->
+  <text x="520" y="604" fill="#333" font-size="10" font-weight="700" text-decoration="underline">Per Team</text>
+  <rect x="520" y="612" width="176" height="110" rx="8" fill="#f5f5f5"/>
+
+  <!-- on_call_shift -->
+  <g filter="url(#shadow)">
+    <rect x="530" y="622" width="156" height="36" rx="5" fill="#fff8e8" stroke="#e65100" stroke-width="1"/>
+  </g>
+  <text x="608" y="638" text-anchor="middle" fill="#e65100" font-size="9" font-weight="700">on_call_shift</text>
+  <text x="608" y="650" text-anchor="middle" fill="#888" font-size="8">24/7 rolling weekly</text>
+
+  <line x1="608" y1="658" x2="608" y2="678" stroke="#333" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- schedule -->
+  <g filter="url(#shadow)">
+    <rect x="530" y="682" width="156" height="30" rx="5" fill="#fff8e8" stroke="#e65100" stroke-width="1"/>
+  </g>
+  <text x="608" y="702" text-anchor="middle" fill="#e65100" font-size="9" font-weight="700">schedule</text>
+
+  <!-- Line from Per Team to critical delivery -->
+  <line x1="608" y1="722" x2="608" y2="740" stroke="#333" stroke-width="1.2"/>
+  <line x1="608" y1="740" x2="608" y2="756" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="640" y="750" fill="#888" font-size="8">on-call page</text>
+
+  <!-- Alert Delivery section -->
+  <text x="60" y="730" fill="#333" font-size="11" font-weight="700" text-decoration="underline">Alert Delivery</text>
+
+  <!-- stg/dev box -->
+  <g filter="url(#shadow)">
+    <rect x="44" y="742" width="196" height="48" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
+  </g>
+  <text x="142" y="762" text-anchor="middle" fill="#7b1fa2" font-size="10" font-weight="700">#alerts-*-stg / dev</text>
+  <text x="142" y="778" text-anchor="middle" fill="#555" font-size="9">alert received, no escalation</text>
+
+  <!-- prd box -->
+  <g filter="url(#shadow)">
+    <rect x="268" y="742" width="196" height="48" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
+  </g>
+  <text x="366" y="762" text-anchor="middle" fill="#7b1fa2" font-size="10" font-weight="700">#alerts-*-prd</text>
+  <text x="366" y="778" text-anchor="middle" fill="#555" font-size="9">team notified only</text>
+
+  <!-- critical box -->
+  <g filter="url(#shadow)">
+    <rect x="500" y="742" width="196" height="48" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
+  </g>
+  <text x="598" y="762" text-anchor="middle" fill="#7b1fa2" font-size="10" font-weight="700">#alerts-*-critical</text>
+  <text x="598" y="778" text-anchor="middle" fill="#555" font-size="9">on-call paged + team notified</text>
+</svg>
