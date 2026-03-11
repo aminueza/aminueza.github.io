@@ -61,9 +61,10 @@
   <text x="708" y="126" text-anchor="middle" fill="#333" font-size="9">.database.azure.com</text>
   <text x="708" y="140" text-anchor="middle" fill="#2e7d32" font-size="10" font-weight="600">&#8594; 10.20.4.5</text>
 
-  <!-- Return arrow -->
+  <!-- Return arrow: DNS Zone → down → left → up → into App box -->
   <line x1="708" y1="150" x2="708" y2="175" stroke="#2e7d32" stroke-width="1.5"/>
-  <line x1="708" y1="175" x2="100" y2="175" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowG)"/>
+  <line x1="708" y1="175" x2="100" y2="175" stroke="#2e7d32" stroke-width="1.5"/>
+  <line x1="100" y1="175" x2="100" y2="140" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowG)"/>
   <text x="400" y="170" text-anchor="middle" fill="#2e7d32" font-size="10" font-weight="600">Private IP returned: 10.20.4.5</text>
 
   <!-- Bottom: Key insight -->
