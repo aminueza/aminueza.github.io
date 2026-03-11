@@ -81,21 +81,25 @@
     </marker>
   </defs>
 
-  <!-- AVNM -> Hub -->
+  <!-- AVNM -> Hub: down, right, up into Hub box -->
   <line x1="103" y1="195" x2="103" y2="218" stroke="#999" stroke-width="1.2"/>
-  <line x1="103" y1="218" x2="268" y2="218" stroke="#999" stroke-width="1.2" marker-end="url(#depArrow)"/>
+  <line x1="103" y1="218" x2="268" y2="218" stroke="#999" stroke-width="1.2"/>
+  <line x1="268" y1="218" x2="268" y2="195" stroke="#999" stroke-width="1.2" marker-end="url(#depArrow)"/>
 
-  <!-- Hub -> DNS -->
+  <!-- Hub -> DNS: down, right, up into DNS box -->
   <line x1="268" y1="195" x2="268" y2="230" stroke="#999" stroke-width="1.2"/>
-  <line x1="268" y1="230" x2="433" y2="230" stroke="#999" stroke-width="1.2" marker-end="url(#depArrow)"/>
+  <line x1="268" y1="230" x2="433" y2="230" stroke="#999" stroke-width="1.2"/>
+  <line x1="433" y1="230" x2="433" y2="195" stroke="#999" stroke-width="1.2" marker-end="url(#depArrow)"/>
 
-  <!-- Hub -> Firewall -->
+  <!-- Hub -> Firewall: down, right, up into Firewall box -->
   <line x1="268" y1="195" x2="268" y2="242" stroke="#999" stroke-width="1.2"/>
-  <line x1="268" y1="242" x2="598" y2="242" stroke="#999" stroke-width="1.2" marker-end="url(#depArrow)"/>
+  <line x1="268" y1="242" x2="598" y2="242" stroke="#999" stroke-width="1.2"/>
+  <line x1="598" y1="242" x2="598" y2="195" stroke="#999" stroke-width="1.2" marker-end="url(#depArrow)"/>
 
-  <!-- AVNM -> Spokes -->
+  <!-- AVNM -> Spokes: down, right, up into Spokes box -->
   <line x1="103" y1="195" x2="103" y2="256" stroke="#999" stroke-width="1.2"/>
-  <line x1="103" y1="256" x2="744" y2="256" stroke="#999" stroke-width="1.2" marker-end="url(#depArrow)"/>
+  <line x1="103" y1="256" x2="744" y2="256" stroke="#999" stroke-width="1.2"/>
+  <line x1="744" y1="256" x2="744" y2="195" stroke="#999" stroke-width="1.2" marker-end="url(#depArrow)"/>
 
   <!-- Labels on dep lines -->
   <text x="186" y="214" text-anchor="middle" fill="#999" font-size="8">IPAM pools</text>
