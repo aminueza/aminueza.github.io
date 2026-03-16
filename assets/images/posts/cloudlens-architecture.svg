@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0078d4"/>
+    </marker>
+    <marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2e7d32"/>
+    </marker>
+  </defs>
+
+  <rect width="860" height="360" rx="12" fill="#f9fafb"/>
+  <text x="430" y="28" text-anchor="middle" fill="#333" font-size="16" font-weight="700">CloudLens: Multi-Cloud Network Intelligence</text>
+  <text x="430" y="46" text-anchor="middle" fill="#888" font-size="11">Poll all clouds, normalize everything, analyze with AI. One view.</text>
+
+  <!-- Three cloud providers -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="70" width="100" height="50" rx="8" fill="#fff" stroke="#e65100" stroke-width="1.5"/>
+    <text x="80" y="92" text-anchor="middle" fill="#e65100" font-size="12" font-weight="700">AWS</text>
+    <text x="80" y="108" text-anchor="middle" fill="#888" font-size="8">EC2, VPC APIs</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="145" y="70" width="100" height="50" rx="8" fill="#fff" stroke="#0078d4" stroke-width="1.5"/>
+    <text x="195" y="92" text-anchor="middle" fill="#0078d4" font-size="12" font-weight="700">Azure</text>
+    <text x="195" y="108" text-anchor="middle" fill="#888" font-size="8">Resource Graph</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="260" y="70" width="100" height="50" rx="8" fill="#fff" stroke="#4285f4" stroke-width="1.5"/>
+    <text x="310" y="92" text-anchor="middle" fill="#4285f4" font-size="12" font-weight="700">GCP</text>
+    <text x="310" y="108" text-anchor="middle" fill="#888" font-size="8">Compute API</text>
+  </g>
+
+  <!-- Arrows down -->
+  <line x1="80" y1="124" x2="195" y2="148" stroke="#0078d4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="195" y1="124" x2="195" y2="148" stroke="#0078d4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="310" y1="124" x2="195" y2="148" stroke="#0078d4" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Normalizer -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="152" width="150" height="40" rx="8" fill="#e8f4fd" stroke="#0078d4" stroke-width="1.5"/>
+    <text x="195" y="176" text-anchor="middle" fill="#0078d4" font-size="11" font-weight="700">Normalize</text>
+  </g>
+  <text x="195" y="206" text-anchor="middle" fill="#888" font-size="9">VPC = VNet = VPC Network</text>
+
+  <!-- Arrow to outputs -->
+  <line x1="195" y1="196" x2="195" y2="226" stroke="#0078d4" stroke-width="1.5"/>
+  <line x1="195" y1="226" x2="430" y2="226" stroke="#0078d4" stroke-width="1"/>
+
+  <!-- Five outputs -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="240" width="140" height="44" rx="6" fill="#fff" stroke="#2e7d32" stroke-width="1.2"/>
+    <text x="100" y="258" text-anchor="middle" fill="#2e7d32" font-size="10" font-weight="700">Topology Graph</text>
+    <text x="100" y="274" text-anchor="middle" fill="#888" font-size="8">D3.js interactive</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="185" y="240" width="140" height="44" rx="6" fill="#fff" stroke="#e65100" stroke-width="1.2"/>
+    <text x="255" y="258" text-anchor="middle" fill="#e65100" font-size="10" font-weight="700">Change Tracking</text>
+    <text x="255" y="274" text-anchor="middle" fill="#888" font-size="8">Diff every 5 min</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="340" y="240" width="140" height="44" rx="6" fill="#fff" stroke="#7b1fa2" stroke-width="1.2"/>
+    <text x="410" y="258" text-anchor="middle" fill="#7b1fa2" font-size="10" font-weight="700">Health + Compliance</text>
+    <text x="410" y="274" text-anchor="middle" fill="#888" font-size="8">10 checks, A-F score</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="495" y="240" width="140" height="44" rx="6" fill="#fff" stroke="#c62828" stroke-width="1.2"/>
+    <text x="565" y="258" text-anchor="middle" fill="#c62828" font-size="10" font-weight="700">Blast Radius</text>
+    <text x="565" y="274" text-anchor="middle" fill="#888" font-size="8">Tarjan's algorithm</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="650" y="240" width="180" height="44" rx="6" fill="#fff" stroke="#0078d4" stroke-width="1.2"/>
+    <text x="740" y="258" text-anchor="middle" fill="#0078d4" font-size="10" font-weight="700">AI Analysis (Claude)</text>
+    <text x="740" y="274" text-anchor="middle" fill="#888" font-size="8">NL queries, RCA, anomalies</text>
+  </g>
+
+  <!-- Right side: AI detail -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="70" width="400" height="150" rx="10" fill="#fff" stroke="#0078d4" stroke-width="1.5"/>
+    <rect x="430" y="70" width="400" height="28" rx="10" fill="#0078d4"/>
+    <rect x="430" y="86" width="400" height="12" fill="#0078d4"/>
+    <text x="630" y="88" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">AI-Powered Queries</text>
+  </g>
+  <text x="450" y="112" fill="#333" font-size="10" font-style="italic">"Which production networks don't have a firewall?"</text>
+  <text x="450" y="130" fill="#333" font-size="10" font-style="italic">"What changed across all clouds in the last 24h?"</text>
+  <text x="450" y="148" fill="#333" font-size="10" font-style="italic">"What happens if the hub VNet goes down?"</text>
+  <text x="450" y="166" fill="#333" font-size="10" font-style="italic">"Is the change in AWS related to the Azure change?"</text>
+  <text x="630" y="190" text-anchor="middle" fill="#888" font-size="9">Full topology context across all clouds. No console hopping.</text>
+  <text x="630" y="206" text-anchor="middle" fill="#888" font-size="9">Degrades gracefully: no API key = keyword matching fallback.</text>
+
+  <!-- Bottom -->
+  <text x="430" y="310" text-anchor="middle" fill="#555" font-size="10" font-weight="600">Python + FastAPI + D3.js + SQLite. No React, no Node. One HTML file.</text>
+  <text x="430" y="328" text-anchor="middle" fill="#888" font-size="9">pip install cloudlens[all-providers] | Cloud SDKs are optional extras | Works with zero AI config</text>
+  <text x="430" y="348" text-anchor="middle" fill="#999" font-size="9" font-style="italic">Open source. github.com/aminueza/cloudlens</text>
+</svg>
